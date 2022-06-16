@@ -1,7 +1,14 @@
 {
-  "name": "root",
+  "name": "japanese_sweets_store",
   "private": false,
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "clean": "lerna clean -y",
+    "fontend:start:dev": "npm --prefix packages/vue_ts-composition_api-20221506-demo_project-japanese_sweets_store-spa run serve",
+    "backend:start:dev": "npm --prefix packages/strapi-20221506-japanese_sweets_store-backend run develop"
+  },
   "devDependencies": {
     "lerna": "^5.1.4"
   }
+
 }
