@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="footer">
     <NText type="info">{{ Inscriptions.footerLogo }}</NText>
     <NText type="info">{{ Inscriptions.footerDate }}</NText>
     <UILinksGroup tag="a" :size="FontSizeTitle.small" :links="footerLinks" />
@@ -16,15 +16,17 @@ export default defineComponent({
 import { NText } from 'naive-ui';
 import { Inscriptions } from '@/enums/_inscriptions.enum.ts';
 import UILinksGroup from '@/components/ui/UILinksGroup.vue';
-import { footerLinks } from '@/services/_links.service';
+import { footerLinks } from '@/helpers/services/_links.service';
 import { FontSizeTitle } from '@/enums/links/_link-styles.enum';
 </script>
 
 <style scoped lang="scss">
 @import '~@/assets/styles/_constants.scss';
-.container {
+.footer {
+  display: flex;
+  justify-content: space-around;
   padding: 12px;
-  min-height: 30px;
+  min-height: 20px;
   background: $LIGHT_BG_SET;
 }
 </style>

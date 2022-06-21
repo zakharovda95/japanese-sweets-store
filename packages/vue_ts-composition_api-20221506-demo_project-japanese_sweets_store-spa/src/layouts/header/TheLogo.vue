@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="logo">
     <img id="logo" src="@/assets/images/logo.svg" alt="logo" />
   </div>
 </template>
@@ -14,7 +14,7 @@ export default defineComponent({
 
 <style scoped lang="scss">
 @import '~@/assets/styles/_constants.scss';
-.container {
+.logo {
   display: flex;
   justify-content: center;
   height: 100%;

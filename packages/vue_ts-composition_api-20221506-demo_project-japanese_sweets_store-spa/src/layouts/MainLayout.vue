@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="main-layout">
     <TheHeader />
     <router-view />
     <TheFooter />
@@ -8,14 +8,14 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import TheHeader from '@/layouts/header/TheHeader.vue';
-import TheFooter from '@/layouts/footer/TheFooter.vue';
 export default defineComponent({
   name: 'MainLayout',
-  components: { TheFooter, TheHeader },
 });
 </script>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import TheHeader from '@/layouts/header/TheHeader.vue';
+import TheFooter from '@/layouts/footer/TheFooter.vue';
+</script>
 
 <style scoped lang="scss"></style>

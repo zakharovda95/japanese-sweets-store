@@ -1,5 +1,7 @@
 <template>
-  <div class="container">123123</div>
+  <div class="main-page">
+    <MainPageView />
+  </div>
 </template>
 
 <script lang="ts">
@@ -11,6 +13,7 @@ export default defineComponent({
 
 <script setup lang="ts">
 import { useMainPageStore } from '@/stores/main-page.store';
+import MainPageView from '@/components/sections/main-page/MainPageView.vue';
 
 const store = useMainPageStore();
 store.getCarouselsImages();
@@ -22,7 +25,7 @@ store.getCarouselsImages();
 @media (max-width: 768px) {
 }
 @media (min-width: 769px) {
-  .container {
+  .main-page {
     margin: 0 auto;
     width: 60vw;
     background: none;

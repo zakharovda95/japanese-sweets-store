@@ -1,5 +1,5 @@
 <template>
-  <div class="container" v-for="link in links" :key="link.title">
+  <div class="ui-link-group" v-for="link in links" :key="link.title">
     <a
       class="link"
       :class="[styleClasses, { 'hovered': hovered }]"
@@ -85,6 +85,14 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  padding: {
+    type: String,
+    default: '0px',
+  },
+  margin: {
+    type: String,
+    default: '0px',
+  },
 });
 
 const color = computed<string>(() => {
@@ -163,22 +171,25 @@ const background = computed<string>(() => {
 
 <style scoped lang="scss">
 @import '~@/assets/styles/_constants.scss';
-.link {
-  font-family: $FONT_FAMILY;
-  text-decoration: none;
-  color: v-bind(color);
-  font-size: v-bind(fontSize);
-  padding: 10px;
-  border-radius: v-bind(borderRadius);
-}
-.hovered:hover {
-  background: #f8c2d8;
-}
-.bordered {
-  border: 2px solid v-bind(borderColor);
-}
-.background {
-  background-color: v-bind(background);
+.ui-link-group {
+  .link {
+    font-family: $FONT_FAMILY;
+    text-decoration: none;
+    color: v-bind(color);
+    font-size: v-bind(fontSize);
+    border-radius: v-bind(borderRadius);
+    padding: v-bind(padding);
+    margin: v-bind(margin);
+  }
+  .hovered:hover {
+    background: #f8c2d8;
+  }
+  .bordered {
+    border: 2px solid v-bind(borderColor);
+  }
+  .background {
+    background-color: v-bind(background);
+  }
 }
 //.router-link-active {
 //  border-bottom: 2px solid white;

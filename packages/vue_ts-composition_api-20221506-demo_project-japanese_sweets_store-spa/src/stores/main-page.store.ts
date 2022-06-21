@@ -4,10 +4,12 @@ import {
   getMostPopularProductsCarouselImages,
 } from '@/requesters/requester/_carousels.request';
 import {
+  ImageType,
   MainPageCarouselType,
   MostPopularProductsCarouselType,
 } from '@/types/requests-types/_carousel-requests.type';
 import { MainPageStoreType } from '@/types/stores-types/_main-page-store.type';
+import { formatImagesArrayForCarousel } from '@/helpers/methods/_images.methods';
 
 export const useMainPageStore = defineStore('main', {
   state: () =>
@@ -21,12 +23,18 @@ export const useMainPageStore = defineStore('main', {
   actions: {
     async getCarouselsImages() {
       const mainCarouselData: MainPageCarouselType = await getMainPageCarouselImages();
-      this.images.mainCarousel = mainCarouselData.data.attributes.images.data;
+      const mainCarouselImagesArray: Array<ImageType> =
+        mainCarouselData.data.attributes.images.data;
+      this.images.mainCarousel = formatImagesArrayForCarousel(mainCarouselImagesArray);
 
       const mostPopularProductsCarouselData: MostPopularProductsCarouselType =
         await getMostPopularProductsCarouselImages();
-      this.images.mostPopularProductsCarousel =
+      const mostPopularProductsCarouselImagesArray: Array<ImageType> =
         mostPopularProductsCarouselData.data.attributes.images.data;
+      this.images.mostPopularProductsCarousel = formatImagesArrayForCarousel(
+        mostPopularProductsCarouselImagesArray,
+      );
+      this.isLoading = false;
     },
   },
 });

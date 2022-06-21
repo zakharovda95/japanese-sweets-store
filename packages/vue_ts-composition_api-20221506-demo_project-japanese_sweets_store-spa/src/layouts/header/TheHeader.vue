@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="header">
     <TheLogo class="logo" />
     <div class="links-wrapper">
       <UILinksGroup color="white" class="links" :links="links" />
@@ -18,7 +18,7 @@ import TheLogo from '@/layouts/header/TheLogo.vue';
 import UILinksGroup from '@/components/ui/UILinksGroup.vue';
 import { computed, ref } from 'vue';
 
-import { authorizedUserHeaderLinks, publicHeaderLinks } from '@/services/_links.service';
+import { authorizedUserHeaderLinks, publicHeaderLinks } from '@/helpers/services/_links.service';
 import { AuthorizedUserHeaderLinks, PublicHeaderLinks } from '@/types/_links.type';
 
 const isUserAuthorized = ref<boolean>(false);
@@ -29,7 +29,7 @@ const links = computed<AuthorizedUserHeaderLinks | PublicHeaderLinks>(() => {
 </script>
 <style scoped lang="scss">
 @import '~@/assets/styles/_constants.scss';
-.header-component {
+.header {
   display: flex;
   flex-direction: column;
   min-height: 120px;
@@ -40,6 +40,9 @@ const links = computed<AuthorizedUserHeaderLinks | PublicHeaderLinks>(() => {
     margin-top: 12px;
   }
   .links-wrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
     background: $PINK;
     .links {
       flex-wrap: wrap;
