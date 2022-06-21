@@ -12,7 +12,7 @@ export const MainRoutes: Array<RouteRecordRaw> = [
     path: 'products',
     name: 'products',
     redirect: { name: 'all' },
-    component: () => import('@/pages/MainPage.vue'),
+    component: () => import('@/pages/ProductsPage.vue'),
     // children: [...ProductRoutes],
   },
   {
