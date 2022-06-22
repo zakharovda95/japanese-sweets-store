@@ -24,13 +24,13 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Inscriptions } from '@/enums/_inscriptions.enum';
+import { Inscriptions } from '@/helpers/enums/_inscriptions.enum';
 import { mainPageProfileEntranceLinks } from '@/helpers/services/_links.service';
 import UIText from '@/components/ui/UIText.vue';
 import UILinksGroup from '@/components/ui/UILinksGroup.vue';
-import { FontSizeTitle } from '@/enums/links/_link-styles.enum';
+import { FontSizeTitle } from '@/helpers/enums/links/_link-styles.enum';
 import { useWindowWidthWatcher } from '@/composables/useWindowWidthWatcher';
-import { HeaderSize } from '@/enums/_text-styles.enum';
+import { HeaderSize } from '@/helpers/enums/_text-styles.enum';
 const { widthX } = useWindowWidthWatcher();
 </script>
 

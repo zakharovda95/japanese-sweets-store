@@ -22,7 +22,7 @@ export default defineComponent({
 import { NCard } from 'naive-ui';
 import { computed, defineProps, PropType } from 'vue';
 import UIText from '@/components/ui/UIText.vue';
-import { Product } from '@/types/stores-types/_products-page-store.type';
+import { Product } from '@/helpers/types/stores-types/_products-page-store.type';
 
 const props = defineProps({
   product: {

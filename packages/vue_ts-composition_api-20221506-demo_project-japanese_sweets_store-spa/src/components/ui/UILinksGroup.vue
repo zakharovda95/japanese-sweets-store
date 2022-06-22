@@ -38,14 +38,14 @@ import {
   ColorValues,
   FontSize,
   FontSizeTitle,
-} from '@/enums/links/_link-styles.enum';
+} from '@/helpers/enums/links/_link-styles.enum';
 import {
   AuthorizedUserHeaderLinks,
   FooterLinks,
   MainPageProfileEntranceLinks,
   ProductCategoryType,
   PublicHeaderLinks,
-} from '@/types/_links.type';
+} from '@/helpers/types/_links.type';
 
 const props = defineProps({
   links: {

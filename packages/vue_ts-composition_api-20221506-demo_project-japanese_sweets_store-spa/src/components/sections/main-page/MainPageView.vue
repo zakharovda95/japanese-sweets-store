@@ -37,9 +37,9 @@ import { useMainPageStore } from '@/stores/main-page.store';
 import MainPageProfileEntrance from '@/components/sections/main-page/MainPageProfileEntrance.vue';
 import UIText from '@/components/ui/UIText.vue';
 import { useWindowWidthWatcher } from '@/composables/useWindowWidthWatcher';
-import { HeaderSize } from '@/enums/_text-styles.enum';
-import { Inscriptions } from '@/enums/_inscriptions.enum';
-import { MainPageImages } from '@/types/stores-types/_main-page-store.type';
+import { HeaderSize } from '@/helpers/enums/_text-styles.enum';
+import { Inscriptions } from '@/helpers/enums/_inscriptions.enum';
+import { MainPageImages } from '@/helpers/types/stores-types/_main-page-store.type';
 import { NSpin } from 'naive-ui';
 
 const mainPageStore = useMainPageStore();

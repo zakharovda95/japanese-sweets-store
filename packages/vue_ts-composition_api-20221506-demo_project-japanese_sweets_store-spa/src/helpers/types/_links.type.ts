@@ -3,8 +3,8 @@ import {
   RedirectLinkTitles,
   LinkRouteNames,
   RedirectLinkRouteNames,
-} from '@/enums/links/_links-titles.enum';
-import { ProductCategories, ProductCategoryTitles } from '@/enums/links/_product-categories.enum';
+} from '@/helpers/enums/links/_links-titles.enum';
+import { ProductCategories, ProductCategoryTitles } from '@/helpers/enums/links/_product-categories.enum';
 
 /** Типы ссылок хедера **/
 export type PublicHeaderLinks = [

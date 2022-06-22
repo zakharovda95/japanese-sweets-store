@@ -3,15 +3,15 @@ import {
   LinkTitles,
   RedirectLinkRouteNames,
   RedirectLinkTitles,
-} from '@/enums/links/_links-titles.enum';
+} from '@/helpers/enums/links/_links-titles.enum';
 import {
   AuthorizedUserHeaderLinks,
   FooterLinks,
   MainPageProfileEntranceLinks,
   ProductCategoryType,
   PublicHeaderLinks,
-} from '@/types/_links.type';
-import { ProductCategories, ProductCategoryTitles } from '@/enums/links/_product-categories.enum';
+} from '@/helpers/types/_links.type';
+import { ProductCategories, ProductCategoryTitles } from '@/helpers/enums/links/_product-categories.enum';
 
 /** Ссылки хедера **/
 export const publicHeaderLinks: PublicHeaderLinks = [

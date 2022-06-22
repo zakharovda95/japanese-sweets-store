@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
-import { ProductPageStoreType } from '@/types/stores-types/_products-page-store.type';
-import { getAllProducts, getProductsByCategory } from '@/requesters/requester/_products.requests';
-import { AllProductsType, ProductType } from '@/types/requests-types/_products-request.type';
+import { ProductPageStoreType } from '@/helpers/types/stores-types/_products-page-store.type';
+import { getAllProducts, getProductsByCategory } from '@/helpers/requesters/requester/_products.requests';
+import { AllProductsType, ProductType } from '@/helpers/types/requests-types/_products-request.type';
 import {
   formatProductDataForDisplaying,
   getProductsOnSaleOnly,
@@ -9,7 +9,7 @@ import {
 import {
   CategoryProductType,
   CategoryType,
-} from '@/types/requests-types/_categories-requests.type';
+} from '@/helpers/types/requests-types/_categories-requests.type';
 
 export const useProductsPageStore = defineStore('products', {
   state: () =>

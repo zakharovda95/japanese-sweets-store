@@ -14,10 +14,10 @@ export default defineComponent({
 </script>
 <script setup lang="ts">
 import { NText } from 'naive-ui';
-import { Inscriptions } from '@/enums/_inscriptions.enum.ts';
+import { Inscriptions } from '@/helpers/enums/_inscriptions.enum.ts';
 import UILinksGroup from '@/components/ui/UILinksGroup.vue';
 import { footerLinks } from '@/helpers/services/_links.service';
-import { FontSizeTitle } from '@/enums/links/_link-styles.enum';
+import { FontSizeTitle } from '@/helpers/enums/links/_link-styles.enum';
 </script>
 
 <style scoped lang="scss">

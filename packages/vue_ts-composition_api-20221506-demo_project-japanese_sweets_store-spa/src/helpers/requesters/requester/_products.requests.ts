@@ -1,5 +1,5 @@
-import { provider } from '@/requesters/_provider.requester';
-import { RequestParamsType } from '@/types/requests-types/_request-params.type';
+import { provider } from '@/helpers/requesters/_provider.requester';
+import { RequestParamsType } from '@/helpers/types/requests-types/_request-params.type';
 
 const params: RequestParamsType = {
   populate: '*',

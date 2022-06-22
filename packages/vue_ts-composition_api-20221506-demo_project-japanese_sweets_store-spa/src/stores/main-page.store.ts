@@ -2,13 +2,13 @@ import { defineStore } from 'pinia';
 import {
   getMainPageCarouselImages,
   getMostPopularProductsCarouselImages,
-} from '@/requesters/requester/_carousels.requests';
+} from '@/helpers/requesters/requester/_carousels.requests';
 import {
   ImageType,
   MainPageCarouselType,
   MostPopularProductsCarouselType,
-} from '@/types/requests-types/_carousel-requests.type';
-import { MainPageStoreType } from '@/types/stores-types/_main-page-store.type';
+} from '@/helpers/types/requests-types/_carousel-requests.type';
+import { MainPageStoreType } from '@/helpers/types/stores-types/_main-page-store.type';
 import { formatImagesArrayForCarousel } from '@/helpers/methods/_carousels.methods';
 
 export const useMainPageStore = defineStore('main', {

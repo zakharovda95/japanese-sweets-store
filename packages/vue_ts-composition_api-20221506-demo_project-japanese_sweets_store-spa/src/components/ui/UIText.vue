@@ -18,7 +18,7 @@ export default defineComponent({
 <script setup lang="ts">
 import { NH1, NH2, NH3, NH4, NH5, NH6, NText } from 'naive-ui';
 import { defineProps, computed } from 'vue';
-import { HeaderSize } from '@/enums/_text-styles.enum';
+import { HeaderSize } from '@/helpers/enums/_text-styles.enum';
 const props = defineProps({
   tag: {
     type: String,

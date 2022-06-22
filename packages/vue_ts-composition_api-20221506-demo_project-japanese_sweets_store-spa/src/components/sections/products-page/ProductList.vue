@@ -14,7 +14,7 @@ export default {
 <script setup lang="ts">
 import { useProductsPageStore } from '@/stores/products-page.store';
 import { useRoute } from 'vue-router';
-import { ProductCategories, ProductCategoryId } from '@/enums/links/_product-categories.enum';
+import { ProductCategories, ProductCategoryId } from '@/helpers/enums/links/_product-categories.enum';
 import { computed, watch } from 'vue';
 import { NSpin } from 'naive-ui';
 import ProductItem from '@/components/sections/products-page/ProductItem.vue';

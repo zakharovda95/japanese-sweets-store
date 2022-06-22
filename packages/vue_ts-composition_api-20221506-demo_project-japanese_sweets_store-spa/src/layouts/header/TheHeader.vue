@@ -19,7 +19,7 @@ import UILinksGroup from '@/components/ui/UILinksGroup.vue';
 import { computed, ref } from 'vue';
 
 import { authorizedUserHeaderLinks, publicHeaderLinks } from '@/helpers/services/_links.service';
-import { AuthorizedUserHeaderLinks, PublicHeaderLinks } from '@/types/_links.type';
+import { AuthorizedUserHeaderLinks, PublicHeaderLinks } from '@/helpers/types/_links.type';
 
 const isUserAuthorized = ref<boolean>(false);
 
