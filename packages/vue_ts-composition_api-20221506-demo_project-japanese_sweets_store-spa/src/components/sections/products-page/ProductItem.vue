@@ -20,14 +20,18 @@ export default defineComponent({
 
 <script setup lang="ts">
 import { NCard } from 'naive-ui';
-import { computed, defineProps } from 'vue';
+import { computed, defineProps, PropType } from 'vue';
 import UIText from '@/components/ui/UIText.vue';
+import { Product } from '@/types/stores-types/_products-page-store.type';
+
 const props = defineProps({
   product: {
-    type: Object,
+    type: Object as PropType<Product>,
     default: () => ({}),
   },
 });
+
+console.log(props.product);
 const cover = computed<{ [key: string]: string }>(() => {
   return {
     'background-image': `url(${props.product.image})`,
@@ -38,12 +42,12 @@ const cover = computed<{ [key: string]: string }>(() => {
 const cost = computed<string>(() => {
   if (props.product.sale) {
     const priceAfterSale = (
-      props.product.coast -
-      props.product.coast * (props.product.sale / 100)
+      props.product.cost -
+      props.product.cost * (props.product.sale / 100)
     ).toFixed(2);
-    return `$ ${props.product.coast} $ ${priceAfterSale}`;
+    return `$ ${props.product.cost} $ ${priceAfterSale}`;
   }
-  return `$ ${props.product.coast}`;
+  return `$ ${props.product.cost}`;
 });
 </script>
 

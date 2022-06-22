@@ -1,5 +1,4 @@
 // import { Product, Products } from '@/types/stores-types/_products-page-store.type';
-// import { database } from '@/requesters/firebase/_firebase-database.requester';
 //
 // /** Получение товаров всех категорий, и форматирование их для вывода **/
 //

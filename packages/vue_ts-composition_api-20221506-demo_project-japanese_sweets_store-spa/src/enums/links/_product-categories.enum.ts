@@ -18,12 +18,10 @@ export enum ProductCategoryTitles {
   sale = 'SALE',
 }
 
-export enum ProductCategoryRoutes {
-  all = '/',
-  candy = '/candy/',
-  snacks = '/snacks/',
-  cookies = '/cookies/',
-  chocolates = '/chocolates/',
-  food = '/food/',
-  sale = '/sale/',
+export enum ProductCategoryId {
+  candy = 1,
+  snacks = 2,
+  cookies = 3,
+  chocolates = 4,
+  food = 5,
 }

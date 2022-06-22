@@ -1,7 +1,17 @@
 <template>
   <div class="ribbon-menu">
-    <NCard hoverable>
-      <UILinksGroup hovered rounded :links="Categories" />
+    <NCard hoverable bordered>
+      <div class="content">
+        <UILinksGroup
+          class="menu"
+          hovered
+          rounded
+          padding="8px"
+          margin="10px"
+          size="large"
+          :links="Categories"
+        />
+      </div>
     </NCard>
   </div>
 </template>
@@ -23,5 +33,17 @@ import { Categories } from '@/helpers/services/_links.service';
 <style scoped lang="scss">
 .ribbon-menu {
   display: flex;
+  .content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    min-height: 30px;
+    .menu {
+      display: flex;
+      align-self: center;
+      width: 100%;
+    }
+  }
 }
 </style>

@@ -35,7 +35,7 @@ import RibbonMenu from '@/components/sections/products-page/RibbonMenu.vue';
     margin: 0 auto;
     width: 63vw;
     .menu {
-      padding: 10px;
+      margin-top: 34px;
     }
   }
 }

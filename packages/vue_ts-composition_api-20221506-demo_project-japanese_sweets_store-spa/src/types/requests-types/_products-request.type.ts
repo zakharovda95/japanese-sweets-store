@@ -1,10 +1,10 @@
 export type ProductDetailType = {
-  'id': number;
-  'attributes': {
-    'name': string;
-    'createdAt': string;
-    'updatedAt': string;
-    'publishedAt': string;
+  id: number;
+  attributes: {
+    name: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
   };
 };
 
@@ -24,7 +24,7 @@ export type ProductCategoryType = {
   };
 };
 
-export interface ProductAttributesType {
+export type ProductAttributesType = {
   title: string;
   description: string;
   image: string;
@@ -36,12 +36,12 @@ export interface ProductAttributesType {
   publishedAt: string;
   category?: ProductCategoryType;
   details?: ProductDetailsType;
-}
+};
 
-export interface ProductType {
+export type ProductType = {
   id: number;
   attributes: ProductAttributesType;
-}
+};
 
 export interface AllProductsType {
   data: Array<ProductType>;
