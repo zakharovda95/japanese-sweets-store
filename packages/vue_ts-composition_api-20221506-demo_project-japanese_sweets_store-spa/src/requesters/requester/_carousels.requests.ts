@@ -1,5 +1,5 @@
 import { provider } from '@/requesters/_provider.requester';
-import { RequestParamsType } from '@/types/_request-params.type';
+import { RequestParamsType } from '@/types/requests-types/_request-params.type';
 import {
   MainPageCarouselType,
   MostPopularProductsCarouselType,

@@ -14,9 +14,12 @@ export default defineComponent({
 <script setup lang="ts">
 import { useMainPageStore } from '@/stores/main-page.store';
 import MainPageView from '@/components/sections/main-page/MainPageView.vue';
+import { useProductsPageStore } from '@/stores/products-page.store';
 
 const store = useMainPageStore();
+const store2 = useProductsPageStore();
 store.getCarouselsImages();
+store2.getAllProducts();
 </script>
 
 <style scoped lang="scss">

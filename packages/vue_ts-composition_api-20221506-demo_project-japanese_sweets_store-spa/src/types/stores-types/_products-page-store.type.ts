@@ -1,13 +1,13 @@
 export type Product = {
-  id: string;
+  id: number;
   title: string;
   description: string;
   image: string;
-  type: string;
-  coast: number;
+  type?: string;
+  cost: number;
   producer: string;
-  details: Array<string>;
-  sale: number | boolean;
+  details?: Array<string>;
+  sale: number;
 };
 
 export type Products = {

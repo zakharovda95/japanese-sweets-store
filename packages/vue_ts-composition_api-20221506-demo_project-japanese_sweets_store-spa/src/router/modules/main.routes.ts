@@ -1,5 +1,5 @@
 import { RouteRecordRaw } from 'vue-router';
-// import { ProductRoutes } from '@/router/modules/products.routes';
+import { ProductRoutes } from '@/router/modules/products.routes';
 import { AuthRoutes } from '@/router/modules/auth.routes';
 
 export const MainRoutes: Array<RouteRecordRaw> = [
@@ -13,7 +13,7 @@ export const MainRoutes: Array<RouteRecordRaw> = [
     name: 'products',
     redirect: { name: 'all' },
     component: () => import('@/pages/ProductsPage.vue'),
-    // children: [...ProductRoutes],
+    children: [...ProductRoutes],
   },
   {
     path: 'cart',

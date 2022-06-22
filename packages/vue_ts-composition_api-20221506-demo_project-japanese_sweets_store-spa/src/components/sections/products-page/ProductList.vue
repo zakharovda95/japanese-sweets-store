@@ -28,26 +28,12 @@ watch(
   routeName,
   () => {
     switch (routeName.value) {
-      case ProductCategories.candy:
-        store.fetchData(ProductCategoryRoutes.candy);
-        break;
-      case ProductCategories.snacks:
-        store.fetchData(ProductCategoryRoutes.snacks);
-        break;
-      case ProductCategories.cookies:
-        store.fetchData(ProductCategoryRoutes.cookies);
-        break;
-      case ProductCategories.chocolates:
-        store.fetchData(ProductCategoryRoutes.chocolates);
-        break;
-      case ProductCategories.food:
-        store.fetchData(ProductCategoryRoutes.food);
-        break;
-      case ProductCategories.sale:
-        store.getSaleOnlyProducts();
+      case ProductCategoryRoutes.all:
+        store.getAllProducts();
         break;
       default:
-        store.fetchData(ProductCategoryRoutes.all);
+        store.getAllProducts();
+        break;
     }
   },
   { immediate: true, deep: true },
