@@ -1,12 +1,12 @@
 {
   "name": "japanese_sweets_store",
   "private": false,
-  "workspaces": ["common", "strapi-20221506-japanese_sweets_store-backend", "vue_ts-composition_api-demo_project-japanese_sweets_store-spa" ],
+  "workspaces": ["frontend", "strapi"],
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "clean": "lerna clean -y",
-    "fontend:start:dev": "npm --prefix packages/vue_ts-composition_api-20221506-demo_project-japanese_sweets_store-spa run serve",
-    "backend:start:dev": "npm --prefix packages/strapi-20221506-japanese_sweets_store-backend run develop"
+    "fontend:start:dev": "npm --prefix packages/frontend run serve",
+    "backend:start:dev": "npm --prefix packages/strapi run develop"
   },
   "devDependencies": {
     "lerna": "^5.1.4"

@@ -2,10 +2,10 @@
 node_modules
 dev_process
 packages/.idea
-packages/vue_ts-composition_api-20221506-demo_project-japanese_sweets_store-spa/node_modules
-packages/vue_ts-composition_api-20221506-demo_project-japanese_sweets_store-spa/dist
-packages/strapi-20221506-japanese_sweets_store-backend/dist
-packages/strapi-20221506-japanese_sweets_store-backend/node_modules
+packages/frontend/node_modules
+packages/frontend/dist
+packages/strapi/dist
+packages/strapi/node_modules
 /dist
 
 
