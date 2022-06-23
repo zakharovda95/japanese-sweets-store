@@ -11,7 +11,10 @@ import {
   ProductCategoryType,
   PublicHeaderLinks,
 } from '@/helpers/types/_links.type';
-import { ProductCategories, ProductCategoryTitles } from '@/helpers/enums/links/_product-categories.enum';
+import {
+  ProductCategories,
+  ProductCategoryTitles,
+} from '@/helpers/enums/links/_product-categories.enum';
 
 /** Ссылки хедера **/
 export const publicHeaderLinks: PublicHeaderLinks = [

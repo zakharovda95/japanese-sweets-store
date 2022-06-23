@@ -1,6 +1,5 @@
 <template>
-  <NSpin class="spinner" v-if="isLoading" />
-  <div v-else class="main-page-view">
+  <div class="main-page-view">
     <UICarousel autoplay class="carousel" :images="images.mainCarousel" alt="carousel-image" />
     <UIText class="text" color="#ff69b4" :tag="widthX > 480 ? HeaderSize.h1 : HeaderSize.h2">
       {{ Inscriptions.mainPageGreetingsTitle }}

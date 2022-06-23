@@ -1,7 +1,6 @@
 {
   "name": "japanese_sweets_store",
   "private": false,
-  "workspaces": ["frontend", "strapi"],
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "clean": "lerna clean -y",

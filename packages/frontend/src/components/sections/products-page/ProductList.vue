@@ -14,13 +14,16 @@ export default {
 <script setup lang="ts">
 import { useProductsPageStore } from '@/stores/products-page.store';
 import { useRoute } from 'vue-router';
-import { ProductCategories, ProductCategoryId } from '@/helpers/enums/links/_product-categories.enum';
+import {
+  ProductCategories,
+  ProductCategoryId,
+} from '@/helpers/enums/links/_product-categories.enum';
 import { computed, watch } from 'vue';
 import { NSpin } from 'naive-ui';
 import ProductItem from '@/components/sections/products-page/ProductItem.vue';
 const store = useProductsPageStore();
 const route = useRoute();
-const isLoading = computed<boolean>(() => store.isLoading);
+const isLoading = computed(() => store.isLoading);
 const routeName = computed(() => route.name);
 watch(
   routeName,
@@ -57,6 +60,7 @@ const products = computed(() => store.data);
 <style scoped lang="scss">
 .product-list {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
   margin-top: 24px;
   .item {

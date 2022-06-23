@@ -18,4 +18,8 @@ export default defineComponent({
 import { NConfigProvider } from 'naive-ui';
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.container {
+  background: #e0e0e0;
+}
+</style>

@@ -5,7 +5,7 @@
       <UIText class="title" tag="NH6">{{ product.title }}</UIText>
     </div>
     <div class="cost">
-      <UIText tag="NH4"> {{ cost }}</UIText>
+      <UIText type="primary" tag="NH4"> {{ cost }}</UIText>
     </div>
   </NCard>
 </template>
@@ -30,8 +30,6 @@ const props = defineProps({
     default: () => ({}),
   },
 });
-
-console.log(props.product);
 const cover = computed<{ [key: string]: string }>(() => {
   return {
     'background-image': `url(${props.product.image})`,

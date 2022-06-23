@@ -1,5 +1,6 @@
 <template>
-  <div class="main-page">
+  <NSpin v-if="isLoading" />
+  <div v-else class="main-page">
     <MainPageView />
   </div>
 </template>
@@ -14,12 +15,11 @@ export default defineComponent({
 <script setup lang="ts">
 import { useMainPageStore } from '@/stores/main-page.store';
 import MainPageView from '@/components/sections/main-page/MainPageView.vue';
-import { useProductsPageStore } from '@/stores/products-page.store';
-
+import { NSpin } from 'naive-ui';
+import { computed } from 'vue';
 const store = useMainPageStore();
-const store2 = useProductsPageStore();
 store.getCarouselsImages();
-store2.getAllProducts();
+const isLoading = computed(() => store.isLoading);
 </script>
 
 <style scoped lang="scss">
@@ -29,6 +29,15 @@ store2.getAllProducts();
 }
 @media (min-width: 769px) {
   .main-page {
+    background: white;
+    margin: 0 auto;
+    width: 60vw;
+    background: none;
+  }
+}
+@media (min-width: 1019px) {
+  .main-page {
+    background: white !important;
     margin: 0 auto;
     width: 60vw;
     background: none;

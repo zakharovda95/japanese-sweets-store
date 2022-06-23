@@ -1,7 +1,13 @@
 import { defineStore } from 'pinia';
 import { ProductPageStoreType } from '@/helpers/types/stores-types/_products-page-store.type';
-import { getAllProducts, getProductsByCategory } from '@/helpers/requesters/requester/_products.requests';
-import { AllProductsType, ProductType } from '@/helpers/types/requests-types/_products-request.type';
+import {
+  getAllProducts,
+  getProductsByCategory,
+} from '@/helpers/requesters/requester/_products.requests';
+import {
+  AllProductsType,
+  ProductType,
+} from '@/helpers/types/requests-types/_products-request.type';
 import {
   formatProductDataForDisplaying,
   getProductsOnSaleOnly,
@@ -14,12 +20,13 @@ import {
 export const useProductsPageStore = defineStore('products', {
   state: () =>
     ({
-      isLoading: true,
+      isLoading: false,
       data: null,
     } as ProductPageStoreType),
 
   actions: {
     async getAllProducts() {
+      this.isLoading = true;
       const res: AllProductsType = await getAllProducts();
       const productsArray: Array<ProductType> = res.data;
       this.data = formatProductDataForDisplaying(productsArray);
