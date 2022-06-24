@@ -2,37 +2,40 @@
   <div class="filters-panel">
     <NCard hoverable>
       <div class="sort-by-price-wrap">
-        <UIText tag="NH5">SORT BY</UIText>
+        <UIText tag="NH5">{{ ProductsFiltersTitles.sortBy }}</UIText>
         <NSelect
           class="sort-by-price"
           placeholder="By price"
-          v-model:value="sortByPriceValue"
+          v-model:value="filters.sortByPrice"
           :options="sortingByPriceOptions"
         />
       </div>
       <div class="price-range-wrap">
-        <UIText tag="NH5">PRICE RANGE</UIText>
+        <UIText tag="NH5">{{ ProductsFiltersTitles.priceRange }}</UIText>
         <NSlider
           class="price-range"
           :min="range.min"
           :max="range.max"
           range
-          v-model:value="priceRange"
+          v-model:value="filters.priceRange"
         />
       </div>
       <div class="filter-by-brand-wrap">
-        <UIText tag="NH5">FAVORITE BRANDS</UIText>
+        <UIText tag="NH5">{{ ProductsFiltersTitles.brands }}</UIText>
         <NSelect
           class="filter-by-brand"
           placeholder="By brand"
-          v-model:value="filterByBrandValue"
-          :options="sortingByPriceOptions"
+          v-model:value="filters.filterByBrand"
+          :options="brandsOptions"
         />
       </div>
       <div class="on-sale-only-wrap">
-        <UIText tag="NH5">GOOD PRICE</UIText>
-        <NCheckbox size="large"> Discount only </NCheckbox>
+        <UIText tag="NH5">{{ ProductsFiltersTitles.goodPrice }}</UIText>
+        <NCheckbox v-model:checked="filters.onlySaleProducts" size="large">
+          Discount only
+        </NCheckbox>
       </div>
+      <NButton @click="filter" class="button" type="primary">Apply</NButton>
     </NCard>
   </div>
 </template>
@@ -46,26 +49,37 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { NCard, NSelect, NSlider, NCheckbox } from 'naive-ui';
-import { computed, ref, watch, Ref } from 'vue';
-import { sortingByPriceOptions } from '@/helpers/services/_product-filters.service';
+import { NCard, NSelect, NSlider, NCheckbox, NButton } from 'naive-ui';
+import { computed, ref, watch } from 'vue';
+import { filtersSchema, sortingByPriceOptions } from '@/helpers/services/_product-filters.service';
 import { useProductsPageStore } from '@/stores/products-page.store';
 import UIText from '@/components/ui/UIText.vue';
-import { getPriceRangeValues } from '@/helpers/methods/_products-filters.methods';
+import {
+  createOptionsForFilteringByBrand,
+  getPriceRangeValues,
+} from '@/helpers/methods/_products-filters.methods';
+import { FiltersType, SelectOptionType } from '@/helpers/types/_products-filters.type';
+
+import { ProductsFiltersTitles } from '@/helpers/enums/_product-filters.enum';
+import { cloneDeep } from 'lodash';
 
 const products = computed(() => store.data);
 const store = useProductsPageStore();
-const sortByPriceValue = ref(null);
-const filterByBrandValue = ref(null);
-const priceRange = ref([1, 2]);
+const filters = ref<FiltersType>(cloneDeep(filtersSchema));
 const range: { [key: string]: number } = {};
+let brandsOptions: null | Array<SelectOptionType> = null;
+
+const filter = (): void => {
+  store.filterProducts(filters.value);
+};
 watch(
   products,
   () => {
     if (products.value) {
-      priceRange.value = getPriceRangeValues(products.value);
-      range.min = priceRange.value[0];
-      range.max = priceRange.value[1];
+      brandsOptions = createOptionsForFilteringByBrand(products.value);
+      filters.value.priceRange = getPriceRangeValues(products.value);
+      range.min = filters.value.priceRange[0];
+      range.max = filters.value.priceRange[1];
     }
   },
   { immediate: true, deep: true },
@@ -93,6 +107,10 @@ watch(
     .on-sale-only-wrap,
     .filter-by-brand-wrap {
       margin-top: 34px;
+    }
+    .button {
+      margin-top: 24px;
+      margin-left: 45px;
     }
   }
 }

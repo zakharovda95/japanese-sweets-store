@@ -20,5 +20,5 @@ export type Products = {
 
 export interface ProductPageStoreType {
   isLoading: boolean;
-  data: Array<Product> | null;
+  data: Array<Product> | null | undefined;
 }

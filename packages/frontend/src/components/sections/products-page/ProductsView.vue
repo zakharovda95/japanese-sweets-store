@@ -53,7 +53,7 @@ const isLoading = computed(() => store.isLoading);
       position: fixed;
       z-index: 4;
       top: 165px;
-      left: 30px;
+      left: 3vw;
     }
   }
 }

@@ -19,7 +19,7 @@ import { NSpin } from 'naive-ui';
 import { computed } from 'vue';
 const store = useMainPageStore();
 store.getCarouselsImages();
-const isLoading = computed(() => store.isLoading);
+const isLoading = computed<boolean>(() => store.isLoading);
 </script>
 
 <style scoped lang="scss">
@@ -37,7 +37,6 @@ const isLoading = computed(() => store.isLoading);
 }
 @media (min-width: 1019px) {
   .main-page {
-    background: white !important;
     margin: 0 auto;
     width: 60vw;
     background: none;

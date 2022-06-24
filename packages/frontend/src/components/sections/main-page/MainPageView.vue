@@ -39,10 +39,8 @@ import { useWindowWidthWatcher } from '@/composables/useWindowWidthWatcher';
 import { HeaderSize } from '@/helpers/enums/_text-styles.enum';
 import { Inscriptions } from '@/helpers/enums/_inscriptions.enum';
 import { MainPageImages } from '@/helpers/types/stores-types/_main-page-store.type';
-import { NSpin } from 'naive-ui';
 
 const mainPageStore = useMainPageStore();
-const isLoading = computed<boolean>(() => mainPageStore.isLoading);
 const images = computed<MainPageImages>(() => mainPageStore.images);
 const { widthX } = useWindowWidthWatcher();
 </script>
@@ -53,7 +51,9 @@ const { widthX } = useWindowWidthWatcher();
   margin: 0 auto;
 }
 .main-page-view {
+  background: white !important;
   padding: 15px;
+  margin-top: 34px;
   .carousel {
     margin-top: 24px;
     margin-bottom: 36px;

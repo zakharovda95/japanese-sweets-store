@@ -16,6 +16,8 @@ import {
   CategoryProductType,
   CategoryType,
 } from '@/helpers/types/requests-types/_categories-requests.type';
+import { FiltersType } from '@/helpers/types/_products-filters.type';
+import { filterProducts } from '@/helpers/methods/_products-filters.methods';
 
 export const useProductsPageStore = defineStore('products', {
   state: () =>
@@ -33,6 +35,7 @@ export const useProductsPageStore = defineStore('products', {
       this.isLoading = false;
     },
     async getProductsByCategory(id: string | number) {
+      this.isLoading = true;
       const res: CategoryType = await getProductsByCategory(id);
       const productsArray: Array<CategoryProductType> = res.data.attributes.products.data;
       this.data = formatProductDataForDisplaying(productsArray);
@@ -42,6 +45,11 @@ export const useProductsPageStore = defineStore('products', {
       await this.getAllProducts();
       if (this.data) {
         this.data = getProductsOnSaleOnly(this.data);
+      }
+    },
+    filterProducts(filters: FiltersType) {
+      if (this.data) {
+        this.data = filterProducts(this.data, filters);
       }
     },
   },
