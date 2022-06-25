@@ -72,18 +72,13 @@ let brandsOptions: null | Array<SelectOptionType> = null;
 const filter = (): void => {
   store.filterProducts(filters.value);
 };
-watch(
-  products,
-  () => {
-    if (products.value) {
-      brandsOptions = createOptionsForFilteringByBrand(products.value);
-      filters.value.priceRange = getPriceRangeValues(products.value);
-      range.min = filters.value.priceRange[0];
-      range.max = filters.value.priceRange[1];
-    }
-  },
-  { immediate: true, deep: true },
-);
+
+if (products.value) {
+  brandsOptions = createOptionsForFilteringByBrand(products.value);
+  filters.value.priceRange = getPriceRangeValues(products.value);
+  range.min = filters.value.priceRange[0];
+  range.max = filters.value.priceRange[1];
+}
 </script>
 
 <style scoped lang="scss">

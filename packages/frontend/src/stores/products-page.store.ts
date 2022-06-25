@@ -18,11 +18,13 @@ import {
 } from '@/helpers/types/requests-types/_categories-requests.type';
 import { FiltersType } from '@/helpers/types/_products-filters.type';
 import { filterProducts } from '@/helpers/methods/_products-filters.methods';
+import { cloneDeep } from 'lodash';
 
 export const useProductsPageStore = defineStore('products', {
   state: () =>
     ({
       isLoading: false,
+      dataState: null,
       data: null,
     } as ProductPageStoreType),
 
@@ -32,6 +34,7 @@ export const useProductsPageStore = defineStore('products', {
       const res: AllProductsType = await getAllProducts();
       const productsArray: Array<ProductType> = res.data;
       this.data = formatProductDataForDisplaying(productsArray);
+      this.dataState = cloneDeep(this.data);
       this.isLoading = false;
     },
     async getProductsByCategory(id: string | number) {
@@ -39,17 +42,19 @@ export const useProductsPageStore = defineStore('products', {
       const res: CategoryType = await getProductsByCategory(id);
       const productsArray: Array<CategoryProductType> = res.data.attributes.products.data;
       this.data = formatProductDataForDisplaying(productsArray);
+      this.dataState = cloneDeep(this.data);
       this.isLoading = false;
     },
     async getProductsOnSaleOnly() {
       await this.getAllProducts();
       if (this.data) {
         this.data = getProductsOnSaleOnly(this.data);
+        this.dataState = cloneDeep(this.data);
       }
     },
     filterProducts(filters: FiltersType) {
-      if (this.data) {
-        this.data = filterProducts(this.data, filters);
+      if (this.dataState) {
+        this.data = filterProducts(this.dataState, filters);
       }
     },
   },

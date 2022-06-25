@@ -29,7 +29,6 @@ export function filterProducts(
   array: Array<Product>,
   filters: FiltersType,
 ): Array<Product> | undefined {
-  console.log(filters);
   const onlySale = array.filter(item => {
     if (filters.onlySaleProducts) {
       return item.sale;
@@ -45,9 +44,7 @@ export function filterProducts(
     }
   });
   const priceRange = favoriteBrand.filter(item => {
-    const min = filters.priceRange[0];
-    const max = filters.priceRange[1];
-    return item.cost >= min && item.cost <= max;
+    return item.cost >= filters.priceRange[0] && item.cost <= filters.priceRange[1];
   });
   if (filters.sortByPrice) {
     let res: Array<Product> | [] = [];
@@ -58,5 +55,7 @@ export function filterProducts(
       res = sortBy(priceRange, 'cost').reverse();
     }
     return res;
+  } else {
+    return priceRange;
   }
 }
