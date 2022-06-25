@@ -4,7 +4,13 @@
       <RibbonMenu class="ribbon-menu" />
     </div>
     <div class="content">
-      <FiltersPanel class="filters" v-if="!isLoading" />
+      <FiltersPanel class="filters" v-if="!isLoading && widthX > 1019" />
+      <div class="small-screen-filter" v-if="!isLoading && widthX <= 1019">
+        <NButton class="button" type="info" @click="showModal = true">SHOW FILTERS</NButton>
+        <NModal v-model:show="showModal">
+          <FiltersPanel @custom:closeModal="showModal = false" />
+        </NModal>
+      </div>
       <router-view />
     </div>
   </div>
@@ -22,9 +28,13 @@ export default defineComponent({
 import RibbonMenu from '@/components/sections/products-page/RibbonMenu.vue';
 import FiltersPanel from '@/components/sections/products-page/FiltersPanel.vue';
 import { useProductsPageStore } from '@/stores/products-page.store';
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
+import { useWindowWidthWatcher } from '@/composables/useWindowWidthWatcher';
+import { NModal, NButton } from 'naive-ui';
 const store = useProductsPageStore();
 const isLoading = computed(() => store.isLoading);
+const { widthX } = useWindowWidthWatcher();
+const showModal = ref<boolean>(false);
 </script>
 
 <style scoped lang="scss">
@@ -34,7 +44,7 @@ const isLoading = computed(() => store.isLoading);
     width: 95vw;
   }
 }
-@media (min-width: 799px) {
+@media (max-width: 1019px) {
   .product-view {
     display: flex;
     flex-direction: column;
@@ -47,15 +57,18 @@ const isLoading = computed(() => store.isLoading);
     }
     .content {
       display: flex;
-      margin-top: 24px;
-      .filters {
-        align-self: flex-start;
-        margin-top: 5px;
+      flex-direction: column;
+      .small-screen-filter {
+        margin-right: 5px;
+        margin-top: 24px;
+        margin-bottom: 24px;
+        display: flex;
+        justify-content: flex-end;
       }
     }
   }
 }
-@media (min-width: 1199px) {
+@media (min-width: 1020px) {
   .product-view {
     display: flex;
     flex-direction: column;

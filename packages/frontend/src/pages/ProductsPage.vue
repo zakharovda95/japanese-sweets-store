@@ -19,6 +19,7 @@ import ProductsView from '@/components/sections/products-page/ProductsView.vue';
 <style scoped lang="scss">
 @media (max-width: 390px) {
   .product-page {
+    margin: 0 auto;
   }
 }
 @media (min-width: 799px) {
