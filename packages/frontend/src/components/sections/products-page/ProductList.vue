@@ -58,14 +58,41 @@ const products = computed(() => store.data);
 </script>
 
 <style scoped lang="scss">
-.product-list {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-top: 24px;
-  .item {
-    display: flex;
-    margin: 5px;
+@media (max-width: 390px) {
+  .product-page {
+  }
+}
+@media (min-width: 799px) {
+  .product-list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    .item {
+      display: flex;
+      margin: 5px;
+    }
+  }
+}
+@media (min-width: 1199px) {
+  .product-list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    .item {
+      display: flex;
+      margin: 5px;
+    }
+  }
+}
+@media (min-width: 1399px) {
+  .product-list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    .item {
+      display: flex;
+      margin: 5px;
+    }
   }
 }
 </style>

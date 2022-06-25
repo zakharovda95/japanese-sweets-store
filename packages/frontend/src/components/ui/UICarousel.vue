@@ -21,10 +21,10 @@ export default defineComponent({
 
 <script setup lang="ts">
 import { NCarousel } from 'naive-ui';
-import { defineProps } from 'vue';
+import { defineProps, PropType } from 'vue';
 defineProps({
   images: {
-    type: Array,
+    type: Array as PropType<Array<string>>,
     required: true,
   },
   alt: {
@@ -32,7 +32,7 @@ defineProps({
     default: 'image',
   },
   styles: {
-    type: Object,
+    type: Object as PropType<{ [key: string]: string }>,
     default: () => ({
       'width': '100%',
       'height': 'auto',

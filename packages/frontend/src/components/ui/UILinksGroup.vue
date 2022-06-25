@@ -140,7 +140,7 @@ const fontSize = computed<string>(() => {
   }
 });
 
-const styleClasses = computed(() => {
+const styleClasses = computed<{ [key: string]: string }>(() => {
   return {
     'bordered': props.border,
     'background': props.background,

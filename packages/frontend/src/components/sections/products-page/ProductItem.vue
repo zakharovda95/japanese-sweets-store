@@ -5,7 +5,13 @@
       <UIText class="title" tag="NH6">{{ product.title }}</UIText>
     </div>
     <div class="cost">
-      <UIText type="primary" tag="NH4"> {{ cost }}</UIText>
+      <UIText v-if="typeof cost === 'string'" class="full-price" type="primary" tag="NH4">
+        {{ cost }}
+      </UIText>
+      <div class="with-sale" v-if="typeof cost === 'object'">
+        <UIText strike class="full-price" type="error" tag="NH4"> {{ cost.fullPrice }}</UIText>
+        <UIText class="full-price" type="primary" tag="NH4"> {{ cost.afterSale }}</UIText>
+      </div>
     </div>
   </NCard>
 </template>
@@ -37,39 +43,95 @@ const cover = computed<{ [key: string]: string }>(() => {
     'background-position': 'center',
   };
 });
-const cost = computed<string>(() => {
+const cost = computed<string | { [key: string]: string }>(() => {
   if (props.product.sale) {
     const priceAfterSale = (
       props.product.cost -
       props.product.cost * (props.product.sale / 100)
     ).toFixed(2);
-    return `$ ${props.product.cost} $ ${priceAfterSale}`;
+    return {
+      fullPrice: `$ ${props.product.sale}`,
+      afterSale: `$ ${priceAfterSale}`,
+    };
   }
   return `$ ${props.product.cost}`;
 });
 </script>
 
 <style scoped lang="scss">
-@media (max-width: 769px) {
+@media (max-width: 390px) {
   .n-card {
     width: 100vw;
     height: 100vw;
     cursor: pointer;
   }
 }
-@media (max-width: 1199px) {
-  .card {
-    cursor: pointer;
-    width: 280px;
-    height: 300px;
-  }
-}
-@media (min-width: 1200px) {
+@media (min-width: 799px) {
   .n-card {
     display: flex;
     cursor: pointer;
-    width: 260px;
-    height: 320px;
+    width: 230px;
+    height: 300px;
+    .cover {
+      width: 100%;
+      height: 65%;
+      background-size: cover;
+      background-position: center;
+    }
+    .title {
+      width: 100%;
+      height: 25%;
+    }
+    .cost {
+      margin-top: 8px;
+      height: 10%;
+      flex-grow: 1;
+      .with-sale {
+        display: flex;
+        justify-content: space-around;
+        width: 100px;
+        margin: 0 auto;
+        align-self: center;
+      }
+    }
+  }
+}
+@media (min-width: 1119px) {
+  .n-card {
+    display: flex;
+    cursor: pointer;
+    width: 230px;
+    height: 300px;
+    .cover {
+      width: 100%;
+      height: 65%;
+      background-size: cover;
+      background-position: center;
+    }
+    .title {
+      width: 100%;
+      height: 25%;
+    }
+    .cost {
+      margin-top: 8px;
+      height: 10%;
+      flex-grow: 1;
+      .with-sale {
+        display: flex;
+        justify-content: space-around;
+        width: 100px;
+        margin: 0 auto;
+        align-self: center;
+      }
+    }
+  }
+}
+@media (min-width: 1399px) {
+  .n-card {
+    display: flex;
+    cursor: pointer;
+    width: 250px;
+    height: 310px;
     .cover {
       width: 100%;
       height: 65%;
@@ -83,6 +145,13 @@ const cost = computed<string>(() => {
     .cost {
       height: 10%;
       flex-grow: 1;
+      .with-sale {
+        display: flex;
+        justify-content: space-around;
+        width: 100px;
+        margin: 0 auto;
+        align-self: center;
+      }
     }
   }
 }

@@ -3,7 +3,7 @@
 import { onBeforeUnmount, ref, onMounted, Ref } from 'vue';
 
 export function useWindowWidthWatcher(): { widthX: Ref<number> } {
-  const widthX: Ref<number> = ref(0);
+  const widthX: Ref<number> = ref(window.innerWidth);
 
   const watchSize = (): number => (widthX.value = window.innerWidth);
 

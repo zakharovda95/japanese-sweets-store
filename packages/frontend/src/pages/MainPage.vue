@@ -17,8 +17,10 @@ import { useMainPageStore } from '@/stores/main-page.store';
 import MainPageView from '@/components/sections/main-page/MainPageView.vue';
 import { NSpin } from 'naive-ui';
 import { computed } from 'vue';
+
 const store = useMainPageStore();
 store.getCarouselsImages();
+
 const isLoading = computed<boolean>(() => store.isLoading);
 </script>
 

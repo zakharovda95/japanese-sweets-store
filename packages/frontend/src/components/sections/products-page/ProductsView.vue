@@ -1,8 +1,12 @@
 <template>
   <div class="product-view">
-    <RibbonMenu class="menu" />
-    <FiltersPanel class="filters" v-if="!isLoading" />
-    <router-view />
+    <div class="menu">
+      <RibbonMenu class="ribbon-menu" />
+    </div>
+    <div class="content">
+      <FiltersPanel class="filters" v-if="!isLoading" />
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -30,30 +34,66 @@ const isLoading = computed(() => store.isLoading);
     width: 95vw;
   }
 }
-@media (max-width: 768px) {
-  .product-view {
-    margin: 0 auto;
-    width: 80vw;
-  }
-}
-@media (min-width: 769px) {
-  .product-view {
-    margin: 0 auto;
-    width: 63vw;
-    .menu {
-      margin-top: 34px;
-    }
-  }
-}
-@media (min-width: 1019px) {
+@media (min-width: 799px) {
   .product-view {
     display: flex;
     flex-direction: column;
-    .filters {
-      position: fixed;
-      z-index: 4;
-      top: 165px;
-      left: 3vw;
+    align-items: center;
+    .menu {
+      margin-top: 34px;
+      .ribbon-menu {
+        margin: 0 auto;
+      }
+    }
+    .content {
+      display: flex;
+      margin-top: 24px;
+      .filters {
+        align-self: flex-start;
+        margin-top: 5px;
+      }
+    }
+  }
+}
+@media (min-width: 1199px) {
+  .product-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .menu {
+      margin-top: 34px;
+      .ribbon-menu {
+        margin: 0 auto;
+      }
+    }
+    .content {
+      display: flex;
+      margin-top: 24px;
+      .filters {
+        align-self: flex-start;
+        margin-top: 5px;
+      }
+    }
+  }
+}
+@media (min-width: 1399px) {
+  .product-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .menu {
+      margin-top: 34px;
+      .ribbon-menu {
+        margin: 0 auto;
+      }
+    }
+    .content {
+      display: flex;
+      margin-top: 24px;
+      .filters {
+        align-self: flex-start;
+        margin-top: 5px;
+      }
     }
   }
 }

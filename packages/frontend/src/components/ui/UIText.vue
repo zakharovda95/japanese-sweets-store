@@ -1,7 +1,14 @@
 <template>
   <div class="ui-text">
     <component :is="size">
-      <NText id="text" :style="{ 'color': textColor }" v-bind="$attrs" :type="type"><slot /></NText>
+      <NText
+        :underline="underline"
+        id="text"
+        :style="{ 'color': textColor, 'text-decoration': strike ? 'line-through' : '' }"
+        v-bind="$attrs"
+        :type="type"
+        ><slot
+      /></NText>
     </component>
   </div>
 </template>
@@ -32,6 +39,14 @@ const props = defineProps({
     type: [String, Boolean],
     default: false,
   },
+  underline: {
+    type: Boolean,
+    default: false,
+  },
+  strike: {
+    type: Boolean,
+    default: false,
+  },
 });
 const textColor = computed<string | boolean>(() => (props.color ? props.color : false));
 const size = computed<unknown>(() => {
@@ -59,6 +74,5 @@ const size = computed<unknown>(() => {
   display: flex;
   text-align: center;
   justify-content: center;
-  width: 100%;
 }
 </style>
