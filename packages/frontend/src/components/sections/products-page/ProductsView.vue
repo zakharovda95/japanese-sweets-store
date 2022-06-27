@@ -59,11 +59,11 @@ const showModal = ref<boolean>(false);
       display: flex;
       flex-direction: column;
       .small-screen-filter {
-        margin-right: 5px;
+        margin-left: 5px;
         margin-top: 24px;
         margin-bottom: 24px;
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
       }
     }
   }

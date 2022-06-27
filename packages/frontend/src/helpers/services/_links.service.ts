@@ -21,22 +21,27 @@ export const publicHeaderLinks: PublicHeaderLinks = [
   {
     title: LinkTitles.main,
     path: LinkRouteNames.main,
+    icon: 'HomeOutlined',
   },
   {
     title: LinkTitles.goods,
     path: LinkRouteNames.goods,
+    icon: 'ShoppingBagOutlined',
   },
   {
     title: LinkTitles.cart,
     path: LinkRouteNames.cart,
+    icon: 'ShoppingCartOutlined',
   },
   {
     title: LinkTitles.signIn,
     path: LinkRouteNames.signIn,
+    icon: 'LogInOutlined',
   },
   {
     title: LinkTitles.signUp,
     path: LinkRouteNames.signUp,
+    icon: 'AppRegistrationFilled',
   },
 ];
 
@@ -44,18 +49,22 @@ export const authorizedUserHeaderLinks: AuthorizedUserHeaderLinks = [
   {
     title: LinkTitles.main,
     path: LinkRouteNames.main,
+    icon: 'HomeOutlined',
   },
   {
     title: LinkTitles.goods,
     path: LinkRouteNames.goods,
+    icon: 'ShoppingBagOutlined',
   },
   {
     title: LinkTitles.cart,
     path: LinkRouteNames.cart,
+    icon: 'ShoppingCartOutlined',
   },
   {
     title: LinkTitles.profile,
     path: LinkRouteNames.profile,
+    icon: 'AccountCircleOutlined',
   },
 ];
 

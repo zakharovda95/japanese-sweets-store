@@ -7,7 +7,8 @@
       v-if="tag === 'a'"
       v-bind="$attrs"
     >
-      {{ link.title }}
+      <UIIcon v-if="link.icon" :icon="link.icon" />
+      <div class="title">{{ link.title }}</div>
     </a>
     <router-link
       class="link"
@@ -16,14 +17,14 @@
       :to="{ name: link.path }"
       v-bind="$attrs"
     >
-      {{ link.title }}
+      <UIIcon v-if="link.icon" :icon="link.icon" />
+      <div class="title">{{ link.title }}</div>
     </router-link>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-
 export default defineComponent({
   name: 'UILinksGroup',
   inheritAttrs: false,
@@ -46,7 +47,6 @@ import {
   ProductCategoryType,
   PublicHeaderLinks,
 } from '@/helpers/types/_links.type';
-
 const props = defineProps({
   links: {
     type: Array as unknown as
@@ -94,7 +94,6 @@ const props = defineProps({
     default: '0px',
   },
 });
-
 const color = computed<string>(() => {
   switch (props.color) {
     case ColorTypes.info:
@@ -111,7 +110,6 @@ const color = computed<string>(() => {
       return props.color;
   }
 });
-
 const borderColor = computed<string>(() => {
   switch (props.border) {
     case ColorTypes.info:
@@ -128,7 +126,6 @@ const borderColor = computed<string>(() => {
       return props.border;
   }
 });
-
 const fontSize = computed<string>(() => {
   switch (props.size) {
     case FontSizeTitle.small:
@@ -139,18 +136,15 @@ const fontSize = computed<string>(() => {
       return FontSize.medium;
   }
 });
-
 const styleClasses = computed<{ [key: string]: string }>(() => {
   return {
     'bordered': props.border,
     'background': props.background,
   };
 });
-
 const borderRadius = computed<string>(() => {
   return props.rounded ? BorderRadius.rounded : BorderRadius.default;
 });
-
 const background = computed<string>(() => {
   switch (props.background) {
     case ColorTypes.info:
@@ -171,7 +165,9 @@ const background = computed<string>(() => {
 
 <style scoped lang="scss">
 @import '~@/assets/styles/_constants.scss';
+@import '~@/assets/styles/_constants.scss';
 .ui-link-group {
+  display: flex;
   .link {
     font-family: $FONT_FAMILY;
     text-decoration: none;

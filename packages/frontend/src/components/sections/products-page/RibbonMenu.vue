@@ -1,16 +1,31 @@
 <template>
   <div class="ribbon-menu">
     <NCard hoverable bordered>
-      <div class="content">
+      <div class="content fullscreen" v-if="widthX > 1019">
         <UILinksGroup
           class="menu"
           hovered
           rounded
           padding="8px"
-          margin="10px"
+          margin="0 10px"
           size="large"
           :links="Categories"
         />
+      </div>
+      <div class="content small-size" v-if="widthX <= 1019">
+        <NCollapse>
+          <NCollapseItem title="SELECT FAVORITE CATEGORY">
+            <UILinksGroup
+              class="menu"
+              hovered
+              rounded
+              padding="8px"
+              margin="0 10px"
+              size="large"
+              :links="Categories"
+            />
+          </NCollapseItem>
+        </NCollapse>
       </div>
     </NCard>
   </div>
@@ -25,24 +40,45 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { NCard } from 'naive-ui';
+import { NCard, NCollapse, NCollapseItem } from 'naive-ui';
 import UILinksGroup from '@/components/ui/UILinksGroup.vue';
 import { Categories } from '@/helpers/services/_links.service';
+import { useWindowWidthWatcher } from '@/composables/useWindowWidthWatcher';
+const { widthX } = useWindowWidthWatcher();
 </script>
 
 <style scoped lang="scss">
-.ribbon-menu {
-  display: flex;
-  .content {
+@media (max-width: 1019px) {
+  .ribbon-menu {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    align-items: center;
-    min-height: 30px;
-    .menu {
+    .small-size {
       display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      align-items: center;
       align-self: center;
-      width: 100%;
+      .menu {
+        display: flex;
+        align-self: center;
+        width: 100%;
+      }
+    }
+  }
+}
+@media (min-width: 1020px) {
+  .ribbon-menu {
+    display: flex;
+    .fullscreen {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      align-items: center;
+      align-self: center;
+      .menu {
+        display: flex;
+        align-self: center;
+        width: 100%;
+      }
     }
   }
 }

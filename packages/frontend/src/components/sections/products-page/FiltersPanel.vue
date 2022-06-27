@@ -85,12 +85,41 @@ if (products.value) {
 </script>
 
 <style scoped lang="scss">
-@media (max-width: 700px) {
+@media (max-width: 399px) {
   .filters-panel {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-width: 80vw;
+    max-width: 90vw;
+    .sort-by-price {
+      width: 80vw;
+    }
+    .price-range {
+      width: 80vw;
+    }
+    .filter-by-brand {
+      width: 80vw;
+    }
+    .price-range-wrap,
+    .on-sale-only-wrap,
+    .filter-by-brand-wrap {
+      margin-top: 34px;
+    }
+    .button {
+      margin-top: 24px;
+      margin-left: 30vw;
+    }
+  }
+}
+@media (min-width: 400px) and (max-width: 799px) {
+  .filters-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 50vw;
     max-width: 80vw;
     .sort-by-price {
       width: 60vw;
@@ -108,11 +137,11 @@ if (products.value) {
     }
     .button {
       margin-top: 24px;
-      margin-left: 12vw;
+      margin-left: 26vw;
     }
   }
 }
-@media (max-width: 1020px) {
+@media (min-width: 800px) and (max-width: 1019px) {
   .filters-panel {
     display: flex;
     flex-direction: column;

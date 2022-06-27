@@ -207,6 +207,7 @@ const cost = computed<string | { [key: string]: string }>(() => {
     .cost {
       height: 10%;
       flex-grow: 1;
+      margin-top: 10px;
       .with-sale {
         display: flex;
         justify-content: space-around;

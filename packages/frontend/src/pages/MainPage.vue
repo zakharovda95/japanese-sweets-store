@@ -25,19 +25,23 @@ const isLoading = computed<boolean>(() => store.isLoading);
 </script>
 
 <style scoped lang="scss">
-@media (max-width: 390px) {
-}
-@media (max-width: 768px) {
-}
-@media (min-width: 769px) {
+@media (max-width: 799px) {
   .main-page {
     background: white;
     margin: 0 auto;
-    width: 60vw;
+    width: 90vw;
     background: none;
   }
 }
-@media (min-width: 1019px) {
+@media (min-width: 800px) and (max-width: 1019px) {
+  .main-page {
+    background: white;
+    margin: 0 auto;
+    width: 80vw;
+    background: none;
+  }
+}
+@media (min-width: 1020px) {
   .main-page {
     margin: 0 auto;
     width: 60vw;
