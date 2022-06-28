@@ -3,7 +3,7 @@ import { ProductType } from '@/helpers/types/requests-types/_products-request.ty
 import { CategoryProductType } from '@/helpers/types/requests-types/_categories-requests.type';
 
 /** Форматирование данных из БД для отображения **/
-export function formatProductDataForDisplaying(
+export function formatProductsDataForDisplaying(
   productsArray: Array<ProductType> | Array<CategoryProductType>,
 ): Array<Product> {
   const arr = productsArray.map(product => {

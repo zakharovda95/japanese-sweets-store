@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { ProductPageStoreType } from '@/helpers/types/stores-types/_products-page-store.type';
+import { ProductsPageStoreType } from '@/helpers/types/stores-types/_products-page-store.type';
 import {
   getAllProducts,
   getProductsByCategory,
@@ -9,7 +9,7 @@ import {
   ProductType,
 } from '@/helpers/types/requests-types/_products-request.type';
 import {
-  formatProductDataForDisplaying,
+  formatProductsDataForDisplaying,
   getProductsOnSaleOnly,
 } from '@/helpers/methods/_products.methods';
 import {
@@ -26,14 +26,14 @@ export const useProductsPageStore = defineStore('products', {
       isLoading: false,
       dataState: null,
       data: null,
-    } as ProductPageStoreType),
+    } as ProductsPageStoreType),
 
   actions: {
     async getAllProducts() {
       this.isLoading = true;
       const res: AllProductsType = await getAllProducts();
       const productsArray: Array<ProductType> = res.data;
-      this.data = formatProductDataForDisplaying(productsArray);
+      this.data = formatProductsDataForDisplaying(productsArray);
       this.dataState = cloneDeep(this.data);
       this.isLoading = false;
     },
@@ -41,7 +41,7 @@ export const useProductsPageStore = defineStore('products', {
       this.isLoading = true;
       const res: CategoryType = await getProductsByCategory(id);
       const productsArray: Array<CategoryProductType> = res.data.attributes.products.data;
-      this.data = formatProductDataForDisplaying(productsArray);
+      this.data = formatProductsDataForDisplaying(productsArray);
       this.dataState = cloneDeep(this.data);
       this.isLoading = false;
     },

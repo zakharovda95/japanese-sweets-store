@@ -1,5 +1,6 @@
 <template>
-  <div class="product-page">
+  <NSpin v-if="isLoading" />
+  <div class="product-page" v-if="!isLoading">
     <router-view />
   </div>
 </template>
@@ -12,6 +13,25 @@ export default defineComponent({
 });
 </script>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRoute } from 'vue-router';
+import { NSpin } from 'naive-ui';
+import { useProductPageStore } from '@/stores/product-page.store';
+import { computed } from 'vue';
+const route = useRoute();
+const store = useProductPageStore();
+const id = computed<string>(() => {
+  return route.params.productId;
+});
+store.fetchData(id.value);
+const isLoading = computed(() => store.isLoading);
+</script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+@media (min-width: 1399px) {
+  .product-page {
+    display: flex;
+    justify-content: center;
+  }
+}
+</style>

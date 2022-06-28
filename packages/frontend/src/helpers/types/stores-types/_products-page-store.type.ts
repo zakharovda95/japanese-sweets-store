@@ -3,23 +3,20 @@ export type Product = {
   title: string;
   description: string;
   image: string;
-  type?: string;
+  category?: string;
   cost: number;
   producer: string;
   details?: Array<string>;
   sale: number;
 };
 
-export type Products = {
-  candy: Array<Product>;
-  snacks: Array<Product>;
-  cookies: Array<Product>;
-  chocolates: Array<Product>;
-  food: Array<Product>;
-};
-
-export interface ProductPageStoreType {
+export interface ProductsPageStoreType {
   isLoading: boolean;
   dataState: Array<Product> | null | undefined;
   data: Array<Product> | null | undefined;
+}
+
+export interface ProductPageStoreType {
+  isLoading: boolean;
+  data: Product | null;
 }
