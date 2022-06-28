@@ -7,21 +7,7 @@ export enum LinkTitles {
   profile = 'MY PROFILE',
 }
 
-export enum LinkRouteNames {
-  main = 'main',
-  goods = 'products',
-  cart = 'cart',
-  signIn = 'sign-in',
-  signUp = 'sign-up',
-  profile = 'profile',
-}
-
 export enum RedirectLinkTitles {
-  cv = 'CURRICULUM VITAE',
-  github = 'GIT HUB',
-}
-
-export enum RedirectLinkRouteNames {
   cv = 'CURRICULUM VITAE',
   github = 'GIT HUB',
 }

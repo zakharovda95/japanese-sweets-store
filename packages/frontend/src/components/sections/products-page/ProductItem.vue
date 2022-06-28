@@ -1,5 +1,8 @@
 <template>
-  <NCard hoverable>
+  <NCard
+    hoverable
+    @click.prevent="$router.push({ name: PageName.productById, params: { productId: product.id } })"
+  >
     <div class="cover" :style="cover" />
     <div class="title">
       <UIText class="title" tag="NH6">{{ product.title }}</UIText>
@@ -29,6 +32,7 @@ import { NCard } from 'naive-ui';
 import { computed, defineProps, PropType } from 'vue';
 import UIText from '@/components/ui/UIText.vue';
 import { Product } from '@/helpers/types/stores-types/_products-page-store.type';
+import { PageName } from '@/helpers/enums/_pages.enum';
 
 const props = defineProps({
   product: {

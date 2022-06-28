@@ -1,13 +1,3 @@
-export enum ProductCategories {
-  all = 'all',
-  candy = 'candy',
-  snacks = 'snacks',
-  cookies = 'cookies',
-  chocolates = 'chocolates',
-  food = 'food',
-  sale = 'sale',
-}
-
 export enum ProductCategoryTitles {
   all = 'ALL',
   candy = 'CANDY',

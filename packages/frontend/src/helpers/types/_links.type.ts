@@ -1,62 +1,49 @@
-import {
-  LinkTitles,
-  RedirectLinkTitles,
-  LinkRouteNames,
-  RedirectLinkRouteNames,
-} from '@/helpers/enums/links/_links-titles.enum';
-import {
-  ProductCategories,
-  ProductCategoryTitles,
-} from '@/helpers/enums/links/_product-categories.enum';
-
+import { LinkTitles, RedirectLinkTitles } from '@/helpers/enums/links/_links-titles.enum';
+import { ProductCategoryTitles } from '@/helpers/enums/products/_products-categories.enum';
+import { PageName } from '@/helpers/enums/_pages.enum';
 /** Типы ссылок хедера **/
 export type PublicHeaderLinks = [
   {
     title: LinkTitles.main;
-    path: LinkRouteNames.main;
-    icon?: string | null;
+    path: PageName.main;
   },
   {
     title: LinkTitles.goods;
-    path: LinkRouteNames.goods;
-    icon?: string | null;
+    path: PageName.goods;
   },
   {
     title: LinkTitles.cart;
-    path: LinkRouteNames.cart;
-    icon?: string | null;
+    path: PageName.cart;
   },
   {
     title: LinkTitles.signIn;
-    path: LinkRouteNames.signIn;
-    icon?: string | null;
+    path: PageName.signin;
   },
   {
     title: LinkTitles.signUp;
-    path: LinkRouteNames.signUp;
-    icon?: string | null;
+    path: PageName.signup;
   },
 ];
 
 export type AuthorizedUserHeaderLinks = [
   {
     title: LinkTitles.main;
-    path: LinkRouteNames.main;
+    path: PageName.main;
     icon?: string | null;
   },
   {
     title: LinkTitles.goods;
-    path: LinkRouteNames.goods;
+    path: PageName.goods;
     icon?: string | null;
   },
   {
     title: LinkTitles.cart;
-    path: LinkRouteNames.cart;
+    path: PageName.cart;
     icon?: string | null;
   },
   {
     title: LinkTitles.profile;
-    path: LinkRouteNames.profile;
+    path: PageName.profile;
     icon?: string | null;
   },
 ];
@@ -65,12 +52,12 @@ export type AuthorizedUserHeaderLinks = [
 export type FooterLinks = [
   {
     title: RedirectLinkTitles.cv;
-    path: RedirectLinkRouteNames.cv;
+    path: PageName.cv;
     icon?: string | null;
   },
   {
     title: RedirectLinkTitles.github;
-    path: RedirectLinkRouteNames.github;
+    path: PageName.github;
     icon?: string | null;
   },
 ];
@@ -79,13 +66,11 @@ export type FooterLinks = [
 export type MainPageProfileEntranceLinks = [
   {
     title: LinkTitles.signIn;
-    path: LinkRouteNames.signIn;
-    icon?: string | null;
+    path: PageName.signin;
   },
   {
     title: LinkTitles.signUp;
-    path: LinkRouteNames.signUp;
-    icon?: string | null;
+    path: PageName.signup;
   },
 ];
 
@@ -93,37 +78,30 @@ export type MainPageProfileEntranceLinks = [
 export type ProductCategoryType = [
   {
     title: ProductCategoryTitles.all;
-    path: ProductCategories.all;
-    icon?: string | null;
+    path: PageName.all;
   },
   {
     title: ProductCategoryTitles.candy;
-    path: ProductCategories.candy;
-    icon?: string | null;
+    path: PageName.candy;
   },
   {
     title: ProductCategoryTitles.snacks;
-    path: ProductCategories.snacks;
-    icon?: string | null;
+    path: PageName.snacks;
   },
   {
     title: ProductCategoryTitles.cookies;
-    path: ProductCategories.cookies;
-    icon?: string | null;
+    path: PageName.cookies;
   },
   {
     title: ProductCategoryTitles.chocolates;
-    path: ProductCategories.chocolates;
-    icon?: string | null;
+    path: PageName.chocolates;
   },
   {
     title: ProductCategoryTitles.food;
-    path: ProductCategories.food;
-    icon?: string | null;
+    path: PageName.food;
   },
   {
     title: ProductCategoryTitles.sale;
-    path: ProductCategories.sale;
-    icon?: string | null;
+    path: PageName.sale;
   },
 ];

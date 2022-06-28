@@ -60,7 +60,7 @@ import {
 } from '@/helpers/methods/_products-filters.methods';
 import { FiltersType, SelectOptionType } from '@/helpers/types/_products-filters.type';
 
-import { ProductsFiltersTitles } from '@/helpers/enums/_product-filters.enum';
+import { ProductsFiltersTitles } from '@/helpers/enums/products/_products-filters.enum';
 import { cloneDeep } from 'lodash';
 
 const emits = defineEmits(['custom:closeModal']);

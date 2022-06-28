@@ -7,7 +7,6 @@
       v-if="tag === 'a'"
       v-bind="$attrs"
     >
-      <UIIcon v-if="link.icon" :icon="link.icon" />
       <div class="title">{{ link.title }}</div>
     </a>
     <router-link
@@ -17,7 +16,6 @@
       :to="{ name: link.path }"
       v-bind="$attrs"
     >
-      <UIIcon v-if="link.icon" :icon="link.icon" />
       <div class="title">{{ link.title }}</div>
     </router-link>
   </div>

@@ -2,7 +2,7 @@ import { FiltersType, SelectOptionsType } from '@/helpers/types/_products-filter
 import {
   ProductsFiltersOptionsLabels,
   ProductsFiltersOptionsValues,
-} from '@/helpers/enums/_product-filters.enum';
+} from '@/helpers/enums/products/_products-filters.enum';
 
 export const sortingByPriceOptions: SelectOptionsType = [
   {

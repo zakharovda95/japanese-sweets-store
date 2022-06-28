@@ -1,14 +1,14 @@
 import { Product } from '@/helpers/types/stores-types/_products-page-store.type';
 import { FiltersType, SelectOptionType } from '@/helpers/types/_products-filters.type';
 import { sortBy } from 'lodash';
-
+/** Ценовой диапазон **/
 export function getPriceRangeValues(array: Array<Product>): Array<number> {
   const prices = array.map(item => item.cost);
   const min = Math.min(...prices);
   const max = Math.max(...prices);
   return [min, max];
 }
-
+/** Опции брэндов выбранной категории **/
 export function createOptionsForFilteringByBrand(array: Array<Product>): Array<SelectOptionType> {
   const set: Set<string> = new Set();
   const arr: Array<SelectOptionType> = [];
@@ -24,7 +24,7 @@ export function createOptionsForFilteringByBrand(array: Array<Product>): Array<S
   });
   return arr;
 }
-
+/** Фильтрация по заданным параметрам **/
 export function filterProducts(
   array: Array<Product>,
   filters: FiltersType,

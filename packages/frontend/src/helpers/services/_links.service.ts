@@ -1,9 +1,4 @@
-import {
-  LinkRouteNames,
-  LinkTitles,
-  RedirectLinkRouteNames,
-  RedirectLinkTitles,
-} from '@/helpers/enums/links/_links-titles.enum';
+import { LinkTitles, RedirectLinkTitles } from '@/helpers/enums/links/_links-titles.enum';
 import {
   AuthorizedUserHeaderLinks,
   FooterLinks,
@@ -11,59 +6,52 @@ import {
   ProductCategoryType,
   PublicHeaderLinks,
 } from '@/helpers/types/_links.type';
-import {
-  ProductCategories,
-  ProductCategoryTitles,
-} from '@/helpers/enums/links/_product-categories.enum';
+import { ProductCategoryTitles } from '@/helpers/enums/products/_products-categories.enum';
+import { PageName } from '@/helpers/enums/_pages.enum';
 
 /** Ссылки хедера **/
 export const publicHeaderLinks: PublicHeaderLinks = [
   {
     title: LinkTitles.main,
-    path: LinkRouteNames.main,
-    icon: 'HomeOutlined',
+    path: PageName.main,
   },
   {
     title: LinkTitles.goods,
-    path: LinkRouteNames.goods,
-    icon: 'ShoppingBagOutlined',
+    path: PageName.goods,
   },
   {
     title: LinkTitles.cart,
-    path: LinkRouteNames.cart,
-    icon: 'ShoppingCartOutlined',
+    path: PageName.cart,
   },
   {
     title: LinkTitles.signIn,
-    path: LinkRouteNames.signIn,
-    icon: 'LogInOutlined',
+    path: PageName.signin,
   },
   {
     title: LinkTitles.signUp,
-    path: LinkRouteNames.signUp,
-    icon: 'AppRegistrationFilled',
+    path: PageName.signup,
   },
 ];
 
 export const authorizedUserHeaderLinks: AuthorizedUserHeaderLinks = [
   {
     title: LinkTitles.main,
-    path: LinkRouteNames.main,
+    path: PageName.main,
     icon: 'HomeOutlined',
   },
   {
     title: LinkTitles.goods,
-    path: LinkRouteNames.goods,
+    path: PageName.goods,
     icon: 'ShoppingBagOutlined',
   },
   {
     title: LinkTitles.cart,
-    path: LinkRouteNames.cart,
+    path: PageName.cart,
     icon: 'ShoppingCartOutlined',
   },
   {
     title: LinkTitles.profile,
-    path: LinkRouteNames.profile,
+    path: PageName.profile,
     icon: 'AccountCircleOutlined',
   },
 ];
@@ -72,11 +60,11 @@ export const authorizedUserHeaderLinks: AuthorizedUserHeaderLinks = [
 export const footerLinks: FooterLinks = [
   {
     title: RedirectLinkTitles.cv,
-    path: RedirectLinkRouteNames.cv,
+    path: PageName.cv,
   },
   {
     title: RedirectLinkTitles.github,
-    path: RedirectLinkRouteNames.github,
+    path: PageName.github,
   },
 ];
 
@@ -84,11 +72,11 @@ export const footerLinks: FooterLinks = [
 export const mainPageProfileEntranceLinks: MainPageProfileEntranceLinks = [
   {
     title: LinkTitles.signIn,
-    path: LinkRouteNames.signIn,
+    path: PageName.signin,
   },
   {
     title: LinkTitles.signUp,
-    path: LinkRouteNames.signUp,
+    path: PageName.signup,
   },
 ];
 
@@ -97,30 +85,30 @@ export const mainPageProfileEntranceLinks: MainPageProfileEntranceLinks = [
 export const Categories: ProductCategoryType = [
   {
     title: ProductCategoryTitles.all,
-    path: ProductCategories.all,
+    path: PageName.all,
   },
   {
     title: ProductCategoryTitles.candy,
-    path: ProductCategories.candy,
+    path: PageName.candy,
   },
   {
     title: ProductCategoryTitles.snacks,
-    path: ProductCategories.snacks,
+    path: PageName.snacks,
   },
   {
     title: ProductCategoryTitles.cookies,
-    path: ProductCategories.cookies,
+    path: PageName.cookies,
   },
   {
     title: ProductCategoryTitles.chocolates,
-    path: ProductCategories.chocolates,
+    path: PageName.chocolates,
   },
   {
     title: ProductCategoryTitles.food,
-    path: ProductCategories.food,
+    path: PageName.food,
   },
   {
     title: ProductCategoryTitles.sale,
-    path: ProductCategories.sale,
+    path: PageName.sale,
   },
 ];

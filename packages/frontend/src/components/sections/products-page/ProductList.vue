@@ -14,14 +14,12 @@ export default {
 <script setup lang="ts">
 import { useProductsPageStore } from '@/stores/products-page.store';
 import { useRoute } from 'vue-router';
-import {
-  ProductCategories,
-  ProductCategoryId,
-} from '@/helpers/enums/links/_product-categories.enum';
+import { ProductCategoryId } from '@/helpers/enums/products/_products-categories.enum';
 import { computed, watch } from 'vue';
 import { NSpin } from 'naive-ui';
 import ProductItem from '@/components/sections/products-page/ProductItem.vue';
-import { useWindowWidthWatcher } from '@/composables/useWindowWidthWatcher';
+import { PageName } from '@/helpers/enums/_pages.enum';
+
 const store = useProductsPageStore();
 const route = useRoute();
 const isLoading = computed(() => store.isLoading);
@@ -30,22 +28,22 @@ watch(
   routeName,
   () => {
     switch (routeName.value) {
-      case ProductCategories.candy:
+      case PageName.candy:
         store.getProductsByCategory(ProductCategoryId.candy);
         break;
-      case ProductCategories.snacks:
+      case PageName.snacks:
         store.getProductsByCategory(ProductCategoryId.snacks);
         break;
-      case ProductCategories.cookies:
+      case PageName.cookies:
         store.getProductsByCategory(ProductCategoryId.cookies);
         break;
-      case ProductCategories.chocolates:
+      case PageName.chocolates:
         store.getProductsByCategory(ProductCategoryId.chocolates);
         break;
-      case ProductCategories.food:
+      case PageName.food:
         store.getProductsByCategory(ProductCategoryId.food);
         break;
-      case ProductCategories.sale:
+      case PageName.sale:
         store.getProductsOnSaleOnly();
         break;
       default:

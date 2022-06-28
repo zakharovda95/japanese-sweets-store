@@ -1,26 +1,26 @@
 <template>
   <div class="icon-header">
-    <router-link :to="{ name: LinkRouteNames.main }">
+    <router-link :to="{ name: PageName.main }">
       <NIcon size="34" color="white"><HomeOutlined /></NIcon>
     </router-link>
   </div>
   <div class="public-icon-header">
-    <router-link :to="{ name: LinkRouteNames.goods }">
+    <router-link :to="{ name: PageName.goods }">
       <NIcon size="34" color="white"><ShoppingBagOutlined /></NIcon>
     </router-link>
   </div>
   <div class="public-icon-header">
-    <router-link :to="{ name: LinkRouteNames.cart }">
+    <router-link :to="{ name: PageName.cart }">
       <NIcon size="34" color="white"><ShoppingCartOutlined /></NIcon>
     </router-link>
   </div>
   <div class="public-icon-header">
-    <router-link :to="{ name: LinkRouteNames.signIn }">
+    <router-link :to="{ name: PageName.signin }">
       <NIcon size="34" color="white"><LogInOutlined /></NIcon>
     </router-link>
   </div>
   <div class="public-icon-header">
-    <router-link :to="{ name: LinkRouteNames.signUp }">
+    <router-link :to="{ name: PageName.signup }">
       <NIcon size="34" color="white"><AppRegistrationFilled /></NIcon>
     </router-link>
   </div>
@@ -43,7 +43,7 @@ import {
   LogInOutlined,
   AppRegistrationFilled,
 } from '@vicons/material';
-import { LinkRouteNames } from '@/helpers/enums/links/_links-titles.enum';
+import { PageName } from '@/helpers/enums/_pages.enum';
 </script>
 
 <style scoped lang="scss">
