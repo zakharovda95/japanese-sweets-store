@@ -4,7 +4,10 @@
       <NText
         :underline="underline"
         id="text"
-        :style="{ 'color': textColor, 'text-decoration': strike ? 'line-through' : '' }"
+        :style="{
+          'color': textColor,
+          'text-decoration': strike ? 'line-through' : '',
+        }"
         v-bind="$attrs"
         :type="type"
         ><slot
@@ -47,6 +50,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  align: {
+    type: String,
+    default: 'center',
+  },
 });
 const textColor = computed<string | boolean>(() => (props.color ? props.color : false));
 const size = computed<unknown>(() => {
@@ -72,7 +79,7 @@ const size = computed<unknown>(() => {
 <style scoped lang="scss">
 .ui-text {
   display: flex;
-  text-align: center;
   justify-content: center;
+  text-align: v-bind(align);
 }
 </style>

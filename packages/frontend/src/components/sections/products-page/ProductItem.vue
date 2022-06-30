@@ -3,7 +3,7 @@
     hoverable
     @click.prevent="$router.push({ name: PageName.productById, params: { productId: product.id } })"
   >
-    <div class="cover" :style="cover" />
+    <ProductCover class="cover" :image="product.image" />
     <div class="title">
       <UIText class="title" tag="NH6">{{ product.title }}</UIText>
     </div>
@@ -23,48 +23,22 @@ export default defineComponent({
 
 <script setup lang="ts">
 import { NCard } from 'naive-ui';
-import { computed, defineProps, PropType } from 'vue';
+import { defineProps, PropType } from 'vue';
 import UIText from '@/components/ui/UIText.vue';
 import { Product } from '@/helpers/types/stores-types/_products-page-store.type';
 import { PageName } from '@/helpers/enums/_pages.enum';
 import ProductCost from '@/components/sections/common/ProductCost.vue';
+import ProductCover from '@/components/sections/common/ProductCover.vue';
 
-const props = defineProps({
+defineProps({
   product: {
     type: Object as PropType<Product>,
     default: () => ({}),
   },
 });
-const cover = computed<{ [key: string]: string }>(() => {
-  return {
-    'background-image': `url(${props.product.image})`,
-    'background-size': 'cover',
-    'background-position': 'center',
-  };
-});
-const cost = computed<string | { [key: string]: string }>(() => {
-  if (props.product.sale) {
-    const priceAfterSale = (
-      props.product.cost -
-      props.product.cost * (props.product.sale / 100)
-    ).toFixed(2);
-    return {
-      fullPrice: `$ ${props.product.sale}`,
-      afterSale: `$ ${priceAfterSale}`,
-    };
-  }
-  return `$ ${props.product.cost}`;
-});
 </script>
 
 <style scoped lang="scss">
-//@media (max-width: 389px) {
-//  .n-card {
-//    width: 100vw;
-//    height: 100vw;
-//    cursor: pointer;
-//  }
-//}
 @media (max-width: 599px) {
   .n-card {
     margin-bottom: 15px;
