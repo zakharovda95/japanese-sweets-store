@@ -1,5 +1,5 @@
 <template>
-  <div class="product-cover" />
+  <img :src="productImage" class="product-cover" alt="product-image" />
 </template>
 
 <script lang="ts">
@@ -11,25 +11,24 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { computed, defineProps } from 'vue';
+import { defineProps } from 'vue';
 
-const props = defineProps({
+defineProps({
   productImage: {
     type: String,
     default: '',
   },
 });
-
-const bgImage = computed(() => `url(${props.productImage})`);
 </script>
 
 <style scoped lang="scss">
-.product-cover {
-  width: 100%;
-  height: auto;
-  display: flex;
-  background-size: cover;
-  background-position: center;
-  background-image: v-bind(bgImage);
+@media (min-width: 1400px) {
+  .product-cover {
+    width: 20vw;
+    height: 20vw;
+    display: flex;
+    background-size: cover;
+    background-position: center;
+  }
 }
 </style>

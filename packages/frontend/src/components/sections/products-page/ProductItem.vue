@@ -8,13 +8,7 @@
       <UIText class="title" tag="NH6">{{ product.title }}</UIText>
     </div>
     <div class="cost">
-      <UIText v-if="typeof cost === 'string'" class="full-price" type="primary" tag="NH4">
-        {{ cost }}
-      </UIText>
-      <div class="with-sale" v-if="typeof cost === 'object'">
-        <UIText strike class="full-price" type="error" tag="NH4"> {{ cost.fullPrice }}</UIText>
-        <UIText class="full-price" type="primary" tag="NH4"> {{ cost.afterSale }}</UIText>
-      </div>
+      <ProductCost :cost="product.cost" :sale="product.sale" />
     </div>
   </NCard>
 </template>
@@ -33,6 +27,7 @@ import { computed, defineProps, PropType } from 'vue';
 import UIText from '@/components/ui/UIText.vue';
 import { Product } from '@/helpers/types/stores-types/_products-page-store.type';
 import { PageName } from '@/helpers/enums/_pages.enum';
+import ProductCost from '@/components/sections/common/ProductCost.vue';
 
 const props = defineProps({
   product: {

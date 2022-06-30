@@ -11,7 +11,7 @@ export const ProductRoutes: Array<RouteRecordRaw> = [
       {
         path: ':productId',
         name: PageName.productById,
-        component: () => import('@/components/sections/product-page/ProductView.vue'),
+        component: () => import('@/components/sections/product-page/ProductPageView.vue'),
         props: true,
       },
     ],
