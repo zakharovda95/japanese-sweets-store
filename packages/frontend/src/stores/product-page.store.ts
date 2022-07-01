@@ -10,7 +10,7 @@ export const useProductPageStore = defineStore('product', {
       data: null,
     } as ProductPageStoreType),
   actions: {
-    async fetchData(id: string) {
+    async fetchData(id: string): Promise<void> {
       this.isLoading = true;
       const res = await getProductById(id);
       this.data = formatProductDataForDisplaying(id, res);

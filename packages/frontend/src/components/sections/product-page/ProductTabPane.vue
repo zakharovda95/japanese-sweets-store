@@ -36,10 +36,20 @@ defineProps({
 </script>
 
 <style scoped lang="scss">
-.item {
-  font-size: 1.1rem;
+@media (max-width: 799px) {
+  .item {
+    font-size: 1.1rem;
+  }
+  .form {
+    width: 90%;
+  }
 }
-.form {
-  width: 70%;
+@media (min-width: 800px) {
+  .item {
+    font-size: 1.1rem;
+  }
+  .form {
+    width: 70%;
+  }
 }
 </style>

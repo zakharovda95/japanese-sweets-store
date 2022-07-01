@@ -25,3 +25,20 @@ export function formatProductsDataForDisplaying(
 export function getProductsOnSaleOnly(array: Array<Product>): Array<Product> {
   return array.filter(item => item.sale);
 }
+
+export function getCategoryId(category: string): number | null {
+  switch (category) {
+    case 'candy':
+      return 1;
+    case 'snacks':
+      return 2;
+    case 'cookies':
+      return 3;
+    case 'chocolates':
+      return 4;
+    case 'food':
+      return 5;
+    default:
+      return null;
+  }
+}
