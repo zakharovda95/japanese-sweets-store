@@ -77,6 +77,7 @@ const { widthX } = useWindowWidthWatcher();
       justify-content: space-around;
       flex-wrap: wrap;
       background: $PINK;
+      padding: 5px;
       .links {
         flex-wrap: wrap;
       }

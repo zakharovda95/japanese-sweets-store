@@ -1,6 +1,6 @@
 <template>
   <div class="add-to-cart">
-    <NButton class="add" size="large" color="#ff69b4">ADD TO CART</NButton>
+    <NButton class="add" size="large" color="#ff69b4" @click="addToCart">ADD TO CART</NButton>
     <NInputNumber
       :min="1"
       :max="10"
@@ -22,9 +22,25 @@ export default defineComponent({
 
 <script setup lang="ts">
 import { NButton, NInputNumber } from 'naive-ui';
-import { ref, defineEmits } from 'vue';
-defineEmits(['custom:changeAmount']);
+import { ref, defineProps, PropType } from 'vue';
+import { Product } from '@/helpers/types/stores-types/_products-page-store.type';
+import { useProductCartStore } from '@/stores/product-cart.store';
+import { CartProductType } from '@/helpers/types/stores-types/_product-cart-store.type';
 const count = ref<number>(1);
+const props = defineProps({
+  product: {
+    type: Object as PropType<Product | null>,
+    required: true,
+  },
+});
+const store = useProductCartStore();
+const addToCart = (): void => {
+  const cartProduct: CartProductType = {
+    product: props.product,
+    amount: count.value,
+  };
+  store.addToCart(cartProduct);
+};
 </script>
 
 <style scoped lang="scss">

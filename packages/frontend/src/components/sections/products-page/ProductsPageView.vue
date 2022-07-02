@@ -38,13 +38,7 @@ const showModal = ref<boolean>(false);
 </script>
 
 <style scoped lang="scss">
-@media (max-width: 390px) {
-  .product-view {
-    margin: 0 auto;
-    width: 95vw;
-  }
-}
-@media (max-width: 1019px) {
+@media (max-width: 399px) {
   .product-view {
     display: flex;
     flex-direction: column;
@@ -68,7 +62,31 @@ const showModal = ref<boolean>(false);
     }
   }
 }
-@media (min-width: 1020px) {
+@media (min-width: 400px) and (max-width: 1019px) {
+  .product-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .menu {
+      margin-top: 34px;
+      .ribbon-menu {
+        margin: 0 auto;
+      }
+    }
+    .content {
+      display: flex;
+      flex-direction: column;
+      .small-screen-filter {
+        margin-left: 5px;
+        margin-top: 24px;
+        margin-bottom: 24px;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}
+@media (min-width: 1020px) and (max-width: 1399px) {
   .product-view {
     display: flex;
     flex-direction: column;
@@ -89,7 +107,7 @@ const showModal = ref<boolean>(false);
     }
   }
 }
-@media (min-width: 1399px) {
+@media (min-width: 1400px) {
   .product-view {
     display: flex;
     flex-direction: column;

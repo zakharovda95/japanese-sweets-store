@@ -10,6 +10,9 @@
       <NFormItem label="Review">
         <NInput type="textarea" rows="5" placeholder="Review" maxlength="500" show-count />
       </NFormItem>
+      <NFormItem>
+        <NButton type="primary" size="small">SEND</NButton>
+      </NFormItem>
     </NForm>
   </div>
 </template>
@@ -23,14 +26,7 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { NForm, NFormItem, NRate, NInput } from 'naive-ui';
+import { NForm, NFormItem, NRate, NInput, NButton } from 'naive-ui';
 </script>
 
-<style scoped lang="scss">
-.product-review-form {
-  .row-1 {
-    display: flex;
-    flex-direction: column;
-  }
-}
-</style>
+<style scoped lang="scss"></style>

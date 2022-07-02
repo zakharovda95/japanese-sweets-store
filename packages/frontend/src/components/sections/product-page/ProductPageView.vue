@@ -1,5 +1,6 @@
 <template>
-  <div class="product-view">
+  <NSpin v-if="isLoading" />
+  <div class="product-view" v-if="!isLoading">
     <div class="content">
       <ProductCover class="cover" :image="product.image" />
       <div class="description-wrap">
@@ -9,7 +10,7 @@
           {{ product.description }}
         </UIText>
         <ProductCost font-size="NH1" class="price" :cost="product.cost" :sale="product.sale" />
-        <AddToCart class="add" />
+        <AddToCart :product="product" class="add" />
       </div>
     </div>
     <ProductTabPane :details="product.details" class="tab-pane" />
@@ -30,12 +31,13 @@ import { computed } from 'vue';
 import UIText from '@/components/ui/UIText.vue';
 import ProductCost from '@/components/sections/common/ProductCost.vue';
 import AddToCart from '@/components/sections/product-page/AddToCart.vue';
-import { NRate } from 'naive-ui';
+import { NRate, NSpin } from 'naive-ui';
 import ProductTabPane from '@/components/sections/product-page/ProductTabPane.vue';
 import { Product } from '@/helpers/types/stores-types/_products-page-store.type';
 
 const store = useProductPageStore();
 const product = computed<Product | null>(() => store.data);
+const isLoading = computed<boolean>(() => store.isLoading);
 </script>
 
 <style scoped lang="scss">
@@ -50,11 +52,10 @@ const product = computed<Product | null>(() => store.data);
     .content {
       display: flex;
       flex-direction: column;
-      margin-top: 34px;
-      justify-content: space-around;
+      justify-content: center;
       .cover {
-        width: 90vw;
-        height: 90vw;
+        width: 80vw;
+        height: 80vw;
         margin-bottom: 34px;
       }
       .description-wrap {
@@ -75,14 +76,12 @@ const product = computed<Product | null>(() => store.data);
   .product-view {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     margin-top: 34px;
     background: #ffffff;
     padding: 24px;
     .content {
       display: flex;
       margin-top: 34px;
-      justify-content: space-around;
       flex-direction: column;
       .cover {
         width: 50vw;
@@ -92,7 +91,6 @@ const product = computed<Product | null>(() => store.data);
       .description-wrap {
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
         .rate {
           margin-bottom: 12px;
         }

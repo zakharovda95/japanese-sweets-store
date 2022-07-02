@@ -1,6 +1,6 @@
 <template>
   <div class="product-page">
-    <ProductsView />
+    <ProductsPageView />
   </div>
 </template>
 
@@ -13,26 +13,26 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import ProductsView from '@/components/sections/products-page/ProductsView.vue';
+import ProductsPageView from '@/components/sections/products-page/ProductsPageView.vue';
 </script>
 
 <style scoped lang="scss">
-@media (max-width: 390px) {
+@media (max-width: 399px) {
   .product-page {
     margin: 0 auto;
   }
 }
-@media (min-width: 799px) {
+@media (min-width: 400px) and (max-width: 1199px){
   .product-page {
     margin: 0 auto;
   }
 }
-@media (min-width: 1199px) {
+@media (min-width: 1200px) and (max-width: 1399px){
   .product-page {
     margin: 0 auto;
   }
 }
-@media (min-width: 1399px) {
+@media (min-width: 1400px) {
   .product-page {
     margin: 0 auto;
   }

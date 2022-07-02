@@ -3,8 +3,8 @@
     <NTabs style="font-size: 1.2rem" type="line" animated>
       <NTabPane tab="Details" name="details">
         <NList bordered>
-          <NThing class="item" v-for="detail in details" :key="detail">
-            {{ detail }}
+          <NThing class="item" v-for="(detail, index) in details" :key="detail">
+            {{ `${index + 1}) ${detail}` }}
           </NThing>
         </NList>
       </NTabPane>
@@ -41,7 +41,7 @@ defineProps({
     font-size: 1.1rem;
   }
   .form {
-    width: 90%;
+    width: 95%;
   }
 }
 @media (min-width: 800px) {
