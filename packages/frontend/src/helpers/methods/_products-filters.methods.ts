@@ -25,6 +25,7 @@ export function createOptionsForFilteringByBrand(array: Array<Product>): Array<S
   return arr;
 }
 /** Фильтрация по заданным параметрам **/
+// TODO заменить на class
 export function filterProducts(
   array: Array<Product>,
   filters: FiltersType,

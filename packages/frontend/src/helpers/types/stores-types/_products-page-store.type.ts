@@ -7,6 +7,7 @@ export type Product = {
   cost: number;
   producer: string;
   details?: Array<string>;
+  reviews?: Array<number> | null;
   sale: number;
 };
 
@@ -16,7 +17,14 @@ export interface ProductsPageStoreType {
   data: Array<Product> | null | undefined;
 }
 
+export type ReviewDataType = {
+  rate: number;
+  nickname: string;
+  review: string;
+};
+
 export interface ProductPageStoreType {
   isLoading: boolean;
   data: Product | null;
+  reviewData: ReviewDataType;
 }

@@ -20,6 +20,16 @@ export type ProductByIdCategoryType = {
   };
 };
 
+export type ProductReviewType = {
+  id: number;
+  attributes: {
+    rate: number;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+  };
+};
+
 export interface ProductByIdType {
   title: string;
   description: string;
@@ -33,5 +43,8 @@ export interface ProductByIdType {
   category: ProductByIdCategoryType;
   details: {
     data: Array<ProductByIdDetailType>;
+  };
+  reviews: {
+    data: Array<ProductReviewType>;
   };
 }

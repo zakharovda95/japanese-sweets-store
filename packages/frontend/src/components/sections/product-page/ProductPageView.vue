@@ -1,11 +1,10 @@
 <template>
-  <NSpin v-if="isLoading" />
-  <div class="product-view" v-if="!isLoading">
+  <div class="product-view">
     <div class="content">
       <ProductCover class="cover" :image="product.image" />
       <div class="description-wrap">
         <UIText align="left" class="title">{{ product.title }}</UIText>
-        <NRate class="rate" />
+        <NRate class="rate" :value="rate" @update:value="rate = $event" />
         <UIText align="left" tag="NH3" type="#ffff" class="description">
           {{ product.description }}
         </UIText>
@@ -20,7 +19,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 export default defineComponent({
-  name: 'ProductView',
+  name: 'ProductPageView',
 });
 </script>
 
@@ -31,13 +30,20 @@ import { computed } from 'vue';
 import UIText from '@/components/ui/UIText.vue';
 import ProductCost from '@/components/sections/common/ProductCost.vue';
 import AddToCart from '@/components/sections/product-page/AddToCart.vue';
-import { NRate, NSpin } from 'naive-ui';
+import { NRate } from 'naive-ui';
 import ProductTabPane from '@/components/sections/product-page/ProductTabPane.vue';
 import { Product } from '@/helpers/types/stores-types/_products-page-store.type';
 
 const store = useProductPageStore();
 const product = computed<Product | null>(() => store.data);
-const isLoading = computed<boolean>(() => store.isLoading);
+const rate = computed<number>({
+  get() {
+    return store.reviewData.rate;
+  },
+  set(val: number) {
+    store.reviewData.rate = val;
+  },
+});
 </script>
 
 <style scoped lang="scss">

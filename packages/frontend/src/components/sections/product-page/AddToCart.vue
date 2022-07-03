@@ -35,11 +35,18 @@ const props = defineProps({
 });
 const store = useProductCartStore();
 const addToCart = (): void => {
-  const cartProduct: CartProductType = {
-    product: props.product,
-    amount: count.value,
-  };
-  store.addToCart(cartProduct);
+  if (props.product) {
+    const cartProduct: CartProductType = {
+      product: {
+        id: props.product.id,
+        title: props.product.title,
+        cost: props.product.cost,
+        sale: props.product.sale,
+      },
+      amount: count.value,
+    };
+    store.addToCart(cartProduct);
+  }
 };
 </script>
 

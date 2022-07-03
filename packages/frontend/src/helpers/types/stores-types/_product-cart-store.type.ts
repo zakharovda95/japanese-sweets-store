@@ -1,7 +1,12 @@
-import { Product } from '@/helpers/types/stores-types/_products-page-store.type';
+export type CartProductInfoType = {
+  id: number;
+  title: string;
+  cost: number;
+  sale: number;
+};
 
 export type CartProductType = {
-  product: Product | null;
+  product: CartProductInfoType | null;
   amount: number;
 };
 

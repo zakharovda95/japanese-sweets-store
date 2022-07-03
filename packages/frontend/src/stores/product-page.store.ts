@@ -8,6 +8,11 @@ export const useProductPageStore = defineStore('product', {
     ({
       isLoading: true,
       data: null,
+      reviewData: {
+        rate: 0,
+        nickname: '',
+        review: '',
+      },
     } as ProductPageStoreType),
   actions: {
     async fetchData(id: string): Promise<void> {
