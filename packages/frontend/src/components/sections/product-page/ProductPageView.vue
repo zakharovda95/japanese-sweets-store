@@ -4,7 +4,12 @@
       <ProductCover class="cover" :image="product.image" />
       <div class="description-wrap">
         <UIText align="left" class="title">{{ product.title }}</UIText>
-        <NRate class="rate" :value="rate" @update:value="rate = $event" />
+        <div class="rating-wrap">
+          <NRate class="rate" :value="rate" @update:value="rate = $event" />
+          <UIText align="left" class="rating" type="success" tag="NH3">
+            Rating: {{ averageRating }}
+          </UIText>
+        </div>
         <UIText align="left" tag="NH3" type="#ffff" class="description">
           {{ product.description }}
         </UIText>
@@ -44,6 +49,16 @@ const rate = computed<number>({
     store.reviewData.rate = val;
   },
 });
+const averageRating = computed<number | string>(() => {
+  if (product.value) {
+    if (product.value?.reviews?.length) {
+      return product.value.reviews.reduce((a, b) => a + b, 0 / product.value.reviews.length || 1);
+    } else {
+      return 'No rating';
+    }
+  }
+  return '';
+});
 </script>
 
 <style scoped lang="scss">
@@ -68,8 +83,13 @@ const rate = computed<number>({
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        .rate {
-          margin-bottom: 12px;
+        .rating-wrap {
+          display: flex;
+          justify-content: space-around;
+          .rate {
+            margin-top: 3px;
+            margin-right: 5px;
+          }
         }
       }
     }
@@ -97,8 +117,13 @@ const rate = computed<number>({
       .description-wrap {
         display: flex;
         flex-direction: column;
-        .rate {
-          margin-bottom: 12px;
+        .rating-wrap {
+          display: flex;
+          justify-content: space-around;
+          .rate {
+            margin-top: 3px;
+            margin-right: 5px;
+          }
         }
       }
     }
@@ -128,8 +153,13 @@ const rate = computed<number>({
         flex-direction: column;
         justify-content: flex-start;
         width: 40%;
-        .rate {
-          margin-bottom: 12px;
+        .rating-wrap {
+          display: flex;
+          justify-content: space-around;
+          .rate {
+            margin-top: 3px;
+            margin-right: 5px;
+          }
         }
       }
     }
@@ -159,8 +189,12 @@ const rate = computed<number>({
         flex-direction: column;
         justify-content: flex-start;
         width: 40%;
-        .rate {
-          margin-bottom: 12px;
+        .rating-wrap {
+          display: flex;
+          justify-content: space-around;
+          .rate {
+            margin-top: 3px;
+          }
         }
       }
     }
@@ -190,8 +224,12 @@ const rate = computed<number>({
         flex-direction: column;
         justify-content: flex-start;
         width: 40%;
-        .rate {
-          margin-bottom: 12px;
+        .rating-wrap {
+          display: flex;
+          justify-content: space-around;
+          .rate {
+            margin-top: 3px;
+          }
         }
       }
     }

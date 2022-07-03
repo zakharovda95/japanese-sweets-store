@@ -41,7 +41,7 @@ const price = computed<string | { [key: string]: string }>(() => {
   if (props.sale) {
     const priceAfterSale = (props.cost - props.cost * (props.sale / 100)).toFixed(2);
     return {
-      fullPrice: `$ ${props.sale}`,
+      fullPrice: `$ ${props.cost.toFixed(2)}`,
       afterSale: `$ ${priceAfterSale}`,
     };
   }

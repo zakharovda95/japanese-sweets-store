@@ -26,7 +26,7 @@ export const MainRoutes: Array<RouteRecordRaw> = [
   {
     path: 'auth',
     name: PageName.auth,
-    component: () => import('@/pages/MainPage.vue'),
+    component: () => import('@/pages/AuthPage.vue'),
     children: [...AuthRoutes],
   },
 ];

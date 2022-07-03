@@ -3,8 +3,8 @@
     <NTabs style="font-size: 1.2rem" type="line" animated>
       <NTabPane tab="Details" name="details">
         <NList bordered>
-          <NThing class="item" v-for="(detail, index) in details" :key="detail">
-            {{ `${index + 1}) ${detail}` }}
+          <NThing class="item" v-for="detail in details" :key="detail">
+            {{ `&#9733; ${detail}` }}
           </NThing>
         </NList>
       </NTabPane>

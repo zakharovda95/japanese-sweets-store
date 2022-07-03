@@ -2,7 +2,6 @@ import { ProductByIdType } from '@/helpers/types/requests-types/_product-request
 import { Product } from '@/helpers/types/stores-types/_products-page-store.type';
 
 export function formatProductDataForDisplaying(id: string, product: ProductByIdType): Product {
-  console.log(product);
   return {
     id: +id,
     title: product.title,
