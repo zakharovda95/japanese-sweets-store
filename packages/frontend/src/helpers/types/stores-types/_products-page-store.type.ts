@@ -22,5 +22,6 @@ export interface ProductsPageStoreType {
 export interface ProductPageStoreType {
   isLoading: boolean;
   data: Product | null;
+  images: string[] | null;
   reviewData: ReviewRequestType;
 }
