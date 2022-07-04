@@ -1,9 +1,9 @@
 import { ProductByIdType } from '@/helpers/types/requests-types/_product-request.type';
 import { Product } from '@/helpers/types/stores-types/_products-page-store.type';
 
-export function formatProductDataForDisplaying(id: string, product: ProductByIdType): Product {
+export function formatProductDataForDisplaying(id: number, product: ProductByIdType): Product {
   return {
-    id: +id,
+    id: id,
     title: product.title,
     description: product.description,
     cost: product.cost,

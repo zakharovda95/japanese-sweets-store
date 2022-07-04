@@ -16,7 +16,7 @@ export const useProductPageStore = defineStore('product', {
       },
     } as ProductPageStoreType),
   actions: {
-    async fetchData(id: string): Promise<void> {
+    async fetchData(id: number): Promise<void> {
       this.isLoading = true;
       const res = await getProductById(id);
       this.data = formatProductDataForDisplaying(id, res);
@@ -25,7 +25,9 @@ export const useProductPageStore = defineStore('product', {
     async sendReview(): Promise<void> {
       try {
         await sendReview(this.reviewData);
-        await this.fetchData(String(this.reviewData.product));
+        if (this.reviewData.product) {
+          await this.fetchData(this.reviewData.product);
+        }
         this.resetForm();
       } catch (err) {
         console.log(err);

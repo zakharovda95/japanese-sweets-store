@@ -9,7 +9,7 @@ const params: RequestParamsType = {
   populate: '*',
 };
 
-export async function getProductById(id: string) {
+export async function getProductById(id: number) {
   const res = await provider.axios.get(`/api/products/${id}`, { params: params });
   return res.data.data.attributes;
 }

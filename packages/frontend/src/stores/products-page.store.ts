@@ -37,7 +37,7 @@ export const useProductsPageStore = defineStore('products', {
       this.dataState = cloneDeep(this.data);
       this.isLoading = false;
     },
-    async getProductsByCategory(id: string | number) {
+    async getProductsByCategory(id: number) {
       this.isLoading = true;
       const res: CategoryType = await getProductsByCategory(id);
       const productsArray: Array<CategoryProductType> = res.data.attributes.products.data;

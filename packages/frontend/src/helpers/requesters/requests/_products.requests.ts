@@ -10,7 +10,7 @@ export async function getAllProducts() {
   return res.data;
 }
 
-export async function getProductsByCategory(id: string | number) {
+export async function getProductsByCategory(id: number) {
   const res = await provider.axios.get(`/api/categories/${String(id)}`, { params: params });
   return res.data;
 }

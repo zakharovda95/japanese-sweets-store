@@ -18,6 +18,15 @@
       </div>
     </div>
     <ProductTabPane :details="product.details" class="tab-pane" />
+    <UICarousel
+      :slides-per-view="3"
+      :space-between="20"
+      :loop="false"
+      draggable
+      class="bottom-carousel"
+      :images="images"
+      alt="carousel-image"
+    />
   </div>
 </template>
 
@@ -31,14 +40,15 @@ export default defineComponent({
 <script setup lang="ts">
 import ProductCover from '@/components/sections/common/ProductCover.vue';
 import { useProductPageStore } from '@/stores/product-page.store';
-import { computed } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import UIText from '@/components/ui/UIText.vue';
 import ProductCost from '@/components/sections/common/ProductCost.vue';
 import AddToCart from '@/components/sections/product-page/AddToCart.vue';
 import { NRate } from 'naive-ui';
 import ProductTabPane from '@/components/sections/product-page/ProductTabPane.vue';
 import { Product } from '@/helpers/types/stores-types/_products-page-store.type';
-
+import { getRandomImagesForCarousel } from '@/helpers/requesters/requests/_carousels.requests';
+import UICarousel from '@/components/ui/UICarousel.vue';
 const store = useProductPageStore();
 const product = computed<Product | null>(() => store.data);
 const rate = computed<number>({
