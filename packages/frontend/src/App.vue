@@ -1,8 +1,10 @@
 <template>
   <div class="container">
-    <NConfigProvider>
-      <router-view />
-    </NConfigProvider>
+    <NMessageProvider>
+      <NConfigProvider>
+        <router-view />
+      </NConfigProvider>
+    </NMessageProvider>
   </div>
 </template>
 
@@ -15,7 +17,7 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { NConfigProvider } from 'naive-ui';
+import { NConfigProvider, NMessageProvider } from 'naive-ui';
 </script>
 
 <style scoped lang="scss">

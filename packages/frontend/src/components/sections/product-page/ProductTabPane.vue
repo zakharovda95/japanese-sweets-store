@@ -9,7 +9,7 @@
         </NList>
       </NTabPane>
       <NTabPane tab="Review" name="review">
-        <ProductReviewForm :rate="rate" class="form" />
+        <ProductReviewForm class="form" />
       </NTabPane>
     </NTabs>
   </div>

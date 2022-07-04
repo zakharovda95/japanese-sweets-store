@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 import {
   getMainPageCarouselImages,
   getMostPopularProductsCarouselImages,
-} from '@/helpers/requesters/requester/_carousels.requests';
+} from '@/helpers/requesters/requests/_carousels.requests';
 import {
   ImageType,
   MainPageCarouselType,

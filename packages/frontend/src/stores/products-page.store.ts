@@ -3,7 +3,7 @@ import { ProductsPageStoreType } from '@/helpers/types/stores-types/_products-pa
 import {
   getAllProducts,
   getProductsByCategory,
-} from '@/helpers/requesters/requester/_products.requests';
+} from '@/helpers/requesters/requests/_products.requests';
 import {
   AllProductsType,
   ProductType,

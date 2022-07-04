@@ -8,3 +8,15 @@ export interface RequestParamsType {
     limit?: number;
   };
 }
+
+export interface ReviewRequestType {
+  userId?: null;
+  userNickname?: string;
+  review?: string;
+  rate?: number;
+  product: number | null;
+}
+
+export interface ReviewDataType {
+  data: ReviewRequestType;
+}

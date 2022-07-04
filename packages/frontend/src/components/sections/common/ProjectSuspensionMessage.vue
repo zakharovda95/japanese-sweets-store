@@ -5,7 +5,7 @@
     </UIText>
     <UIText :tag="widthX > 480 ? HeaderSize.h2 : HeaderSize.h3">
       В данный момент все свое свободное время я уделяю участию в стартап-проекте, в котором мы
-      реанимируем популярную ранее браузерную игру "CastleWars"
+      разрабатываем браузерную игру "Castle Keepers"
     </UIText>
     <UIText type="error" :tag="widthX > 480 ? HeaderSize.h2 : HeaderSize.h3">
       (Вы можете перейти по <a href="#">ссылке</a> и посмотреть текущую задеплоиную версию нашего

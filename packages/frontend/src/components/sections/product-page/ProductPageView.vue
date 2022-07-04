@@ -52,9 +52,14 @@ const rate = computed<number>({
 const averageRating = computed<number | string>(() => {
   if (product.value) {
     if (product.value?.reviews?.length) {
-      return product.value.reviews.reduce((a, b) => a + b, 0 / product.value.reviews.length || 1);
+      return product.value.reviews.reduce((a, b) => {
+        if (product.value?.reviews) {
+          return a + b / product.value.reviews?.length || 1;
+        }
+        return null;
+      }, 0);
     } else {
-      return 'No rating';
+      return 'No rating:( be first!';
     }
   }
   return '';

@@ -1,3 +1,5 @@
+import { ReviewRequestType } from '@/helpers/types/requests-types/_request-params.type';
+
 export type Product = {
   id: number;
   title: string;
@@ -17,14 +19,8 @@ export interface ProductsPageStoreType {
   data: Array<Product> | null | undefined;
 }
 
-export type ReviewDataType = {
-  rate: number;
-  nickname: string;
-  review: string;
-};
-
 export interface ProductPageStoreType {
   isLoading: boolean;
   data: Product | null;
-  reviewData: ReviewDataType;
+  reviewData: ReviewRequestType;
 }
