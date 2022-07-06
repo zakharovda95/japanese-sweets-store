@@ -18,11 +18,6 @@
       </div>
     </div>
     <ProductTabPane :details="product.details" class="tab-pane" />
-    <UICarousel
-      :images="images"
-      alt="carousel-image"
-      width="50%"
-    />
   </div>
 </template>
 
@@ -43,11 +38,10 @@ import AddToCart from '@/components/sections/product-page/AddToCart.vue';
 import { NRate } from 'naive-ui';
 import ProductTabPane from '@/components/sections/product-page/ProductTabPane.vue';
 import { Product } from '@/helpers/types/stores-types/_products-page-store.type';
-import UICarousel from '@/components/ui/UICarousel.vue';
 
 const store = useProductPageStore();
 const product = computed<Product | null>(() => store.data);
-const images = computed<Array<string>>(() => store.images);
+
 const rate = computed<number>({
   get() {
     return store.reviewData.rate;
