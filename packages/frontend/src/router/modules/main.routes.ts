@@ -21,7 +21,7 @@ export const MainRoutes: Array<RouteRecordRaw> = [
   {
     path: 'cart',
     name: PageName.cart,
-    component: () => import('@/pages/MainPage.vue'),
+    component: () => import('@/pages/ProductCartPage.vue'),
   },
   {
     path: 'auth',

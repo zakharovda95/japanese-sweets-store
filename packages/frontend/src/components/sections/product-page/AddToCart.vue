@@ -40,6 +40,7 @@ const addToCart = (): void => {
       product: {
         id: props.product.id,
         title: props.product.title,
+        image: props.product.image,
         cost: props.product.cost,
         sale: props.product.sale,
       },
