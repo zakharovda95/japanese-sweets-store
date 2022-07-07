@@ -29,7 +29,6 @@ export const useProductPageStore = defineStore('product', {
     },
     async getRandomImagesForCarousel(category: string): Promise<void> {
       this.images = await getRandomImagesForCarousel(category);
-      console.log(this.images);
     },
     async sendReview(): Promise<void> {
       try {

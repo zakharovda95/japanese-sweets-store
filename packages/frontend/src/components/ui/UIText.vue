@@ -81,5 +81,7 @@ const size = computed<unknown>(() => {
   display: flex;
   justify-content: center;
   text-align: v-bind(align);
+  vertical-align: center;
+  align-items: center;
 }
 </style>

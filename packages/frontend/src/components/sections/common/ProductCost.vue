@@ -36,16 +36,30 @@ const props = defineProps({
     type: String,
     default: 'NH6',
   },
+  amount: {
+    type: Number,
+    required: false,
+    default: () => null,
+  },
 });
+
+const totalPrice = computed<number>(() => {
+  if (props.amount) {
+    return props.amount * props.cost;
+  } else {
+    return props.cost;
+  }
+});
+
 const price = computed<string | { [key: string]: string }>(() => {
   if (props.sale) {
-    const priceAfterSale = (props.cost - props.cost * (props.sale / 100)).toFixed(2);
+    const priceAfterSale = (totalPrice.value - totalPrice.value * (props.sale / 100)).toFixed(2);
     return {
-      fullPrice: `$ ${props.cost.toFixed(2)}`,
+      fullPrice: `$ ${totalPrice.value.toFixed(2)}`,
       afterSale: `$ ${priceAfterSale}`,
     };
   }
-  return `$ ${props.cost}`;
+  return `$ ${totalPrice.value.toFixed(2)}`;
 });
 </script>
 

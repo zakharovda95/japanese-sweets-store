@@ -14,6 +14,11 @@
             <ProductCartItem @custom:update-item="updateItem" :item="item" />
           </td>
         </tr>
+        <tr>
+          <td>
+            Тотал
+          </td>
+        </tr>
       </tbody>
     </NTable>
   </div>
@@ -33,10 +38,11 @@ import UIText from '@/components/ui/UIText.vue';
 import ProductCartItem from '@/components/sections/product-cart-page/ProductCartItem.vue';
 import { useProductCartStore } from '@/stores/product-cart.store';
 import { computed } from 'vue';
+import { CartProductType } from '@/helpers/types/stores-types/_product-cart-store.type';
 const store = useProductCartStore();
 const userCart = computed(() => store.userCart);
-const updateItem = (e: Event): void => {
-  if (store.userCart.length)
+const updateItem = (e: CartProductType): void => {
+  store.updateUserCart(e);
 };
 </script>
 
