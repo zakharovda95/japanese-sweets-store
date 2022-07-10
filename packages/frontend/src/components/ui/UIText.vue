@@ -54,6 +54,10 @@ const props = defineProps({
     type: String,
     default: 'center',
   },
+  justify: {
+    type: String,
+    default: 'center',
+  },
 });
 const textColor = computed<string | boolean>(() => (props.color ? props.color : false));
 const size = computed<unknown>(() => {
@@ -79,9 +83,9 @@ const size = computed<unknown>(() => {
 <style scoped lang="scss">
 .ui-text {
   display: flex;
-  justify-content: center;
+  justify-content: v-bind(justify);
   text-align: v-bind(align);
-  vertical-align: center;
-  align-items: center;
+  vertical-align: v-bind(align);
+  align-items: v-bind(align);
 }
 </style>

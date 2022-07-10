@@ -1,8 +1,7 @@
 <template>
   <div class="product-cart-view">
-    {{ userCart }}
     <UIText>Your cart</UIText>
-    <div class="error" v-if="!userCart || !userCart.length">Your cart empty!</div>
+    <EmptyCart class="empty-cart" v-if="!userCart || !userCart.length" />
     <ProductCartList v-if="userCart && userCart.length" />
   </div>
 </template>
@@ -20,9 +19,14 @@ import { useProductCartStore } from '@/stores/product-cart.store';
 import { computed } from 'vue';
 import ProductCartList from '@/components/sections/product-cart-page/ProductCartList.vue';
 import UIText from '@/components/ui/UIText.vue';
+import EmptyCart from '@/components/sections/product-cart-page/EmptyCart.vue';
 
 const store = useProductCartStore();
 const userCart = computed(() => store.userCart);
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.empty-cart {
+  margin-bottom: 34px;
+}
+</style>

@@ -59,6 +59,7 @@ const updateItem = (e: CartProductType): void => {
   .product-cart-list {
     display: flex;
     flex-direction: column;
+    width: 60vw;
   }
 }
 </style>

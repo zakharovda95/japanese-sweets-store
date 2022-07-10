@@ -95,7 +95,6 @@ const goTo = (): void => {
     align-items: center;
     .title-wrap {
       display: flex;
-      justify-content: space-between;
       align-items: center;
       width: 70%;
       height: 100%;
