@@ -5,9 +5,12 @@
     "bootstrap": "lerna bootstrap",
     "clean": "lerna clean -y",
     "fontend:start:dev": "npm --prefix packages/frontend run serve",
-    "backend:start:dev": "npm --prefix packages/strapi run develop"
+    "backend:start:dev": "npm --prefix packages/backend run develop"
   },
   "devDependencies": {
     "lerna": "^5.1.4"
+  },
+  "dependencies": {
+    "yarn": "^1.22.19"
   }
 }
