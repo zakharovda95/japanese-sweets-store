@@ -7,6 +7,7 @@ import {
 import { getProductsByCategory } from '@/helpers/requesters/requests/_products.requests';
 import { getCategoryId } from '@/helpers/methods/_products.methods';
 import { CategoryType } from '@/helpers/types/requests-types/_categories-requests.type';
+import { APP_CONFIG } from '@/helpers/services/_app-config.service';
 const params: RequestParamsType = {
   populate: '*',
 };
@@ -26,7 +27,9 @@ export async function getRandomImagesForCarousel(category: string): Promise<Arra
   if (id) {
     const res: CategoryType = await getProductsByCategory(id);
     const products = res.data.attributes.products.data;
-    const urlArr = products.map(product => product.attributes.image);
+    const urlArr = products.map(
+      product => APP_CONFIG.BACK_URL + product.attributes.image.data.attributes.url,
+    );
     return urlArr.sort(() => 0.5 - Math.random()).slice(0, 5);
   } else {
     return null;

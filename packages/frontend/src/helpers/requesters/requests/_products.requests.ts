@@ -6,11 +6,17 @@ const params: RequestParamsType = {
 };
 
 export async function getAllProducts() {
-  const res = await provider.axios.get('/api/products?pagination[page]=1&pagination[pageSize]=100');
+  const res = await provider.axios.get(
+    '/api/products?pagination[page]=1&pagination[pageSize]=100',
+    { params: params },
+  );
   return res.data;
 }
 
 export async function getProductsByCategory(id: number) {
-  const res = await provider.axios.get(`/api/categories/${String(id)}`, { params: params });
+  const res = await provider.axios.get(`/api/categories/${String(id)}`, {
+    params: { populate: '*' },
+  });
+  console.log(res.data);
   return res.data;
 }

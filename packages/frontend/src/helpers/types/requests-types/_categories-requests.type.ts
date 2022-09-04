@@ -1,7 +1,9 @@
+import { ImageType } from '@/helpers/types/requests-types/_carousel-requests.type';
+
 export type CategoryProductAttributeType = {
   title: string;
   description: string;
-  image: string;
+  image: { data: ImageType };
   cost: number;
   producer: string;
   sale: number;

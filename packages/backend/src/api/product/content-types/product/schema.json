@@ -22,11 +22,6 @@
       "required": true,
       "default": "some description"
     },
-    "image": {
-      "type": "string",
-      "required": true,
-      "default": "some image url"
-    },
     "cost": {
       "default": 1,
       "required": true,
@@ -62,6 +57,13 @@
       "relation": "oneToMany",
       "target": "api::review.review",
       "mappedBy": "product"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
