@@ -1,0 +1,67 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "default": "product name"
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "default": "some description"
+    },
+    "image": {
+      "type": "string",
+      "required": true,
+      "default": "some image url"
+    },
+    "cost": {
+      "default": 1,
+      "required": true,
+      "max": 9999999,
+      "type": "decimal",
+      "min": 1
+    },
+    "producer": {
+      "type": "string",
+      "default": "some producer",
+      "required": true
+    },
+    "sale": {
+      "type": "integer",
+      "default": 0,
+      "required": true,
+      "max": 30
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "products"
+    },
+    "details": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::detail.detail",
+      "mappedBy": "product"
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::review.review",
+      "mappedBy": "product"
+    }
+  }
+}
