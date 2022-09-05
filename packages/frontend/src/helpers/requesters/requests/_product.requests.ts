@@ -26,5 +26,4 @@ export async function sendReview(params: ReviewRequestType) {
     },
   };
   const res = await provider.axios.post('/api/reviews', data);
-  console.log(res);
 }
