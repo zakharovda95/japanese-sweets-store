@@ -9,7 +9,7 @@
         <router-link class="link" :to="{ name: PageName.signup }">
           <UIText type="primary" tag="NH3">Sign Up</UIText>
         </router-link>
-        <router-link class="link" to="/">
+        <router-link class="link" :to="{ name: PageName.order }">
           <UIText type="primary" tag="NH3">Order without authorization</UIText>
         </router-link>
       </div>

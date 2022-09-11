@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <NMessageProvider>
+    <NMessageProvider placement="top">
       <NConfigProvider>
         <router-view />
       </NConfigProvider>

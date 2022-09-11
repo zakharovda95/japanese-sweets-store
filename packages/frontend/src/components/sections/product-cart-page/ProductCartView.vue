@@ -23,7 +23,7 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import ProductCartList from '@/components/sections/product-cart-page/ProductCartList.vue';
+import ProductCartList from '@/components/sections/common/ProductCartList.vue';
 import UIText from '@/components/ui/UIText.vue';
 import EmptyCart from '@/components/sections/product-cart-page/EmptyCart.vue';
 import ModalCard from '@/components/sections/product-cart-page/ModalCard.vue';

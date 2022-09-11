@@ -1,7 +1,7 @@
 <template>
   <div class="product-cart-list">
     <NTable bordered>
-      <thead>
+      <thead v-if="!noEdit">
         <tr>
           <th>
             <UIText tag="NH3">Please, check your order!</UIText>
@@ -11,7 +11,7 @@
       <tbody>
         <tr v-for="item in userCart" :key="item.product.id">
           <td>
-            <ProductCartItem @custom:update-item="updateItem" :item="item" />
+            <ProductCartItem @custom:update-item="updateItem" :no-edit="noEdit" :item="item" />
           </td>
         </tr>
         <tr>
@@ -33,12 +33,22 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { NTable } from 'naive-ui';
 import UIText from '@/components/ui/UIText.vue';
 import ProductCartItem from '@/components/sections/product-cart-page/ProductCartItem.vue';
+import { NTable } from 'naive-ui';
+
 import { useProductCartStore } from '@/stores/product-cart.store';
-import { computed } from 'vue';
 import { CartProductType } from '@/helpers/types/stores-types/_product-cart-store.type';
+
+import { computed, defineProps } from 'vue';
+
+defineProps({
+  noEdit: {
+    type: Boolean,
+    required: false,
+    default: () => false,
+  },
+});
 
 const store = useProductCartStore();
 

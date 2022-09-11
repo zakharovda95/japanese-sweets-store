@@ -11,7 +11,7 @@ export function getPriceRangeValues(array: Array<Product>): Array<number> {
 /** Брэнды выбранной категории (опции селекта) **/
 export function createOptionsForFilteringByBrand(array: Array<Product>): Array<SelectOptionType> {
   const set: Set<string> = new Set();
-  const arr: Array<SelectOptionType> = [];
+  const arr: Array<SelectOptionType> = [{ label: 'All', value: 'All' }];
   array.forEach(product => {
     set.add(product.producer);
   });
@@ -39,7 +39,11 @@ export function filterProducts(
   });
   const favoriteBrand = onlySale.filter(item => {
     if (filters.filterByBrand) {
-      return item.producer === filters.filterByBrand;
+      if (filters.filterByBrand !== 'All') {
+        return item.producer === filters.filterByBrand;
+      } else {
+        return item;
+      }
     } else {
       return item;
     }

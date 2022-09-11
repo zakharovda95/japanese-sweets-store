@@ -14,8 +14,10 @@ export default defineComponent({
 
 <script setup lang="ts">
 import ProductCartView from '@/components/sections/product-cart-page/ProductCartView.vue';
-import { onMounted } from 'vue';
+
 import { useProductCartStore } from '@/stores/product-cart.store';
+
+import { onMounted } from 'vue';
 
 const store = useProductCartStore();
 

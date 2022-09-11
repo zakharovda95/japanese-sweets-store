@@ -24,6 +24,11 @@ export const MainRoutes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/ProductCartPage.vue'),
   },
   {
+    path: 'order',
+    name: PageName.order,
+    component: () => import('@/pages/OrderPage.vue'),
+  },
+  {
     path: 'auth',
     name: PageName.auth,
     component: () => import('@/pages/AuthPage.vue'),

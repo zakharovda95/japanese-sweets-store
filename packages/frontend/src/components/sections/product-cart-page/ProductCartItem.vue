@@ -3,18 +3,30 @@
     <div class="title-wrap" @click="goTo">
       <ProductCover class="cover" :image="cloneItem.product.image" />
       <div class="title">
-        <UIText tag="NH2">{{ cloneItem.product.title }}</UIText>
+        <UIText align="center" tag="NH2">{{ cloneItem.product.title }}</UIText>
       </div>
     </div>
     <div class="info-wrap">
+      <div v-if="noEdit" class="amount">
+        <span>{{ cloneItem.amount + ' pcs' }}</span>
+      </div>
       <NInputNumber
         :min="0"
         :value="cloneItem.amount"
         @update:value="updateItem"
         bordered
         class="count"
+        v-if="!noEdit"
       />
-      <NButton @click="updateItem(0)" class="remove-btn" strong secondary circle type="error">
+      <NButton
+        v-if="!noEdit"
+        @click="updateItem(0)"
+        class="remove-btn"
+        strong
+        secondary
+        circle
+        type="error"
+      >
         <template #icon>
           <NIcon><AddCircleOutlineTwotone style="transform: rotate(45deg)" /></NIcon>
         </template>
@@ -41,7 +53,7 @@ export default defineComponent({
 
 <script setup lang="ts">
 import { CartProductType } from '@/helpers/types/stores-types/_product-cart-store.type';
-import { PropType, defineProps, computed, defineEmits } from 'vue';
+import { PropType, defineProps, computed, defineEmits, Ref } from 'vue';
 import ProductCover from '@/components/sections/common/ProductCover.vue';
 import UIText from '@/components/ui/UIText.vue';
 import { NInputNumber, NButton, NIcon } from 'naive-ui';
@@ -61,6 +73,10 @@ const props = defineProps({
     required: false,
     default: () => ({}),
   },
+  noEdit: {
+    type: Boolean,
+    default: () => false,
+  },
 });
 
 const cloneItem = computed(() => cloneDeep(props.item));
@@ -70,9 +86,17 @@ const updateItem = (e: number): void => {
   emit('custom:updateItem', cloneItem.value);
 };
 
-const goTo = (): void => {
-  router.push({ name: PageName.productById, params: { productId: props.item.product?.id } });
+const goTo = (e: Event): void => {
+  if (!props.noEdit) {
+    router.push({ name: PageName.productById, params: { productId: props.item.product?.id } });
+  } else {
+    e.preventDefault();
+  }
 };
+
+const cursor: Ref<string> = computed(() => {
+  return props.noEdit ? 'default' : 'pointer';
+});
 </script>
 
 <style scoped lang="scss">
@@ -88,7 +112,7 @@ const goTo = (): void => {
       flex-direction: column;
       width: 70%;
       height: 100%;
-      cursor: pointer;
+      cursor: v-bind(cursor);
       .cover {
         width: 100px;
         height: 100px;
@@ -103,6 +127,15 @@ const goTo = (): void => {
       display: flex;
       justify-content: space-around;
       align-items: center;
+      .amount {
+        display: flex;
+        margin: 0 24px;
+        span {
+          font-size: 1.3rem;
+          font-weight: 500;
+          color: #3372e8;
+        }
+      }
       .remove-btn {
         margin-left: 10px;
         margin-right: 10px;
@@ -129,7 +162,7 @@ const goTo = (): void => {
       flex-direction: column;
       width: 70%;
       height: 100%;
-      cursor: pointer;
+      cursor: v-bind(cursor);
       .cover {
         width: 100px;
         height: 100px;
@@ -144,6 +177,15 @@ const goTo = (): void => {
       display: flex;
       justify-content: space-around;
       align-items: center;
+      .amount {
+        display: flex;
+        margin: 0 24px;
+        span {
+          font-size: 1.3rem;
+          font-weight: 500;
+          color: #3372e8;
+        }
+      }
       .remove-btn {
         margin-left: 10px;
         margin-right: 10px;
@@ -170,7 +212,7 @@ const goTo = (): void => {
       flex-direction: column;
       width: 70%;
       height: 100%;
-      cursor: pointer;
+      cursor: v-bind(cursor);
       .cover {
         width: 100px;
         height: 100px;
@@ -185,6 +227,15 @@ const goTo = (): void => {
       display: flex;
       justify-content: space-around;
       align-items: center;
+      .amount {
+        display: flex;
+        margin: 0 24px;
+        span {
+          font-size: 1.3rem;
+          font-weight: 500;
+          color: #3372e8;
+        }
+      }
       .remove-btn {
         margin-left: 10px;
         margin-right: 10px;
@@ -208,7 +259,7 @@ const goTo = (): void => {
       align-items: center;
       width: 70%;
       height: 100%;
-      cursor: pointer;
+      cursor: v-bind(cursor);
       .cover {
         width: 100px;
         height: 100px;
@@ -223,6 +274,15 @@ const goTo = (): void => {
       display: flex;
       justify-content: space-around;
       align-items: center;
+      .amount {
+        display: flex;
+        margin: 0 24px;
+        span {
+          font-size: 1.3rem;
+          font-weight: 500;
+          color: #3372e8;
+        }
+      }
       .remove-btn {
         margin-left: 10px;
         margin-right: 10px;
@@ -246,7 +306,7 @@ const goTo = (): void => {
       align-items: center;
       width: 70%;
       height: 100%;
-      cursor: pointer;
+      cursor: v-bind(cursor);
       .cover {
         width: 100px;
         height: 100px;
@@ -261,6 +321,15 @@ const goTo = (): void => {
       display: flex;
       justify-content: space-around;
       align-items: center;
+      .amount {
+        display: flex;
+        margin: 0 24px;
+        span {
+          font-size: 1.3rem;
+          font-weight: 500;
+          color: #3372e8;
+        }
+      }
       .remove-btn {
         margin-left: 10px;
         margin-right: 10px;

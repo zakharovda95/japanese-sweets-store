@@ -1,23 +1,29 @@
 <template>
   <div class="ui-link-group" v-for="link in links" :key="link.title">
-    <a
-      class="link"
-      :class="[styleClasses, { 'hovered': hovered }]"
-      :href="link.path"
-      v-if="tag === 'a'"
-      v-bind="$attrs"
-    >
-      <div class="title">{{ link.title }}</div>
-    </a>
-    <router-link
-      class="link"
-      :class="[styleClasses, { 'hovered': hovered }]"
-      v-else
-      :to="{ name: link.path }"
-      v-bind="$attrs"
-    >
-      <div class="title">{{ link.title }}</div>
-    </router-link>
+    <div v-if="tag === 'a'" class="link-wrapper">
+      <slot name="icon-left" />
+      <a
+        class="link"
+        :class="[styleClasses, { 'hovered': hovered }]"
+        :href="link.path"
+        v-bind="$attrs"
+      >
+        <div class="title">{{ link.title }}</div>
+      </a>
+      <slot name="icon-right" />
+    </div>
+    <div v-else class="link-wrapper">
+      <slot name="icon-left" />
+      <router-link
+        class="link"
+        :class="[styleClasses, { 'hovered': hovered }]"
+        :to="{ name: link.path }"
+        v-bind="$attrs"
+      >
+        <div class="title">{{ link.title }}</div>
+      </router-link>
+      <slot name="icon-right" />
+    </div>
   </div>
 </template>
 
@@ -169,17 +175,19 @@ const background = computed<string>(() => {
 
 <style scoped lang="scss">
 @import '~@/assets/styles/_constants.scss';
-@import '~@/assets/styles/_constants.scss';
 .ui-link-group {
   display: flex;
-  .link {
-    font-family: $FONT_FAMILY;
-    text-decoration: none;
-    color: v-bind(color);
-    font-size: v-bind(fontSize);
-    border-radius: v-bind(borderRadius);
-    padding: v-bind(padding);
-    margin: v-bind(margin);
+  .link-wrapper {
+    display: flex;
+    .link {
+      font-family: $FONT_FAMILY;
+      text-decoration: none;
+      color: v-bind(color);
+      font-size: v-bind(fontSize);
+      border-radius: v-bind(borderRadius);
+      padding: v-bind(padding);
+      margin: v-bind(margin);
+    }
   }
   .hovered:hover {
     background: #f8c2d8;

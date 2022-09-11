@@ -18,6 +18,8 @@ export enum PageName {
   chocolates = 'chocolates',
   food = 'food',
   sale = 'sale',
+  // заказ
+  order = 'order',
   // футер
   cv = 'CURRICULUM VITAE',
   github = 'GIT HUB',
