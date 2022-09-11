@@ -8,7 +8,7 @@ export function getPriceRangeValues(array: Array<Product>): Array<number> {
   const max = Math.max(...prices);
   return [min, max];
 }
-/** Опции брэндов выбранной категории **/
+/** Брэнды выбранной категории (опции селекта) **/
 export function createOptionsForFilteringByBrand(array: Array<Product>): Array<SelectOptionType> {
   const set: Set<string> = new Set();
   const arr: Array<SelectOptionType> = [];

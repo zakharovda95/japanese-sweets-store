@@ -92,6 +92,7 @@ const props = defineProps({
     default: '0px',
   },
 });
+
 const color = computed<string>(() => {
   switch (props.color) {
     case ColorTypes.info:
@@ -108,6 +109,7 @@ const color = computed<string>(() => {
       return props.color;
   }
 });
+
 const borderColor = computed<string>(() => {
   switch (props.border) {
     case ColorTypes.info:
@@ -124,6 +126,7 @@ const borderColor = computed<string>(() => {
       return props.border;
   }
 });
+
 const fontSize = computed<string>(() => {
   switch (props.size) {
     case FontSizeTitle.small:
@@ -134,15 +137,18 @@ const fontSize = computed<string>(() => {
       return FontSize.medium;
   }
 });
+
 const styleClasses = computed<{ [key: string]: string }>(() => {
   return {
     'bordered': props.border,
     'background': props.background,
   };
 });
+
 const borderRadius = computed<string>(() => {
   return props.rounded ? BorderRadius.rounded : BorderRadius.default;
 });
+
 const background = computed<string>(() => {
   switch (props.background) {
     case ColorTypes.info:

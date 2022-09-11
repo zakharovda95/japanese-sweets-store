@@ -12,5 +12,10 @@ export type CartProductType = {
 };
 
 export interface ProductCartStoreType {
+  data: ProductCartDataType;
+}
+
+export interface ProductCartDataType {
   userCart: Array<CartProductType> | [] | null;
+  totalCost: number;
 }

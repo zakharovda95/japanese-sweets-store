@@ -16,14 +16,17 @@ export default defineComponent({
   name: 'TheHeader',
 });
 </script>
+
 <script setup lang="ts">
 import TheLogo from '@/layouts/header/TheLogo.vue';
+import IconHeader from '@/layouts/header/IconHeader.vue';
 import UILinksGroup from '@/components/ui/UILinksGroup.vue';
-import { computed, ref } from 'vue';
+
 import { authorizedUserHeaderLinks, publicHeaderLinks } from '@/helpers/services/_links.service';
 import { AuthorizedUserHeaderLinks, PublicHeaderLinks } from '@/helpers/types/_links.type';
-import IconHeader from '@/layouts/header/IconHeader.vue';
 import { useWindowWidthWatcher } from '@/composables/useWindowWidthWatcher';
+
+import { computed, ref } from 'vue';
 
 const isUserAuthorized = ref<boolean>(false);
 
@@ -33,6 +36,7 @@ const links = computed<AuthorizedUserHeaderLinks | PublicHeaderLinks>(() => {
 
 const { widthX } = useWindowWidthWatcher();
 </script>
+
 <style scoped lang="scss">
 @import '~@/assets/styles/_constants.scss';
 @media (max-width: 1019px) {

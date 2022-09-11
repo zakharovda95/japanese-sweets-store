@@ -1,46 +1,71 @@
 import { defineStore } from 'pinia';
-import { CartProductType } from '@/helpers/types/stores-types/_product-cart-store.type';
-import { parseLocalStorageData, updateProductCart } from '@/helpers/methods/_products-cart.methods';
+import {
+  CartProductType,
+  ProductCartStoreType,
+} from '@/helpers/types/stores-types/_product-cart-store.type';
+import {
+  calculateTotalCost,
+  parseLocalStorageData,
+  updateProductCart,
+} from '@/helpers/methods/_products-cart.methods';
 
 export const useProductCartStore = defineStore('cart', {
-  state: () => ({
-    userCart: [] as null | CartProductType[],
-  }),
+  state: () =>
+    ({
+      data: {
+        userCart: [],
+        totalCost: 0,
+      },
+    } as ProductCartStoreType),
   actions: {
     addToCart(productCart: CartProductType): void {
-      if (this.userCart) {
-        if (this.userCart.length && productCart) {
-          const elem = this.userCart.find(elem => {
+      if (this.data.userCart) {
+        if (this.data.userCart.length && productCart) {
+          const elem = this.data.userCart.find(elem => {
             return elem.product?.id === productCart.product?.id;
           });
-          if (elem && this.userCart.length) {
+          if (elem && this.data.userCart.length) {
             elem.amount += productCart.amount;
+            this.calculateTotalCost();
+            localStorage.setItem('user_cart', JSON.stringify(this.data));
           } else {
-            this.userCart.push(productCart);
-            localStorage.setItem('user_cart', JSON.stringify(this.userCart));
+            this.data.userCart.push(productCart as never);
+            this.calculateTotalCost();
+            localStorage.setItem('user_cart', JSON.stringify(this.data));
           }
         } else {
-          this.userCart.push(productCart);
-          localStorage.setItem('user_cart', JSON.stringify(this.userCart));
+          this.data.userCart.push(productCart as never);
+          this.calculateTotalCost();
+          localStorage.setItem('user_cart', JSON.stringify(this.data));
         }
       } else {
-        this.userCart = [];
-        this.userCart.push(productCart);
-        localStorage.setItem('user_cart', JSON.stringify(this.userCart));
+        this.data.userCart = [];
+        this.data.userCart.push(productCart as never);
+        this.calculateTotalCost();
+        localStorage.setItem('user_cart', JSON.stringify(this.data));
       }
     },
+
     getLocalStorageData(): void {
-      this.userCart = parseLocalStorageData();
+      this.data = parseLocalStorageData();
     },
+
     updateUserCart(product: CartProductType): void {
-      if (this.userCart && product) {
-        this.userCart = updateProductCart(this.userCart, product);
-        if (this.userCart && this.userCart.length) {
-          localStorage.setItem('user_cart', JSON.stringify(this.userCart));
+      if (this.data.userCart && product) {
+        this.data.userCart = updateProductCart(this.data.userCart, product);
+        this.calculateTotalCost();
+        if (this.data.userCart && this.data.userCart.length) {
+          localStorage.setItem('user_cart', JSON.stringify(this.data));
         }
-        if (!this.userCart || !this.userCart.length) {
+        if (!this.data.userCart || !this.data.userCart.length) {
           localStorage.removeItem('user_cart');
         }
+      }
+    },
+
+    calculateTotalCost(): void {
+      if (this.data.userCart) {
+        this.data.totalCost = calculateTotalCost(this.data.userCart);
       }
     },
   },

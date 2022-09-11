@@ -16,7 +16,7 @@
         </tr>
         <tr>
           <td>
-            Тотал
+            <UIText tag="NH3">Total: $ {{ store.data.totalCost.toFixed(2) }}</UIText>
           </td>
         </tr>
       </tbody>
@@ -39,8 +39,11 @@ import ProductCartItem from '@/components/sections/product-cart-page/ProductCart
 import { useProductCartStore } from '@/stores/product-cart.store';
 import { computed } from 'vue';
 import { CartProductType } from '@/helpers/types/stores-types/_product-cart-store.type';
+
 const store = useProductCartStore();
-const userCart = computed(() => store.userCart);
+
+const userCart = computed(() => store.data.userCart);
+
 const updateItem = (e: CartProductType): void => {
   store.updateUserCart(e);
 };

@@ -43,6 +43,7 @@ const showModal = ref<boolean>(false);
     display: flex;
     flex-direction: column;
     align-items: center;
+
     .menu {
       margin-top: 34px;
       .ribbon-menu {

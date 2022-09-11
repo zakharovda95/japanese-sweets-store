@@ -6,7 +6,7 @@
       size="huge"
     >
       <router-link style="text-decoration: none" :to="{ name: PageName.goods }">
-        <UIText underline justify="flex-start">&#129044;Start shopping</UIText>
+        <UIText justify="flex-start">&#10094;Start shopping</UIText>
       </router-link>
     </UIMessage>
   </div>
