@@ -8,7 +8,10 @@
           </NThing>
         </NList>
       </NTabPane>
-      <NTabPane tab="Review" name="review">
+      <NTabPane tab="Reviews" name="reviews">
+        <ReviewList class="review-list" />
+      </NTabPane>
+      <NTabPane tab="Write a review" name="review">
         <ProductReviewForm class="form" />
       </NTabPane>
     </NTabs>
@@ -27,6 +30,7 @@ export default defineComponent({
 import { NTabs, NTabPane, NList, NThing } from 'naive-ui';
 import { defineProps, PropType } from 'vue';
 import ProductReviewForm from '@/components/sections/product-page/ProductReviewForm.vue';
+import ReviewList from '@/components/sections/product-page/ReviewsList.vue';
 defineProps({
   details: {
     type: Array as PropType<Array<string> | []>,

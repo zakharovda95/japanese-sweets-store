@@ -13,6 +13,10 @@ export function formatProductDataForDisplaying(id: number, product: ProductByIdT
     producer: product.producer,
     category: product.category.data.attributes.name,
     details: product.details.data.map(detail => detail.attributes.name),
-    reviews: product.reviews.data.map(review => review.attributes.rate),
+    reviews: product.reviews.data.map(review => ({
+      nickname: review.attributes.userNickname,
+      rate: review.attributes.rate,
+      review: review.attributes.review,
+    })),
   };
 }

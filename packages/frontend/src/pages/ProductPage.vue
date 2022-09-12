@@ -14,14 +14,20 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { useRoute } from 'vue-router';
 import { NSpin } from 'naive-ui';
+
 import { useProductPageStore } from '@/stores/product-page.store';
+
+import { useRoute } from 'vue-router';
 import { computed } from 'vue';
+
 const route = useRoute();
 const store = useProductPageStore();
-const id = computed<string>(() => route.params.productId);
-store.fetchData(id.value);
+
+const id = computed(() => route.params.productId);
+
+store.fetchData(+id.value);
+
 const isLoading = computed(() => store.isLoading);
 </script>
 

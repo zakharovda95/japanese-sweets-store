@@ -19,12 +19,10 @@
     },
     "userNickname": {
       "type": "string",
-      "private": true,
       "maxLength": 10
     },
     "review": {
-      "type": "text",
-      "private": true
+      "type": "text"
     },
     "rate": {
       "type": "integer",

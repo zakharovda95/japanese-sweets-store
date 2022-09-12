@@ -37,6 +37,7 @@ export const useProductsPageStore = defineStore('products', {
       this.dataState = cloneDeep(this.data);
       this.isLoading = false;
     },
+
     async getProductsByCategory(id: number) {
       this.isLoading = true;
       const res: CategoryType = await getProductsByCategory(id);
@@ -45,6 +46,7 @@ export const useProductsPageStore = defineStore('products', {
       this.dataState = cloneDeep(this.data);
       this.isLoading = false;
     },
+
     async getProductsOnSaleOnly() {
       await this.getAllProducts();
       if (this.data) {
@@ -52,6 +54,7 @@ export const useProductsPageStore = defineStore('products', {
         this.dataState = cloneDeep(this.data);
       }
     },
+
     filterProducts(filters: FiltersType) {
       if (this.dataState) {
         this.data = filterProducts(this.dataState, filters);

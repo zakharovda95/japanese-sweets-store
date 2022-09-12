@@ -3,6 +3,7 @@ import { getProductById, sendReview } from '@/helpers/requesters/requests/_produ
 import { formatProductDataForDisplaying } from '@/helpers/methods/_product.methods';
 import { ProductPageStoreType } from '@/helpers/types/stores-types/_products-page-store.type';
 import { getRandomImagesForCarousel } from '@/helpers/requesters/requests/_carousels.requests';
+
 export const useProductPageStore = defineStore('product', {
   state: () =>
     ({
@@ -17,6 +18,7 @@ export const useProductPageStore = defineStore('product', {
         product: null,
       },
     } as ProductPageStoreType),
+
   actions: {
     async fetchData(id: number): Promise<void> {
       this.isLoading = true;
@@ -27,9 +29,11 @@ export const useProductPageStore = defineStore('product', {
       }
       this.isLoading = false;
     },
+
     async getRandomImagesForCarousel(category: string): Promise<void> {
       this.images = await getRandomImagesForCarousel(category);
     },
+
     async sendReview(): Promise<void> {
       try {
         await sendReview(this.reviewData);
@@ -41,6 +45,7 @@ export const useProductPageStore = defineStore('product', {
         console.log(err);
       }
     },
+
     resetForm() {
       this.reviewData = {
         userId: null,

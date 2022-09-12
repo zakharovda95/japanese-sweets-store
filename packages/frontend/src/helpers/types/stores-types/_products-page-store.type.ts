@@ -9,9 +9,15 @@ export type Product = {
   cost: number;
   producer: string;
   details?: Array<string>;
-  reviews?: Array<number> | null;
+  reviews?: ReviewType[] | null;
   sale: number;
 };
+
+export interface ReviewType {
+  nickname: string;
+  review: string;
+  rate: number;
+}
 
 export interface ProductsPageStoreType {
   isLoading: boolean;

@@ -30,14 +30,16 @@ export default defineComponent({
 
 <script setup lang="ts">
 import ProductCover from '@/components/sections/common/ProductCover.vue';
-import { useProductPageStore } from '@/stores/product-page.store';
-import { computed } from 'vue';
 import UIText from '@/components/ui/UIText.vue';
 import ProductCost from '@/components/sections/common/ProductCost.vue';
 import AddToCart from '@/components/sections/product-page/AddToCart.vue';
-import { NRate } from 'naive-ui';
 import ProductTabPane from '@/components/sections/product-page/ProductTabPane.vue';
+import { NRate } from 'naive-ui';
+
 import { Product } from '@/helpers/types/stores-types/_products-page-store.type';
+import { useProductPageStore } from '@/stores/product-page.store';
+
+import { computed } from 'vue';
 
 const store = useProductPageStore();
 const product = computed<Product | null>(() => store.data);
@@ -50,20 +52,25 @@ const rate = computed<number>({
     store.reviewData.rate = val;
   },
 });
-const averageRating = computed<number | string>(() => {
+
+const rates = computed(() => {
   if (product.value) {
-    if (product.value?.reviews?.length) {
-      return product.value.reviews.reduce((a, b) => {
-        if (product.value?.reviews) {
-          return a + b / product.value.reviews?.length || 1;
-        }
-        return null;
-      }, 0);
-    } else {
-      return 'No rating:( be first!';
-    }
+    return product.value?.reviews?.map(review => review.rate);
+  } else {
+    return null;
   }
-  return '';
+});
+
+const averageRating = computed<number | string>(() => {
+  if (rates.value?.length) {
+    return rates.value.reduce((a, b) => {
+      if (rates.value) {
+        return Math.round(a + b / rates.value.length || 1);
+      }
+    }, 0);
+  } else {
+    return 'No rating:( be first!';
+  }
 });
 </script>
 

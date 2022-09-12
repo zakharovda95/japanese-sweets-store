@@ -1,10 +1,10 @@
 <template>
   <div class="product-review-form">
-    <NForm>
-      <NFormItem label="Rate">
+    <NForm :rules="rules">
+      <NFormItem label="Rate" path="rate">
         <NRate size="large" :value="rate" @update:value="rate = $event" />
       </NFormItem>
-      <NFormItem label="Nickname">
+      <NFormItem label="Nickname" path="nickname">
         <NInput
           placeholder="Nickname"
           :value="userNickname"
@@ -13,7 +13,7 @@
           show-count
         />
       </NFormItem>
-      <NFormItem label="Review">
+      <NFormItem label="Review" path="review">
         <NInput
           type="textarea"
           :value="review"
@@ -41,14 +41,17 @@ export default defineComponent({
 
 <script setup lang="ts">
 import { NForm, NFormItem, NRate, NInput, NButton, useMessage } from 'naive-ui';
-import { computed } from 'vue';
+
 import { useProductPageStore } from '@/stores/product-page.store';
+
+import { computed } from 'vue';
+
 const store = useProductPageStore();
+
 if (store.data?.id) {
   store.reviewData.product = store.data.id;
 }
 
-const message = useMessage();
 const rate = computed<number>({
   get() {
     return store.reviewData.rate;
@@ -57,6 +60,7 @@ const rate = computed<number>({
     store.reviewData.rate = val;
   },
 });
+
 const userNickname = computed<string>({
   get() {
     return store.reviewData.userNickname;
@@ -65,6 +69,7 @@ const userNickname = computed<string>({
     store.reviewData.userNickname = val;
   },
 });
+
 const review = computed<string>({
   get() {
     return store.reviewData.review;
@@ -73,6 +78,27 @@ const review = computed<string>({
     store.reviewData.review = val;
   },
 });
+
+const rules = {
+  rate: {
+    required: true,
+    message: 'Required field',
+    trigger: 'click',
+  },
+  nickname: {
+    required: true,
+    message: 'Required field',
+    trigger: ['input', 'blur'],
+  },
+  review: {
+    required: true,
+    message: 'Required field',
+    trigger: ['input', 'blur'],
+  },
+};
+
+const message = useMessage();
+
 const send = (): void => {
   store.sendReview();
   message.success('Thanks! ^.^', { duration: 6000 });

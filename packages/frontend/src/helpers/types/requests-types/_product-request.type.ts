@@ -26,6 +26,8 @@ export type ProductReviewType = {
   id: number;
   attributes: {
     rate: number;
+    userNickname: string;
+    review: string;
     createdAt: string;
     updatedAt: string;
     publishedAt: string;

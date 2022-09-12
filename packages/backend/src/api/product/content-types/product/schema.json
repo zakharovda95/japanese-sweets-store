@@ -64,6 +64,12 @@
       ],
       "type": "media",
       "multiple": false
+    },
+    "order": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::order.order",
+      "inversedBy": "products"
     }
   }
 }

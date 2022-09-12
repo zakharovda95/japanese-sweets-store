@@ -25,7 +25,7 @@ export default defineComponent({
 <script setup lang="ts">
 import ProductCartList from '@/components/sections/common/ProductCartList.vue';
 import UIText from '@/components/ui/UIText.vue';
-import EmptyCart from '@/components/sections/product-cart-page/EmptyCart.vue';
+import EmptyCart from '@/components/sections/common/EmptyCart.vue';
 import ModalCard from '@/components/sections/product-cart-page/ModalCard.vue';
 import { NButton, NModal } from 'naive-ui';
 

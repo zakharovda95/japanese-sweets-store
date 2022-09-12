@@ -2,7 +2,7 @@
   <div class="empty-cart">
     <UIMessage
       :cardWidth="widthX >= 1020 ? '60vw' : '90vw'"
-      title="Your cart is empty!"
+      title="Ooops... Your cart is empty!"
       size="huge"
     >
       <router-link style="text-decoration: none" :to="{ name: PageName.goods }">
