@@ -8,6 +8,7 @@ import {
   parseLocalStorageData,
   updateProductCart,
 } from '@/helpers/methods/_products-cart.methods';
+import { sendOrderData } from '@/helpers/requesters/requests/_order.requests';
 
 export const useProductCartStore = defineStore('cart', {
   state: () =>
@@ -15,6 +16,14 @@ export const useProductCartStore = defineStore('cart', {
       data: {
         userCart: [],
         totalCost: 0,
+      },
+      orderData: {
+        userId: null,
+        userNickname: '',
+        email: '',
+        address: '',
+        totalCost: 0,
+        products: [],
       },
     } as ProductCartStoreType),
   actions: {
@@ -66,6 +75,38 @@ export const useProductCartStore = defineStore('cart', {
     calculateTotalCost(): void {
       if (this.data.userCart) {
         this.data.totalCost = calculateTotalCost(this.data.userCart);
+      }
+    },
+
+    resetForm() {
+      this.orderData = {
+        userId: null,
+        userNickname: '',
+        email: '',
+        address: '',
+        totalCost: 0,
+        products: [],
+      };
+    },
+
+    setOrderDataBeforeSending() {
+      if (this.data.userCart) {
+        const products = this.data.userCart.map(item => {
+          return item.product!.id;
+        });
+        this.orderData.totalCost = +this.data.totalCost.toFixed(2);
+        this.orderData.products = products;
+      }
+    },
+
+    async sendOrder() {
+      try {
+        this.setOrderDataBeforeSending();
+        await sendOrderData(this.orderData);
+        this.resetForm();
+        localStorage.removeItem('user_cart');
+      } catch (err) {
+        console.log(err);
       }
     },
   },

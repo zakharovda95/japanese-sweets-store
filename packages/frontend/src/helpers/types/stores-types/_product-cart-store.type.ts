@@ -1,3 +1,5 @@
+import { OrderRequestType } from '@/helpers/types/requests-types/_request-params.type';
+
 export type CartProductInfoType = {
   id: number;
   title: string;
@@ -13,6 +15,7 @@ export type CartProductType = {
 
 export interface ProductCartStoreType {
   data: ProductCartDataType;
+  orderData: OrderRequestType;
 }
 
 export interface ProductCartDataType {

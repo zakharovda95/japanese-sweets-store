@@ -15,7 +15,6 @@ export async function getProductById(id: number) {
 }
 
 export async function sendReview(params: ReviewRequestType) {
-  console.log(params);
   const data: ReviewDataType = {
     data: {
       userId: null,
@@ -25,5 +24,5 @@ export async function sendReview(params: ReviewRequestType) {
       product: params.product,
     },
   };
-  const res = await provider.axios.post('/api/reviews', data);
+  await provider.axios.post('/api/reviews', data);
 }

@@ -1,15 +1,15 @@
 <template>
   <div class="order-form">
     <UIText tag="NH2">Please, fill the form</UIText>
-    <NForm ref="form" size="large" :model="formModel" :rules="rules">
+    <NForm ref="form" size="large" :rules="rules">
       <NFormItem label="Name" path="name">
-        <NInput v-model:value="formModel.name" placeholder="Name" />
+        <NInput :value="nickName" @update:value="nickName = $event" placeholder="Name" />
       </NFormItem>
       <NFormItem label="Email" path="email">
-        <NInput v-model:value="formModel.email" placeholder="Email" />
+        <NInput :value="email" @update:value="email = $event" placeholder="Email" />
       </NFormItem>
       <NFormItem label="Address" path="address">
-        <NInput v-model:value="formModel.address" placeholder="Address" />
+        <NInput :value="address" @update:value="address = $event" placeholder="Address" />
       </NFormItem>
     </NForm>
     <div class="action-button">
@@ -22,6 +22,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+
 export default defineComponent({
   name: 'OrderForm',
 });
@@ -31,12 +32,40 @@ export default defineComponent({
 import { NForm, NFormItem, NInput, NButton, useMessage } from 'naive-ui';
 import UIText from '@/components/ui/UIText.vue';
 
-import { computed, ref, Ref } from 'vue';
+import { useProductCartStore } from '@/stores/product-cart.store';
 
-const formModel = ref({
-  name: '',
-  email: '',
-  address: '',
+import { computed, ref, Ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { PageName } from '@/helpers/enums/_pages.enum';
+
+const store = useProductCartStore();
+const router = useRouter();
+
+const nickName: Ref<string> = computed({
+  get() {
+    return store.orderData.userNickname;
+  },
+  set(val: string) {
+    store.orderData.userNickname = val;
+  },
+});
+
+const email: Ref<string> = computed({
+  get() {
+    return store.orderData.email;
+  },
+  set(val: string) {
+    store.orderData.email = val;
+  },
+});
+
+const address: Ref<string> = computed({
+  get() {
+    return store.orderData.address;
+  },
+  set(val: string) {
+    store.orderData.address = val;
+  },
 });
 
 const rules = ref({
@@ -60,11 +89,13 @@ const rules = ref({
 const message = useMessage();
 
 const send = (): void => {
-  message.success('SUCCESS!!!');
+  store.sendOrder();
+  message.success('SUCCESS! Your order has been placed!');
+  router.push({ name: PageName.main });
 };
 
 const isFieldsFilled: Ref<boolean> = computed(
-  () => !!(formModel.value.name && formModel.value.email && formModel.value.address),
+  () => !!(nickName.value && email.value && address.value),
 );
 </script>
 

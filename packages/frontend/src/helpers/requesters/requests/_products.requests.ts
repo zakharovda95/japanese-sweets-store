@@ -17,6 +17,5 @@ export async function getProductsByCategory(id: number) {
   const res = await provider.axios.get(`/api/categories/${String(id)}`, {
     params: { populate: '*' },
   });
-  console.log(res.data);
   return res.data;
 }

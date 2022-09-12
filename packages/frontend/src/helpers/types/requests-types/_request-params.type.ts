@@ -20,3 +20,16 @@ export interface ReviewRequestType {
 export interface ReviewDataType {
   data: ReviewRequestType;
 }
+
+export interface OrderRequestType {
+  userId: null;
+  userNickname: string;
+  email: string;
+  address: string;
+  totalCost: number | null;
+  products: Array<number> | null;
+}
+
+export interface OrderDataType {
+  data: OrderRequestType;
+}

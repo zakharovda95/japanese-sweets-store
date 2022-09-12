@@ -44,7 +44,7 @@ import { NForm, NFormItem, NRate, NInput, NButton, useMessage } from 'naive-ui';
 
 import { useProductPageStore } from '@/stores/product-page.store';
 
-import { computed } from 'vue';
+import { computed, Ref } from 'vue';
 
 const store = useProductPageStore();
 
@@ -52,7 +52,7 @@ if (store.data?.id) {
   store.reviewData.product = store.data.id;
 }
 
-const rate = computed<number>({
+const rate: Ref<number> = computed({
   get() {
     return store.reviewData.rate;
   },
@@ -61,7 +61,7 @@ const rate = computed<number>({
   },
 });
 
-const userNickname = computed<string>({
+const userNickname: Ref<string> = computed({
   get() {
     return store.reviewData.userNickname;
   },
@@ -70,7 +70,7 @@ const userNickname = computed<string>({
   },
 });
 
-const review = computed<string>({
+const review: Ref<string> = computed({
   get() {
     return store.reviewData.review;
   },
