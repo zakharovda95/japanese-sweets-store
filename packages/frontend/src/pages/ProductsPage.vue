@@ -22,16 +22,19 @@ import ProductsPageView from '@/components/sections/products-page/ProductsPageVi
     margin: 0 auto;
   }
 }
-@media (min-width: 400px) and (max-width: 1199px){
+
+@media (min-width: 400px) and (max-width: 1199px) {
   .product-page {
     margin: 0 auto;
   }
 }
-@media (min-width: 1200px) and (max-width: 1399px){
+
+@media (min-width: 1200px) and (max-width: 1399px) {
   .product-page {
     margin: 0 auto;
   }
 }
+
 @media (min-width: 1400px) {
   .product-page {
     margin: 0 auto;

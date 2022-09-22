@@ -43,6 +43,7 @@ import {
   LogInOutlined,
   AppRegistrationFilled,
 } from '@vicons/material';
+
 import { PageName } from '@/helpers/enums/_pages.enum';
 </script>
 

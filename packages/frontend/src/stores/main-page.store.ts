@@ -1,15 +1,17 @@
 import { defineStore } from 'pinia';
+
 import {
   getMainPageCarouselImages,
   getMostPopularProductsCarouselImages,
 } from '@/helpers/requesters/requests/_carousels.requests';
+import { formatImagesArrayForCarousel } from '@/helpers/methods/_carousels.methods';
+
 import {
   ImageType,
   MainPageCarouselType,
   MostPopularProductsCarouselType,
 } from '@/helpers/types/requests-types/_carousel-requests.type';
 import { MainPageStoreType } from '@/helpers/types/stores-types/_main-page-store.type';
-import { formatImagesArrayForCarousel } from '@/helpers/methods/_carousels.methods';
 
 export const useMainPageStore = defineStore('main', {
   state: () =>

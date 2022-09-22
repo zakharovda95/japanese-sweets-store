@@ -1,8 +1,14 @@
 import { defineStore } from 'pinia';
+
 import { getProductById, sendReview } from '@/helpers/requesters/requests/_product.requests';
 import { formatProductDataForDisplaying } from '@/helpers/methods/_product.methods';
-import { ProductPageStoreType } from '@/helpers/types/stores-types/_products-page-store.type';
 import { getRandomImagesForCarousel } from '@/helpers/requesters/requests/_carousels.requests';
+
+import { reviewDataSchema } from '@/helpers/schemas/review-data.schema';
+
+import { ProductPageStoreType } from '@/helpers/types/stores-types/_product-page-store.type';
+
+import { cloneDeep } from 'lodash';
 
 export const useProductPageStore = defineStore('product', {
   state: () =>
@@ -10,13 +16,7 @@ export const useProductPageStore = defineStore('product', {
       isLoading: true,
       data: null,
       images: [],
-      reviewData: {
-        userId: null,
-        userNickname: '',
-        review: '',
-        rate: 0,
-        product: null,
-      },
+      reviewData: cloneDeep(reviewDataSchema),
     } as ProductPageStoreType),
 
   actions: {
@@ -47,13 +47,7 @@ export const useProductPageStore = defineStore('product', {
     },
 
     resetForm() {
-      this.reviewData = {
-        userId: null,
-        userNickname: '',
-        review: '',
-        rate: 0,
-        product: null,
-      };
+      this.reviewData = cloneDeep(reviewDataSchema);
     },
   },
 });

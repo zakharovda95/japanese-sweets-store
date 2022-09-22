@@ -13,12 +13,15 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { useMainPageStore } from '@/stores/main-page.store';
 import MainPageView from '@/components/sections/main-page/MainPageView.vue';
 import { NSpin } from 'naive-ui';
+
+import { useMainPageStore } from '@/stores/main-page.store';
+
 import { computed } from 'vue';
 
 const store = useMainPageStore();
+
 store.getCarouselsImages();
 
 const isLoading = computed<boolean>(() => store.isLoading);
@@ -33,6 +36,7 @@ const isLoading = computed<boolean>(() => store.isLoading);
     background: none;
   }
 }
+
 @media (min-width: 800px) and (max-width: 1019px) {
   .main-page {
     background: white;
@@ -41,6 +45,7 @@ const isLoading = computed<boolean>(() => store.isLoading);
     background: none;
   }
 }
+
 @media (min-width: 1020px) {
   .main-page {
     margin: 0 auto;

@@ -12,8 +12,6 @@ export default defineComponent({
 });
 </script>
 
-<script setup lang="ts"></script>
-
 <style scoped lang="scss">
 @media (max-width: 799px) {
   .auth-page {
@@ -21,12 +19,14 @@ export default defineComponent({
     width: 90vw;
   }
 }
+
 @media (min-width: 800px) and (max-width: 1019px) {
   .auth-page {
     margin: 0 auto;
     width: 80vw;
   }
 }
+
 @media (min-width: 1020px) {
   .auth-page {
     margin: 0 auto;

@@ -1,13 +1,16 @@
 import { provider } from '@/helpers/requesters/_provider.requester';
+import { APP_CONFIG } from '@/helpers/services/_app-config.service';
+
 import { RequestParamsType } from '@/helpers/types/requests-types/_request-params.type';
 import {
   MainPageCarouselType,
   MostPopularProductsCarouselType,
 } from '@/helpers/types/requests-types/_carousel-requests.type';
+import { CategoryType } from '@/helpers/types/requests-types/_categories-requests.type';
+
 import { getProductsByCategory } from '@/helpers/requesters/requests/_products.requests';
 import { getCategoryId } from '@/helpers/methods/_products.methods';
-import { CategoryType } from '@/helpers/types/requests-types/_categories-requests.type';
-import { APP_CONFIG } from '@/helpers/services/_app-config.service';
+
 const params: RequestParamsType = {
   populate: '*',
 };

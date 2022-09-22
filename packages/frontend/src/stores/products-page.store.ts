@@ -1,23 +1,26 @@
 import { defineStore } from 'pinia';
-import { ProductsPageStoreType } from '@/helpers/types/stores-types/_products-page-store.type';
+
 import {
   getAllProducts,
   getProductsByCategory,
 } from '@/helpers/requesters/requests/_products.requests';
 import {
-  AllProductsType,
-  ProductType,
-} from '@/helpers/types/requests-types/_products-request.type';
-import {
   formatProductsDataForDisplaying,
   getProductsOnSaleOnly,
 } from '@/helpers/methods/_products.methods';
+import { filterProducts } from '@/helpers/methods/_products-filters.methods';
+
+import {
+  AllProductsType,
+  ProductType,
+} from '@/helpers/types/requests-types/_products-request.type';
+import { ProductsPageStoreType } from '@/helpers/types/stores-types/_products-page-store.type';
 import {
   CategoryProductType,
   CategoryType,
 } from '@/helpers/types/requests-types/_categories-requests.type';
 import { FiltersType } from '@/helpers/types/_products-filters.type';
-import { filterProducts } from '@/helpers/methods/_products-filters.methods';
+
 import { cloneDeep } from 'lodash';
 
 export const useProductsPageStore = defineStore('products', {

@@ -48,20 +48,6 @@ export type AuthorizedUserHeaderLinks = [
   },
 ];
 
-/** Типы ссылок футера **/
-export type FooterLinks = [
-  {
-    title: RedirectLinkTitles.cv;
-    path: PageName.cv;
-    icon?: string | null;
-  },
-  {
-    title: RedirectLinkTitles.github;
-    path: PageName.github;
-    icon?: string | null;
-  },
-];
-
 /** Типы ссылок главной страницы **/
 export type MainPageProfileEntranceLinks = [
   {

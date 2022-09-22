@@ -49,26 +49,35 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { NCard, NSelect, NSlider, NCheckbox, NButton } from 'naive-ui';
-import { computed, ref, defineEmits } from 'vue';
-import { filtersSchema, sortingByPriceOptions } from '@/helpers/services/_product-filters.service';
-import { useProductsPageStore } from '@/stores/products-page.store';
 import UIText from '@/components/ui/UIText.vue';
+import { NCard, NSelect, NSlider, NCheckbox, NButton } from 'naive-ui';
+
+import { sortingByPriceOptions } from '@/helpers/services/_product-filters.service';
+import { filtersSchema } from '@/helpers/schemas/filters.schema';
+
+import { useProductsPageStore } from '@/stores/products-page.store';
+
 import {
   createOptionsForFilteringByBrand,
   getPriceRangeValues,
 } from '@/helpers/methods/_products-filters.methods';
-import { FiltersType, SelectOptionType } from '@/helpers/types/_products-filters.type';
 
+import { FiltersType, SelectOptionType } from '@/helpers/types/_products-filters.type';
 import { ProductsFiltersTitles } from '@/helpers/enums/products/_products-filters.enum';
+
 import { cloneDeep } from 'lodash';
+import { computed, ref, defineEmits } from 'vue';
 
 const emits = defineEmits(['custom:closeModal']);
 
 const products = computed(() => store.data);
+
 const store = useProductsPageStore();
+
 const filters = ref<FiltersType>(cloneDeep(filtersSchema));
+
 const range: { [key: string]: number } = {};
+
 let brandsOptions: null | Array<SelectOptionType> = null;
 
 const filter = (): void => {

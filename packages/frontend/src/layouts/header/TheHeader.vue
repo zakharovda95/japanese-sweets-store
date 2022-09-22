@@ -39,6 +39,7 @@ const { widthX } = useWindowWidthWatcher();
 
 <style scoped lang="scss">
 @import '~@/assets/styles/_constants.scss';
+
 @media (max-width: 1019px) {
   .header {
     display: flex;
@@ -65,6 +66,7 @@ const { widthX } = useWindowWidthWatcher();
     }
   }
 }
+
 @media (min-width: 1020px) {
   .header {
     display: flex;

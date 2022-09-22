@@ -1,12 +1,13 @@
-import { LinkTitles, RedirectLinkTitles } from '@/helpers/enums/links/_links-titles.enum';
+import { LinkTitles } from '@/helpers/enums/links/_links-titles.enum';
+import { ProductCategoryTitles } from '@/helpers/enums/products/_products-categories.enum';
+
 import {
   AuthorizedUserHeaderLinks,
-  FooterLinks,
   MainPageProfileEntranceLinks,
   ProductCategoryType,
   PublicHeaderLinks,
 } from '@/helpers/types/_links.type';
-import { ProductCategoryTitles } from '@/helpers/enums/products/_products-categories.enum';
+
 import { PageName } from '@/helpers/enums/_pages.enum';
 
 /** Ссылки хедера **/
@@ -53,18 +54,6 @@ export const authorizedUserHeaderLinks: AuthorizedUserHeaderLinks = [
     title: LinkTitles.profile,
     path: PageName.profile,
     icon: 'AccountCircleOutlined',
-  },
-];
-
-/** Ссылки футера **/
-export const footerLinks: FooterLinks = [
-  {
-    title: RedirectLinkTitles.cv,
-    path: PageName.cv,
-  },
-  {
-    title: RedirectLinkTitles.github,
-    path: PageName.github,
   },
 ];
 

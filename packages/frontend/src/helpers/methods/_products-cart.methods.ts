@@ -32,6 +32,7 @@ export function updateProductCart(
 
 export function calculateTotalCost(userCart: CartProductType[]) {
   let totalCost = 0;
+
   userCart.forEach(item => {
     if (item.product) {
       if (item.product.sale) {

@@ -33,6 +33,7 @@ onMounted(() => {
     margin-top: 24px;
   }
 }
+
 @media (min-width: 800px) and (max-width: 1019px) {
   .order-page {
     display: flex;
@@ -40,6 +41,7 @@ onMounted(() => {
     margin-top: 24px;
   }
 }
+
 @media (min-width: 1020px) {
   .order-page {
     display: flex;

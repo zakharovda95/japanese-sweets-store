@@ -9,6 +9,10 @@ export interface RequestParamsType {
   };
 }
 
+export interface ReviewDataType {
+  data: ReviewRequestType;
+}
+
 export interface ReviewRequestType {
   userId?: null;
   userNickname?: string;
@@ -17,8 +21,8 @@ export interface ReviewRequestType {
   product: number | null;
 }
 
-export interface ReviewDataType {
-  data: ReviewRequestType;
+export interface OrderDataType {
+  data: OrderRequestType;
 }
 
 export interface OrderRequestType {
@@ -28,8 +32,4 @@ export interface OrderRequestType {
   address: string;
   totalCost: number | null;
   products: Array<number> | null;
-}
-
-export interface OrderDataType {
-  data: OrderRequestType;
 }

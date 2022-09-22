@@ -1,6 +1,9 @@
 import { Product } from '@/helpers/types/stores-types/_products-page-store.type';
 import { FiltersType, SelectOptionType } from '@/helpers/types/_products-filters.type';
+
 import { sortBy } from 'lodash';
+import ProductsFilter from '@/helpers/classes/products-filter.class';
+
 /** Ценовой диапазон **/
 export function getPriceRangeValues(array: Array<Product>): Array<number> {
   const prices = array.map(item => item.cost);
@@ -12,9 +15,11 @@ export function getPriceRangeValues(array: Array<Product>): Array<number> {
 export function createOptionsForFilteringByBrand(array: Array<Product>): Array<SelectOptionType> {
   const set: Set<string> = new Set();
   const arr: Array<SelectOptionType> = [{ label: 'All', value: 'All' }];
+
   array.forEach(product => {
     set.add(product.producer);
   });
+
   set.forEach(item => {
     const obj: SelectOptionType = {
       label: item,
@@ -24,43 +29,48 @@ export function createOptionsForFilteringByBrand(array: Array<Product>): Array<S
   });
   return arr;
 }
+
 /** Фильтрация по заданным параметрам **/
 // TODO заменить на class
-export function filterProducts(
-  array: Array<Product>,
-  filters: FiltersType,
-): Array<Product> | undefined {
-  const onlySale = array.filter(item => {
-    if (filters.onlySaleProducts) {
-      return item.sale;
-    } else {
-      return item;
-    }
-  });
-  const favoriteBrand = onlySale.filter(item => {
-    if (filters.filterByBrand) {
-      if (filters.filterByBrand !== 'All') {
-        return item.producer === filters.filterByBrand;
-      } else {
-        return item;
-      }
-    } else {
-      return item;
-    }
-  });
-  const priceRange = favoriteBrand.filter(item => {
-    return item.cost >= filters.priceRange[0] && item.cost <= filters.priceRange[1];
-  });
-  if (filters.sortByPrice) {
-    let res: Array<Product> | [] = [];
-    if (filters.sortByPrice === 'ascending') {
-      res = sortBy(priceRange, 'cost');
-    }
-    if (filters.sortByPrice === 'descending') {
-      res = sortBy(priceRange, 'cost').reverse();
-    }
-    return res;
-  } else {
-    return priceRange;
-  }
+export function filterProducts(array: Array<Product>, filters: FiltersType): Array<Product> {
+  // const onlySale = array.filter(item => {
+  //   if (filters.onlySaleProducts) {
+  //     return item.sale;
+  //   } else {
+  //     return item;
+  //   }
+  // });
+  // const favoriteBrand = onlySale.filter(item => {
+  //   if (filters.filterByBrand) {
+  //     if (filters.filterByBrand !== 'All') {
+  //       return item.producer === filters.filterByBrand;
+  //     } else {
+  //       return item;
+  //     }
+  //   } else {
+  //     return item;
+  //   }
+  // });
+  // const priceRange = favoriteBrand.filter(item => {
+  //   return item.cost >= filters.priceRange[0] && item.cost <= filters.priceRange[1];
+  // });
+  // if (filters.sortByPrice) {
+  //   let res: Array<Product> | [] = [];
+  //   if (filters.sortByPrice === 'ascending') {
+  //     res = sortBy(priceRange, 'cost');
+  //   }
+  //   if (filters.sortByPrice === 'descending') {
+  //     res = sortBy(priceRange, 'cost').reverse();
+  //   }
+  //   return res;
+  // } else {
+  //   return priceRange;
+  // }
+
+  const instance = new ProductsFilter(array, filters);
+
+  const res = instance.filterProducts();
+  console.log(res);
+
+  return res;
 }

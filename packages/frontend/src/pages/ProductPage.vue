@@ -40,6 +40,7 @@ const isLoading = computed(() => store.isLoading);
     margin: 0 auto;
   }
 }
+
 @media (min-width: 500px) and (max-width: 799px) {
   .product-page {
     display: flex;
@@ -48,6 +49,7 @@ const isLoading = computed(() => store.isLoading);
     margin: 0 auto;
   }
 }
+
 @media (min-width: 800px) and (max-width: 1399px) {
   .product-page {
     display: flex;
@@ -56,6 +58,7 @@ const isLoading = computed(() => store.isLoading);
     margin: 0 auto;
   }
 }
+
 @media (min-width: 1400px) {
   .product-page {
     display: flex;

@@ -1,14 +1,19 @@
 import { defineStore } from 'pinia';
+
 import {
   CartProductType,
   ProductCartStoreType,
 } from '@/helpers/types/stores-types/_product-cart-store.type';
+
 import {
   calculateTotalCost,
   parseLocalStorageData,
   updateProductCart,
 } from '@/helpers/methods/_products-cart.methods';
 import { sendOrderData } from '@/helpers/requesters/requests/_order.requests';
+import { orderDataSchema } from '@/helpers/schemas/order-data.schema';
+
+import { cloneDeep } from 'lodash';
 
 export const useProductCartStore = defineStore('cart', {
   state: () =>
@@ -17,14 +22,7 @@ export const useProductCartStore = defineStore('cart', {
         userCart: [],
         totalCost: 0,
       },
-      orderData: {
-        userId: null,
-        userNickname: '',
-        email: '',
-        address: '',
-        totalCost: 0,
-        products: [],
-      },
+      orderData: cloneDeep(orderDataSchema),
     } as ProductCartStoreType),
   actions: {
     addToCart(productCart: CartProductType): void {
@@ -79,14 +77,7 @@ export const useProductCartStore = defineStore('cart', {
     },
 
     resetForm() {
-      this.orderData = {
-        userId: null,
-        userNickname: '',
-        email: '',
-        address: '',
-        totalCost: 0,
-        products: [],
-      };
+      this.orderData = cloneDeep(orderDataSchema);
     },
 
     setOrderDataBeforeSending() {

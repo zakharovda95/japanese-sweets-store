@@ -1,9 +1,9 @@
+import { provider } from '@/helpers/requesters/_provider.requester';
+
 import {
   OrderRequestType,
   OrderDataType,
 } from '@/helpers/types/requests-types/_request-params.type';
-
-import { provider } from '@/helpers/requesters/_provider.requester';
 
 export async function sendOrderData(params: OrderRequestType) {
   const data: OrderDataType = {

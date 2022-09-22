@@ -1,7 +1,8 @@
+import { APP_CONFIG } from '@/helpers/services/_app-config.service';
+
 import { Product } from '@/helpers/types/stores-types/_products-page-store.type';
 import { ProductType } from '@/helpers/types/requests-types/_products-request.type';
 import { CategoryProductType } from '@/helpers/types/requests-types/_categories-requests.type';
-import { APP_CONFIG } from '@/helpers/services/_app-config.service';
 
 /** Форматирование данных из БД для отображения **/
 export function formatProductsDataForDisplaying(

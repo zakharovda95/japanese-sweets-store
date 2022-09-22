@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { APP_CONFIG } from '@/helpers/services/_app-config.service';
 
 export class Provider {

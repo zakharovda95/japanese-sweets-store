@@ -1,39 +1,5 @@
 import { ImageType } from '@/helpers/types/requests-types/_carousel-requests.type';
 
-export type ProductByIdDetailType = {
-  id: number;
-  attributes: {
-    name: string;
-    createdAt: string;
-    updatedAt: string;
-    publishedAt: string;
-  };
-};
-
-export type ProductByIdCategoryType = {
-  data: {
-    id: number;
-    attributes: {
-      name: string;
-      createdAt: string;
-      updatedAt: string;
-      publishedAt: string;
-    };
-  };
-};
-
-export type ProductReviewType = {
-  id: number;
-  attributes: {
-    rate: number;
-    userNickname: string;
-    review: string;
-    createdAt: string;
-    updatedAt: string;
-    publishedAt: string;
-  };
-};
-
 export interface ProductByIdType {
   title: string;
   description: string;
@@ -50,5 +16,39 @@ export interface ProductByIdType {
   };
   reviews: {
     data: Array<ProductReviewType>;
+  };
+}
+
+export interface ProductByIdCategoryType {
+  data: {
+    id: number;
+    attributes: {
+      name: string;
+      createdAt: string;
+      updatedAt: string;
+      publishedAt: string;
+    };
+  };
+}
+
+export interface ProductByIdDetailType {
+  id: number;
+  attributes: {
+    name: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+  };
+}
+
+export interface ProductReviewType {
+  id: number;
+  attributes: {
+    rate: number;
+    userNickname: string;
+    review: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
   };
 }

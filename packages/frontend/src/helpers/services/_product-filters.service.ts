@@ -1,4 +1,5 @@
-import { FiltersType, SelectOptionsType } from '@/helpers/types/_products-filters.type';
+import { SelectOptionsType } from '@/helpers/types/_products-filters.type';
+
 import {
   ProductsFiltersOptionsLabels,
   ProductsFiltersOptionsValues,
@@ -14,10 +15,3 @@ export const sortingByPriceOptions: SelectOptionsType = [
     value: ProductsFiltersOptionsValues.descending,
   },
 ];
-
-export const filtersSchema: FiltersType = {
-  sortByPrice: null,
-  priceRange: [0, 1],
-  filterByBrand: null,
-  onlySaleProducts: false,
-};

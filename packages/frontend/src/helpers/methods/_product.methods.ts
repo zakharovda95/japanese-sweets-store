@@ -1,6 +1,7 @@
+import { APP_CONFIG } from '@/helpers/services/_app-config.service';
+
 import { ProductByIdType } from '@/helpers/types/requests-types/_product-request.type';
 import { Product } from '@/helpers/types/stores-types/_products-page-store.type';
-import { APP_CONFIG } from '@/helpers/services/_app-config.service';
 
 export function formatProductDataForDisplaying(id: number, product: ProductByIdType): Product {
   return {
