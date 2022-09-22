@@ -23,5 +23,6 @@ import { NConfigProvider, NMessageProvider } from 'naive-ui';
 <style scoped lang="scss">
 .container {
   background: #e0e0e0;
+  min-height: 100vh;
 }
 </style>

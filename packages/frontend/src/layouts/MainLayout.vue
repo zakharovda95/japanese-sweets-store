@@ -1,8 +1,9 @@
 <template>
   <div class="main-layout">
-    <TheHeader />
-    <router-view />
-    <TheFooter />
+    <TheHeader class="header" />
+    <div class="content">
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -15,7 +16,13 @@ export default defineComponent({
 
 <script setup lang="ts">
 import TheHeader from '@/layouts/header/TheHeader.vue';
-import TheFooter from '@/layouts/footer/TheFooter.vue';
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100vh;
+}
+</style>

@@ -79,15 +79,17 @@ const averageRating = computed<number | string>(() => {
   .product-view {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     margin-top: 34px;
     background: #ffffff;
     padding: 24px;
+    margin-bottom: 24px;
     .content {
       display: flex;
       flex-direction: column;
       justify-content: center;
       .cover {
+        display: flex;
         width: 80vw;
         height: 80vw;
         margin-bottom: 34px;
@@ -115,21 +117,28 @@ const averageRating = computed<number | string>(() => {
   .product-view {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-top: 34px;
     background: #ffffff;
     padding: 24px;
+    margin-bottom: 24px;
     .content {
       display: flex;
       margin-top: 34px;
       flex-direction: column;
       .cover {
+        display: flex;
         width: 50vw;
         height: 50vw;
-        margin-bottom: 34px;
+        margin: 0 auto;
       }
       .description-wrap {
         display: flex;
         flex-direction: column;
+        .title {
+          text-align: center;
+        }
         .rating-wrap {
           display: flex;
           justify-content: space-around;
@@ -153,6 +162,7 @@ const averageRating = computed<number | string>(() => {
     margin-top: 34px;
     background: #ffffff;
     padding: 24px;
+    margin-bottom: 24px;
     .content {
       display: flex;
       margin-top: 34px;
@@ -189,6 +199,7 @@ const averageRating = computed<number | string>(() => {
     margin-top: 34px;
     background: #ffffff;
     padding: 24px;
+    margin-bottom: 24px;
     .content {
       display: flex;
       margin-top: 34px;
@@ -224,6 +235,7 @@ const averageRating = computed<number | string>(() => {
     margin-top: 34px;
     background: #ffffff;
     padding: 24px;
+    margin-bottom: 24px;
     .content {
       display: flex;
       margin-top: 34px;

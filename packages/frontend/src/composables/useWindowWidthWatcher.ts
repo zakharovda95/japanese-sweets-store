@@ -3,11 +3,12 @@
 import { onBeforeUnmount, ref, onMounted, Ref } from 'vue';
 
 export function useWindowWidthWatcher(): { widthX: Ref<number> } {
-  const widthX: Ref<number> = ref(window.innerWidth);
+  const widthX: Ref<number> = ref(0);
 
   const watchSize = (): number => (widthX.value = window.innerWidth);
 
   onMounted((): void => {
+    widthX.value = window.innerWidth;
     window.addEventListener('resize', watchSize);
   });
 

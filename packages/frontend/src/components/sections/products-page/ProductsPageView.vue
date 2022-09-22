@@ -43,7 +43,7 @@ const showModal = ref<boolean>(false);
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    margin-bottom: 24px;
     .menu {
       margin-top: 34px;
       .ribbon-menu {
@@ -68,6 +68,7 @@ const showModal = ref<boolean>(false);
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 24px;
     .menu {
       margin-top: 34px;
       .ribbon-menu {
@@ -92,6 +93,7 @@ const showModal = ref<boolean>(false);
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 24px;
     .menu {
       margin-top: 34px;
       .ribbon-menu {
@@ -113,6 +115,7 @@ const showModal = ref<boolean>(false);
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 24px;
     .menu {
       margin-top: 34px;
       .ribbon-menu {
