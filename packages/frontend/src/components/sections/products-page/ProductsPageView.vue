@@ -27,14 +27,20 @@ export default defineComponent({
 <script setup lang="ts">
 import RibbonMenu from '@/components/sections/products-page/RibbonMenu.vue';
 import FiltersPanel from '@/components/sections/products-page/FiltersPanel.vue';
-import { useProductsPageStore } from '@/stores/products-page.store';
-import { computed, ref } from 'vue';
-import { useWindowWidthWatcher } from '@/composables/useWindowWidthWatcher';
 import { NModal, NButton } from 'naive-ui';
-const store = useProductsPageStore();
-const isLoading = computed(() => store.isLoading);
-const { widthX } = useWindowWidthWatcher();
+
+import { useProductsPageStore } from '@/stores/products-page.store';
+import { useWindowWidthWatcher } from '@/composables/useWindowWidthWatcher';
+
+import { computed, ref, Ref } from 'vue';
+
 const showModal = ref<boolean>(false);
+
+const store = useProductsPageStore();
+
+const isLoading: Ref<boolean> = computed(() => store.isLoading);
+
+const { widthX } = useWindowWidthWatcher();
 </script>
 
 <style scoped lang="scss">
@@ -63,6 +69,7 @@ const showModal = ref<boolean>(false);
     }
   }
 }
+
 @media (min-width: 400px) and (max-width: 1019px) {
   .product-view {
     display: flex;
@@ -88,6 +95,7 @@ const showModal = ref<boolean>(false);
     }
   }
 }
+
 @media (min-width: 1020px) and (max-width: 1399px) {
   .product-view {
     display: flex;
@@ -110,6 +118,7 @@ const showModal = ref<boolean>(false);
     }
   }
 }
+
 @media (min-width: 1400px) {
   .product-view {
     display: flex;

@@ -21,8 +21,10 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { computed, defineProps } from 'vue';
 import UIText from '@/components/ui/UIText.vue';
+
+import { computed, defineProps } from 'vue';
+
 const props = defineProps({
   cost: {
     type: Number,

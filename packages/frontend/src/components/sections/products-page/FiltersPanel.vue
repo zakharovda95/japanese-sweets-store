@@ -122,6 +122,7 @@ if (products.value) {
     }
   }
 }
+
 @media (min-width: 400px) and (max-width: 799px) {
   .filters-panel {
     display: flex;
@@ -150,6 +151,7 @@ if (products.value) {
     }
   }
 }
+
 @media (min-width: 800px) and (max-width: 1019px) {
   .filters-panel {
     display: flex;
@@ -177,6 +179,7 @@ if (products.value) {
     }
   }
 }
+
 @media (min-width: 1020px) {
   .filters-panel {
     display: flex;

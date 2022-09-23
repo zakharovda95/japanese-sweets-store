@@ -22,13 +22,15 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { NCard } from 'naive-ui';
-import { defineProps, PropType } from 'vue';
-import UIText from '@/components/ui/UIText.vue';
-import { Product } from '@/helpers/types/stores-types/_products-page-store.type';
-import { PageName } from '@/helpers/enums/_pages.enum';
 import ProductCost from '@/components/sections/common/ProductCost.vue';
 import ProductCover from '@/components/sections/common/ProductCover.vue';
+import UIText from '@/components/ui/UIText.vue';
+import { NCard } from 'naive-ui';
+
+import { Product } from '@/helpers/types/stores-types/_products-page-store.type';
+import { PageName } from '@/helpers/enums/_pages.enum';
+
+import { defineProps, PropType } from 'vue';
 
 defineProps({
   product: {
@@ -71,6 +73,7 @@ defineProps({
     }
   }
 }
+
 @media (min-width: 600px) and (max-width: 799px) {
   .n-card {
     display: flex;
@@ -101,6 +104,7 @@ defineProps({
     }
   }
 }
+
 @media (min-width: 800px) and (max-width: 1119px) {
   .n-card {
     display: flex;
@@ -131,6 +135,7 @@ defineProps({
     }
   }
 }
+
 @media (min-width: 1120px) and (max-width: 1399px) {
   .n-card {
     display: flex;
@@ -161,6 +166,7 @@ defineProps({
     }
   }
 }
+
 @media (min-width: 1400px) {
   .n-card {
     display: flex;

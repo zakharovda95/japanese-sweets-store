@@ -28,9 +28,11 @@ export default defineComponent({
 
 <script setup lang="ts">
 import { NTabs, NTabPane, NList, NThing } from 'naive-ui';
-import { defineProps, PropType } from 'vue';
 import ProductReviewForm from '@/components/sections/product-page/ProductReviewForm.vue';
 import ReviewList from '@/components/sections/product-page/ReviewsList.vue';
+
+import { defineProps, PropType } from 'vue';
+
 defineProps({
   details: {
     type: Array as PropType<Array<string> | []>,
@@ -48,6 +50,7 @@ defineProps({
     width: 95%;
   }
 }
+
 @media (min-width: 800px) {
   .item {
     font-size: 1.1rem;

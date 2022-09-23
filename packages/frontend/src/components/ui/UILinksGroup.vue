@@ -46,7 +46,6 @@ import {
 } from '@/helpers/enums/links/_link-styles.enum';
 import {
   AuthorizedUserHeaderLinks,
-  FooterLinks,
   MainPageProfileEntranceLinks,
   ProductCategoryType,
   PublicHeaderLinks,
@@ -56,7 +55,6 @@ const props = defineProps({
     type: Array as unknown as
       | PropType<PublicHeaderLinks>
       | PropType<AuthorizedUserHeaderLinks>
-      | PropType<FooterLinks>
       | PropType<MainPageProfileEntranceLinks>
       | PropType<ProductCategoryType>,
     required: true,
@@ -199,7 +197,4 @@ const background = computed<string>(() => {
     background-color: v-bind(background);
   }
 }
-//.router-link-active {
-//  border-bottom: 2px solid white;
-//}
 </style>

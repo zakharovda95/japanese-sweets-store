@@ -37,8 +37,3 @@ const reviews = computed(() => {
   return null;
 });
 </script>
-
-<style scoped lang="scss">
-.review-list {
-}
-</style>

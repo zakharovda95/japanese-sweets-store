@@ -27,8 +27,11 @@ export default defineComponent({
 
 <script setup lang="ts">
 import { NH1, NH2, NH3, NH4, NH5, NH6, NText } from 'naive-ui';
-import { defineProps, computed } from 'vue';
+
 import { HeaderSize } from '@/helpers/enums/_text-styles.enum';
+
+import { defineProps, computed } from 'vue';
+
 const props = defineProps({
   tag: {
     type: String,
@@ -60,6 +63,7 @@ const props = defineProps({
   },
 });
 const textColor = computed<string | boolean>(() => (props.color ? props.color : false));
+
 const size = computed<unknown>(() => {
   switch (props.tag) {
     case HeaderSize.h1:

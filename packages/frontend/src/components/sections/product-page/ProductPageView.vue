@@ -113,6 +113,7 @@ const averageRating = computed<number | string>(() => {
     margin: 24px;
   }
 }
+
 @media (min-width: 500px) and (max-width: 799px) {
   .product-view {
     display: flex;
@@ -154,6 +155,7 @@ const averageRating = computed<number | string>(() => {
     margin: 24px;
   }
 }
+
 @media (min-width: 800px) and (max-width: 1019px) {
   .product-view {
     display: flex;
@@ -191,6 +193,7 @@ const averageRating = computed<number | string>(() => {
     margin: 24px;
   }
 }
+
 @media (min-width: 1020px) and (max-width: 1399px) {
   .product-view {
     display: flex;
@@ -227,6 +230,7 @@ const averageRating = computed<number | string>(() => {
     margin: 24px;
   }
 }
+
 @media (min-width: 1400px) {
   .product-view {
     display: flex;

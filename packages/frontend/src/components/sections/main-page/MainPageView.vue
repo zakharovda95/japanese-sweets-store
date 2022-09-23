@@ -31,17 +31,22 @@ export default {
 
 <script setup lang="ts">
 import UICarousel from '@/components/ui/UICarousel.vue';
-import { computed } from 'vue';
-import { useMainPageStore } from '@/stores/main-page.store';
 import MainPageProfileEntrance from '@/components/sections/main-page/MainPageProfileEntrance.vue';
 import UIText from '@/components/ui/UIText.vue';
+
+import { useMainPageStore } from '@/stores/main-page.store';
 import { useWindowWidthWatcher } from '@/composables/useWindowWidthWatcher';
+
 import { HeaderSize } from '@/helpers/enums/_text-styles.enum';
 import { Inscriptions } from '@/helpers/enums/_inscriptions.enum';
 import { MainPageImages } from '@/helpers/types/stores-types/_main-page-store.type';
 
+import { computed } from 'vue';
+
 const mainPageStore = useMainPageStore();
+
 const images = computed<MainPageImages>(() => mainPageStore.images);
+
 const { widthX } = useWindowWidthWatcher();
 </script>
 

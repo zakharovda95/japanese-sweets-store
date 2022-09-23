@@ -60,19 +60,9 @@ const updateItem = (e: CartProductType): void => {
 </script>
 
 <style scoped lang="scss">
-@media (max-width: 499px) {
-}
-@media (min-width: 500px) and (max-width: 799px) {
-}
-@media (min-width: 800px) and (max-width: 1019px) {
-}
-@media (min-width: 1020px) and (max-width: 1399px) {
-}
-@media (min-width: 1400px) {
-  .product-cart-list {
-    display: flex;
-    flex-direction: column;
-    width: 60vw;
-  }
+.product-cart-list {
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
 }
 </style>

@@ -52,16 +52,18 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { CartProductType } from '@/helpers/types/stores-types/_product-cart-store.type';
-import { PropType, defineProps, computed, defineEmits, Ref } from 'vue';
 import ProductCover from '@/components/sections/common/ProductCover.vue';
 import UIText from '@/components/ui/UIText.vue';
-import { NInputNumber, NButton, NIcon } from 'naive-ui';
-import { cloneDeep } from 'lodash';
-import { AddCircleOutlineTwotone } from '@vicons/material';
 import ProductCost from '@/components/sections/common/ProductCost.vue';
+import { AddCircleOutlineTwotone } from '@vicons/material';
+import { NInputNumber, NButton, NIcon } from 'naive-ui';
+
+import { CartProductType } from '@/helpers/types/stores-types/_product-cart-store.type';
 import { PageName } from '@/helpers/enums/_pages.enum';
+
+import { cloneDeep } from 'lodash';
 import { useRouter } from 'vue-router';
+import { PropType, defineProps, computed, defineEmits, Ref } from 'vue';
 
 const router = useRouter();
 

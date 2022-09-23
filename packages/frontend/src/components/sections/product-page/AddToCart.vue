@@ -22,11 +22,14 @@ export default defineComponent({
 
 <script setup lang="ts">
 import { NButton, NInputNumber } from 'naive-ui';
-import { ref, defineProps, PropType } from 'vue';
+
 import { Product } from '@/helpers/types/stores-types/_products-page-store.type';
-import { useProductCartStore } from '@/stores/product-cart.store';
 import { CartProductType } from '@/helpers/types/stores-types/_product-cart-store.type';
-const count = ref<number>(1);
+
+import { useProductCartStore } from '@/stores/product-cart.store';
+
+import { ref, defineProps, PropType } from 'vue';
+
 const props = defineProps({
   product: {
     type: Object as PropType<Product | null>,
@@ -34,6 +37,9 @@ const props = defineProps({
   },
 });
 const store = useProductCartStore();
+
+const count = ref<number>(1);
+
 const addToCart = (): void => {
   if (props.product) {
     const cartProduct: CartProductType = {

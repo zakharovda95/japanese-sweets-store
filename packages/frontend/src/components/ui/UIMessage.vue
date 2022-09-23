@@ -17,6 +17,7 @@ export default defineComponent({
 
 <script setup lang="ts">
 import { NCard } from 'naive-ui';
+
 import { defineProps } from 'vue';
 
 defineProps({

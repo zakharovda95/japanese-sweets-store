@@ -104,5 +104,3 @@ const send = (): void => {
   message.success('Thanks! ^.^', { duration: 6000 });
 };
 </script>
-
-<style scoped lang="scss"></style>

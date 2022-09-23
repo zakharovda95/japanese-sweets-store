@@ -18,16 +18,17 @@ export default {
 </script>
 
 <script setup lang="ts">
+import UIText from '@/components/ui/UIText.vue';
 import ProductItem from '@/components/sections/products-page/ProductItem.vue';
 import UIMessage from '@/components/ui/UIMessage.vue';
 import { NSpin } from 'naive-ui';
 
 import { PageName } from '@/helpers/enums/_pages.enum';
-import { useProductsPageStore } from '@/stores/products-page.store';
 import { ProductCategoryId } from '@/helpers/enums/products/_products-categories.enum';
-import UIText from '@/components/ui/UIText.vue';
 
-import { computed, watch } from 'vue';
+import { useProductsPageStore } from '@/stores/products-page.store';
+
+import { computed, watch, Ref } from 'vue';
 import { useRoute } from 'vue-router';
 
 const store = useProductsPageStore();
@@ -36,6 +37,7 @@ const route = useRoute();
 const isLoading = computed(() => store.isLoading);
 const routeName = computed(() => route.name);
 const products = computed(() => store.data);
+
 watch(
   routeName,
   () => {
@@ -83,6 +85,7 @@ watch(
     width: 100%;
   }
 }
+
 @media (min-width: 600px) and (max-width: 799px) {
   .product-list {
     width: 100%;
@@ -98,6 +101,7 @@ watch(
     width: 100%;
   }
 }
+
 @media (min-width: 800px) and (max-width: 1199px) {
   .product-list {
     width: 100%;
@@ -113,6 +117,7 @@ watch(
     width: 100%;
   }
 }
+
 @media (min-width: 1199px) and (max-width: 1399px) {
   .product-list {
     width: 100%;
@@ -128,6 +133,7 @@ watch(
     width: 100%;
   }
 }
+
 @media (min-width: 1399px) {
   .product-list {
     width: 100%;

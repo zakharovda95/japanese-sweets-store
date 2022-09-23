@@ -40,10 +40,13 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { NCard, NCollapse, NCollapseItem } from 'naive-ui';
 import UILinksGroup from '@/components/ui/UILinksGroup.vue';
+import { NCard, NCollapse, NCollapseItem } from 'naive-ui';
+
 import { Categories } from '@/helpers/services/_links.service';
+
 import { useWindowWidthWatcher } from '@/composables/useWindowWidthWatcher';
+
 const { widthX } = useWindowWidthWatcher();
 </script>
 
@@ -65,6 +68,7 @@ const { widthX } = useWindowWidthWatcher();
     }
   }
 }
+
 @media (min-width: 1020px) {
   .ribbon-menu {
     display: flex;

@@ -15,11 +15,11 @@ export default class ProductsFilter {
   }
 
   private filterProductByOnlySale() {
-    this.result = this.array.filter(item => (this.filters.onlySaleProducts ? item.sale : item));
+    this.result = this.result.filter(item => (this.filters.onlySaleProducts ? item.sale : item));
   }
 
   private filterProductsByFavoriteBrand() {
-    this.result = this.array.filter(item => {
+    this.result = this.result.filter(item => {
       if (this.filters.filterByBrand !== 'All') {
         return item.producer === this.filters.filterByBrand;
       } else {
@@ -29,21 +29,18 @@ export default class ProductsFilter {
   }
 
   private filterProductsByPriceRange() {
-    this.result = this.array.filter(
+    this.result = this.result.filter(
       item => item.cost >= this.filters.priceRange[0] && item.cost <= this.filters.priceRange[1],
     );
   }
 
   private sortByPriceAndGetProducts() {
-    let res: Product[] | [] = [];
-
     if (this.filters.sortByPrice === 'ascending') {
-      res = sortBy(this.result, 'cost');
+      this.result = sortBy(this.result, 'cost');
     }
     if (this.filters.sortByPrice === 'descending') {
-      res = sortBy(this.result, 'cost').reverse();
+      this.result = sortBy(this.result, 'cost').reverse();
     }
-    return res;
   }
 
   public filterProducts() {
