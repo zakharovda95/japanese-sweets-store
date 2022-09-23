@@ -1,5 +1,5 @@
 <template>
-  <NSpin v-if="isLoading" />
+  <UISpin v-if="isLoading" />
   <div class="product-page" v-if="!isLoading">
     <router-view />
   </div>
@@ -14,7 +14,7 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { NSpin } from 'naive-ui';
+import UISpin from '@/components/ui/UISpin.vue';
 
 import { useProductPageStore } from '@/stores/product-page.store';
 

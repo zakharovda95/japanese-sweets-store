@@ -29,25 +29,34 @@ const store = useProductCartStore();
 <style scoped lang="scss">
 @media (max-width: 799px) {
   .order-page-view {
-    margin: 0 auto;
-    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 90vw;
+    background: white;
   }
 }
 
 @media (min-width: 800px) and (max-width: 1019px) {
   .order-page-view {
-    margin: 0 auto;
-    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 80vw;
+    background: white;
   }
 }
 
 @media (min-width: 1020px) {
   .order-page-view {
-    margin: 0 auto;
-    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 60vw;
+    background: white;
   }
 }
 </style>

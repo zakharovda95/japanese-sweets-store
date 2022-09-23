@@ -1,5 +1,5 @@
 <template>
-  <NSpin v-if="isLoading" />
+  <UISpin v-if="isLoading" />
   <div v-else class="main-page">
     <MainPageView />
   </div>
@@ -14,7 +14,7 @@ export default defineComponent({
 
 <script setup lang="ts">
 import MainPageView from '@/components/sections/main-page/MainPageView.vue';
-import { NSpin } from 'naive-ui';
+import UISpin from '@/components/ui/UISpin.vue';
 
 import { useMainPageStore } from '@/stores/main-page.store';
 

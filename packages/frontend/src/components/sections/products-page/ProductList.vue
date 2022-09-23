@@ -1,5 +1,5 @@
 <template>
-  <NSpin v-if="isLoading" />
+  <UISpin v-if="isLoading" />
   <div v-if="!isLoading && products.length" class="product-list">
     <ProductItem class="item" v-for="product in products" :key="product.id" :product="product" />
   </div>
@@ -21,7 +21,7 @@ export default {
 import UIText from '@/components/ui/UIText.vue';
 import ProductItem from '@/components/sections/products-page/ProductItem.vue';
 import UIMessage from '@/components/ui/UIMessage.vue';
-import { NSpin } from 'naive-ui';
+import UISpin from '@/components/ui/UISpin.vue';
 
 import { PageName } from '@/helpers/enums/_pages.enum';
 import { ProductCategoryId } from '@/helpers/enums/products/_products-categories.enum';
@@ -29,14 +29,16 @@ import { ProductCategoryId } from '@/helpers/enums/products/_products-categories
 import { useProductsPageStore } from '@/stores/products-page.store';
 
 import { computed, watch, Ref } from 'vue';
-import { useRoute } from 'vue-router';
+import { RouteRecordName, useRoute } from 'vue-router';
+import { Product } from '@/helpers/types/stores-types/_products-page-store.type';
 
 const store = useProductsPageStore();
 const route = useRoute();
 
-const isLoading = computed(() => store.isLoading);
-const routeName = computed(() => route.name);
-const products = computed(() => store.data);
+const isLoading: Ref<boolean> = computed(() => store.isLoading);
+
+const routeName: Ref<RouteRecordName | null | undefined> = computed(() => route.name);
+const products: Ref<Product[] | null | undefined> = computed(() => store.data);
 
 watch(
   routeName,
